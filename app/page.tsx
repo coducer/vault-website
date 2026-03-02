@@ -107,33 +107,6 @@ function formatCeoLetter(letter: CeoAnnualLetterItem): CeoLetterSlide {
   };
 }
 
-// function formatOperatingPartner(partner: {
-//   documentId: string;
-//   name?: string;
-//   image?: { url: string } | null;
-//   description?: unknown;
-//   linkedin?: string;
-//   email?: string;
-//   phone?: string;
-// }): OperatingPartnerCarouselItem {
-//   const imageUrl = partner?.image?.url;
-//   const description =
-//     typeof partner.description === 'object' && Array.isArray(partner.description)
-//       ? strapiRichTextToPlainText(
-//           partner.description as Parameters<typeof strapiRichTextToPlainText>[0]
-//         )
-//       : '';
-//   return {
-//     id: partner.documentId ?? '',
-//     name: partner.name ?? '',
-//     image: imageUrl ? getStrapiMediaUrl(imageUrl) : DEFAULT_IMAGE,
-//     description: description || undefined,
-//     linkedin: partner.linkedin,
-//     email: partner.email,
-//     phone: partner.phone,
-//   };
-// }
-
 export default async function Home() {
   const [
     events,
