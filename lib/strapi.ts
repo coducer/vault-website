@@ -35,9 +35,20 @@ export function getStrapiMediaUrl(url: string): string {
 }
 
 // --- Rich text (Strapi 5 richtext blocks) ---
+export type StrapiRichTextChild = {
+  type: string;
+  text?: string;
+  bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  strikethrough?: boolean;
+  code?: boolean;
+};
+
 export type StrapiRichTextBlock = {
   type: string;
-  children?: Array<{ type: string; text?: string }>;
+  format?: string;
+  children?: Array<StrapiRichTextChild | StrapiRichTextBlock>;
 };
 
 /** Extract array of paragraph strings from Strapi richtext blocks for display. */
@@ -47,7 +58,7 @@ export function strapiRichTextToParagraphs(blocks: StrapiRichTextBlock[] | null 
     .filter((b) => b.type === 'paragraph' && b.children?.length)
     .map((b) =>
       (b.children ?? [])
-        .map((c) => (typeof c.text === 'string' ? c.text : ''))
+        .map((c) => ('text' in c && typeof c.text === 'string' ? c.text : ''))
         .join('')
     )
     .filter(Boolean);
@@ -125,6 +136,28 @@ export async function getVaultStoryPage(): Promise<VaultStoryData | null> {
   }
 }
 
+// --- Events Page (single type) ---
+export interface EventsPageData {
+  documentId?: string;
+  title?: string;
+  heroImage?: { url: string; alternativeText?: string } | null;
+  email?: string;
+}
+
+const EVENTS_PAGE_POPULATE = 'populate=heroImage';
+
+export async function getEventsPage(): Promise<EventsPageData | null> {
+  try {
+    const json = await strapiFetch<EventsPageData>(
+      `/api/events-page?${EVENTS_PAGE_POPULATE}`
+    );
+    return json?.data ?? null;
+  } catch (error) {
+    console.error('Failed to fetch events page from Strapi:', error);
+    return null;
+  }
+}
+
 // --- Global (single type) ---
 export interface GlobalData {
   documentId?: string;
@@ -148,6 +181,25 @@ export async function getGlobal(): Promise<GlobalData | null> {
     return json?.data ?? null;
   } catch (error) {
     console.error('Failed to fetch global from Strapi:', error);
+    return null;
+  }
+}
+
+// --- Contact (single type) ---
+export interface ContactData {
+  documentId?: string;
+  adminEmail?: string;
+  displayEmail?: string;
+  addressLine1?: string;
+  addressLine2?: string;
+}
+
+export async function getContact(): Promise<ContactData | null> {
+  try {
+    const json = await strapiFetch<ContactData>('/api/contact');
+    return json?.data ?? null;
+  } catch (error) {
+    console.error('Failed to fetch contact from Strapi:', error);
     return null;
   }
 }
@@ -340,7 +392,7 @@ export function findWantToKnowMoreForPath(
 export interface BlogItem {
   documentId: string;
   title?: string;
-  description?: StrapiRichTextBlock[];
+  description?: string | StrapiRichTextBlock[];
   slug?: string;
   date?: string;
   publishedAt?: string;
@@ -376,7 +428,7 @@ export async function getBlogById(id: string): Promise<BlogItem | null> {
 export interface NewsItem {
   documentId: string;
   title?: string;
-  description?: StrapiRichTextBlock[];
+  description?: string | StrapiRichTextBlock[];
   slug?: string;
   date?: string;
   publishedAt?: string;

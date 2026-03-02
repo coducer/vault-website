@@ -1,9 +1,11 @@
 import CustomCursor from '@/components/CustomCursor/CustomCursor';
+import UnregisterServiceWorkers from '@/components/UnregisterServiceWorkers';
 import { DeviceProvider } from '@/context/DeviceProvider';
 import { ScrollProvider } from '@/context/ScrollProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Libre_Baskerville, Roboto } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 const geistSans = Geist({
@@ -44,8 +46,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           libreBaskerville.variable,
         ].join(' ')}
       >
+        <Script
+          id="unregister-sw-dev"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined' && window.location?.hostname === 'localhost' && 'serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(function(regs) {
+                  regs.forEach(function(r) { r.unregister(); });
+                });
+              }
+            `,
+          }}
+        />
         <DeviceProvider>
           <ScrollProvider>
+            <UnregisterServiceWorkers />
             <CustomCursor />
             {children}
           </ScrollProvider>

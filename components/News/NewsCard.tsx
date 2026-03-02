@@ -1,21 +1,22 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { GoArrowUpRight } from 'react-icons/go';
 
-export type EventCardItem = {
+export type NewsCardItem = {
   id: string;
   title: string;
   date: string;
   image: string;
 };
 
-const EventsCard = ({ events = [] }: { events?: EventCardItem[] }) => {
+const NewsCard = ({ news = [] }: { news?: NewsCardItem[] }) => {
   return (
     <div className="px-4 py-5 my-4">
       <Row>
-        {events.map((event) => (
-          <Col md={6} key={event.id}>
+        {news.map((item) => (
+          <Col md={6} key={item.id}>
             <div
               className="mb-5 carousel-card event-carousel-card position-relative d-flex flex-column overflow-hidden h-100 border-0"
               style={{
@@ -23,10 +24,10 @@ const EventsCard = ({ events = [] }: { events?: EventCardItem[] }) => {
               }}
             >
               <Link
-                href={`/events/${event.id}`}
+                href={`/news/${item.id}`}
                 className="carousel-image-link text-decoration-none"
                 style={{ color: 'inherit' }}
-                aria-label={`Read article: ${event.title}`}
+                aria-label={`Read article: ${item.title}`}
               >
                 <div
                   className="carousel-image-wrap w-100 position-relative overflow-hidden bg-secondary"
@@ -34,8 +35,8 @@ const EventsCard = ({ events = [] }: { events?: EventCardItem[] }) => {
                 >
                   <img
                     className="carousel-image"
-                    src={event.image}
-                    alt={event.title}
+                    src={item.image}
+                    alt={item.title}
                     style={{
                       objectFit: 'cover',
                       width: '100%',
@@ -43,20 +44,17 @@ const EventsCard = ({ events = [] }: { events?: EventCardItem[] }) => {
                     }}
                   />
                   <div className="read-article fw-light letter-spacing text-white fs-13 text-uppercase d-flex justify-content-center align-items-center gap-2 w-100 h-100">
-                    READ ARTICLE <span><GoArrowUpRight size={20} /></span>
+                    READ ARTICLE{' '}
+                    <span>
+                      <GoArrowUpRight size={20} />
+                    </span>
                   </div>
                 </div>
               </Link>
 
               <div className="py-3">
-                {event.date && (
-                  <div className="fs-13 fw-medium primary-text">
-                    {event.date}
-                  </div>
-                )}
-                <div className="fs-16 fw-medium text-dark">
-                  {event.title}
-                </div>
+                {item.date && <div className="fs-13 fw-medium primary-text">{item.date}</div>}
+                <div className="fs-16 fw-medium text-dark">{item.title}</div>
               </div>
             </div>
           </Col>
@@ -66,4 +64,4 @@ const EventsCard = ({ events = [] }: { events?: EventCardItem[] }) => {
   );
 };
 
-export default EventsCard;
+export default NewsCard;

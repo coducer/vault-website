@@ -21,7 +21,7 @@ const menu = [
   },
   {
     label: 'About Us',
-    href: '/aboutus',
+    href: '/about_us',
   },
   {
     label: 'What We Do',
@@ -34,23 +34,23 @@ const menu = [
   },
   {
     label: 'Vault People',
-    href: '/vaultstory',
+    href: '/vault_story',
     submenu: [
-      { label: 'Vault Story', href: '/vaultstory' },
-      { label: 'Team', href: '/vaultstory' },
-      { label: 'Operating Partners', href: '/vaultstory' },
+      { label: 'Vault Story', href: '/vault_story' },
+      { label: 'Team', href: '/vault_story' },
+      { label: 'Operating Partners', href: '/vault_story' },
     ],
   },
   {
     label: 'Vault Perspectives',
     submenu: [
-      { label: 'News', href: '#' },
-      { label: 'Food For Thought', href: '#' },
+      { label: 'News', href: '/news' },
+      { label: 'Food For Thought', href: '/blogs' },
     ],
   },
   {
     label: 'Events',
-    href: '/event',
+    href: '/events',
   },
   {
     label: 'Career',
@@ -70,7 +70,11 @@ const Header = () => {
   const pathname = usePathname();
 
   const isNoWhiteHeader =
-    pathname === '/contact' || pathname === '/news' || pathname.startsWith('/news/');
+    pathname === '/contact' ||
+    pathname === '/news' ||
+    pathname.startsWith('/news/') ||
+    pathname === '/blogs' ||
+    pathname.startsWith('/blogs/');
 
   // Sidebar close handler for escape key and overlay clicks
   const handleSidebarClose = () => {

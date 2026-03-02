@@ -1,10 +1,15 @@
-
 'use client';
 
-
 import { Formik } from 'formik';
+import { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { GoArrowUpRight } from 'react-icons/go';
+
+export interface ContactProps {
+  displayEmail?: string | null;
+  addressLine1?: string | null;
+  addressLine2?: string | null;
+}
 
 const initialValues = {
   firstName: '',
@@ -32,9 +37,7 @@ const validate = (values: FormValues) => {
   }
   if (!values.email) {
     errors.email = 'Required';
-  } else if (
-    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-  ) {
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
     errors.email = 'Invalid email address';
   }
   if (!values.message) {
@@ -51,64 +54,79 @@ const inputStyle = {
   fontSize: 16,
 };
 
-const Contact = () => {
+const DEFAULT_EMAIL = 'info@thesultpartners.com';
+const DEFAULT_ADDRESS_1 = `IFZA Properties, DSO-IFZA
+IFZA Business Park,
+Dubai Silicon Oasis`;
+const DEFAULT_ADDRESS_2 = `Level 7, Gate Avenue
+Dubai International Financial Centre`;
+
+const Contact = ({ displayEmail, addressLine1, addressLine2 }: ContactProps) => {
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitErrorMessage, setSubmitErrorMessage] = useState<string | null>(null);
+  const email = displayEmail ?? DEFAULT_EMAIL;
+  const addr1 = addressLine1 ?? DEFAULT_ADDRESS_1;
+  const addr2 = addressLine2 ?? DEFAULT_ADDRESS_2;
+
   return (
-    <div className="px-4 py-5 d-flex  align-items-center " style={{ minHeight: "100vh" }}>
-      <Row className='flex-grow-1 align-items-center flex-column-reverse flex-md-row'>
-        <Col
-          md={5}
-          lg={4}
-          className="mb-5 mb-md-0 d-flex flex-column justify-content-center gap-4"
-        >
+    <div className="px-4 py-5 d-flex  align-items-center " style={{ minHeight: '100vh' }}>
+      <Row className="flex-grow-1 align-items-center flex-column-reverse flex-md-row">
+        <Col md={5} lg={4} className="mb-5 mb-md-0 d-flex flex-column justify-content-center gap-4">
           <div className="primary-text text-uppercase letter-spacing fw-semibold fs-15 ">
             CONTACT
           </div>
-          <div className=''>
+          <div className="">
             <a
-              href="mailto:info@thesultpartners.com"
-              className=' text-decoration-none text-dark fs-14'
+              href={`mailto:${email}`}
+              className=" text-decoration-none text-dark fs-14"
               style={{
                 wordBreak: 'break-all',
               }}
             >
-              info@thesultpartners.com
+              {email}
             </a>
           </div>
           <div className="primary-text text-uppercase letter-spacing fw-semibold fs-15 ">
             ADDRESS
           </div>
-          <div className=' fs-14 text-dark '
-          >
-            IFZA Properties, DSO-IFZA
-            <br />
-            IFZA Business Park,
-            <br />
-            Dubai Silicon Oasis
+          <div className=" fs-14 text-dark " style={{ whiteSpace: 'pre-line' }}>
+            {addr1}
           </div>
-          <div className=' fs-14 text-dark '>
-            Level 7, Gate Avenue
-            <br />
-            Dubai International Financial Centre
+          <div className=" fs-14 text-dark " style={{ whiteSpace: 'pre-line' }}>
+            {addr2}
           </div>
         </Col>
         <Col md={7} lg={8}>
           <div className="mb-5 pb-3 mt-5 mt-md-0 pt-5 pt-md-0">
-            <div className="font-libre fs-42  text-dark">
-              Have a question?
-            </div>
-            <div className="font-libre fs-42  text-dark">
-              Want to work with us?
-            </div>
+            <div className="font-libre fs-42  text-dark">Have a question?</div>
+            <div className="font-libre fs-42  text-dark">Want to work with us?</div>
           </div>
           <Formik
             initialValues={initialValues}
             validate={validate}
-            onSubmit={(values, { setSubmitting, resetForm }) => {
-              setTimeout(() => {
+            onSubmit={async (values, { setSubmitting, resetForm }) => {
+              setSubmitStatus('idle');
+              setSubmitErrorMessage(null);
+              try {
+                const res = await fetch('/api/contact', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(values),
+                });
+                const data = (await res.json().catch(() => ({}))) as { error?: string };
+                if (res.ok) {
+                  setSubmitStatus('success');
+                  resetForm();
+                } else {
+                  setSubmitStatus('error');
+                  setSubmitErrorMessage(data?.error ?? 'Something went wrong');
+                }
+              } catch {
+                setSubmitStatus('error');
+                setSubmitErrorMessage('Network error. Please try again.');
+              } finally {
                 setSubmitting(false);
-                resetForm();
-                alert('Message sent!');
-              }, 500);
+              }
             }}
           >
             {({
@@ -123,14 +141,9 @@ const Contact = () => {
               <Form noValidate onSubmit={handleSubmit}>
                 <Row className="mb-3">
                   <Col md={6}>
-                    <Form.Group
-                      controlId="firstName"
-                      className="mb-3 mb-md-0"
-                    >
-                      <Form.Label
-                        className=' text-dark fs-13 fw-medium'
-                      >
-                        First name<span className=' ms-2 primary-text'>*</span>
+                    <Form.Group controlId="firstName" className="mb-3 mb-md-0">
+                      <Form.Label className=" text-dark fs-13 fw-medium">
+                        First name<span className=" ms-2 primary-text">*</span>
                       </Form.Label>
                       <Form.Control
                         type="text"
@@ -150,10 +163,8 @@ const Contact = () => {
                   </Col>
                   <Col md={6}>
                     <Form.Group controlId="lastName">
-                      <Form.Label
-                        className=' text-dark fs-13 fw-medium'
-                      >
-                        Last name<span className=' ms-2 primary-text'>*</span>
+                      <Form.Label className=" text-dark fs-13 fw-medium">
+                        Last name<span className=" ms-2 primary-text">*</span>
                       </Form.Label>
                       <Form.Control
                         type="text"
@@ -173,10 +184,8 @@ const Contact = () => {
                   </Col>
                 </Row>
                 <Form.Group className="mb-3" controlId="email">
-                  <Form.Label
-                    className=' text-dark fs-13 fw-medium'
-                  >
-                    Email<span className=' ms-2 primary-text'>*</span>
+                  <Form.Label className=" text-dark fs-13 fw-medium">
+                    Email<span className=" ms-2 primary-text">*</span>
                   </Form.Label>
                   <Form.Control
                     type="email"
@@ -189,15 +198,11 @@ const Contact = () => {
                     isInvalid={touched.email && !!errors.email}
                     required
                   />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.email}
-                  </Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="company">
-                  <Form.Label
-                    className=' text-dark fs-13 fw-medium'
-                  >
-                    Company<span className=' ms-2 primary-text'>*</span>
+                  <Form.Label className=" text-dark fs-13 fw-medium">
+                    Company<span className=" ms-2 primary-text">*</span>
                   </Form.Label>
                   <Form.Control
                     type="text"
@@ -210,10 +215,8 @@ const Contact = () => {
                   />
                 </Form.Group>
                 <Form.Group className="" controlId="message">
-                  <Form.Label
-                    className=' text-dark fs-13 fw-medium'
-                  >
-                    Message<span className=' ms-2 primary-text'>*</span>
+                  <Form.Label className=" text-dark fs-13 fw-medium">
+                    Message<span className=" ms-2 primary-text">*</span>
                   </Form.Label>
                   <Form.Control
                     as="textarea"
@@ -231,10 +234,16 @@ const Contact = () => {
                     isInvalid={touched.message && !!errors.message}
                     required
                   />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.message}
-                  </Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">{errors.message}</Form.Control.Feedback>
                 </Form.Group>
+                {submitStatus === 'success' && (
+                  <div className="text-success fs-14 mb-3">Message sent!</div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className="text-danger fs-14 mb-3">
+                    {submitErrorMessage ?? 'Something went wrong. Please try again.'}
+                  </div>
+                )}
                 <div className="d-flex justify-content-end mt-5">
                   <Button
                     variant="dark"
@@ -252,7 +261,16 @@ const Contact = () => {
                     }}
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? 'SENDING...' : <>SEND MESSAGE <span><GoArrowUpRight size={20} /></span></>}
+                    {isSubmitting ? (
+                      'SENDING...'
+                    ) : (
+                      <>
+                        SEND MESSAGE{' '}
+                        <span>
+                          <GoArrowUpRight size={20} />
+                        </span>
+                      </>
+                    )}
                   </Button>
                 </div>
               </Form>
