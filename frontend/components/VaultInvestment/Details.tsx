@@ -18,21 +18,17 @@ const detailsData = [
 const Details = () => {
   return (
     <div className="px-4 py-5 d-flex flex-column gap-4">
+      <div className=" primary-text text-uppercase letter-spacing fw-semibold fs-15">
+        Introduction
+      </div>
       {detailsData.map((item, idx) => (
         <Row
-          className="g-4 pb-5 mb-5"
-          style={{ borderBottom: "1px solid var(--border)" }}
+          className="pb-5 mt-0"
           key={idx}
         >
-          <Row className="g-4 pb-5 mb-5"
-            style={{ borderBottom: "1px solid var(--border)" }}>
-            <Col md={6}>
-              <div className="font-libre fs-26 text-dark fw-semibold">
-                {item.heading}
-              </div>
-            </Col>
-            <Col md={6} className='d-none d-lg-block' />
-          </Row>
+          <div className="font-libre fs-26 text-dark fw-semibold pb-4 mb-4" style={{ borderBottom: "1px solid var(--border)" }}>
+            {item.heading}
+          </div>
 
           <Col md={2} className='d-none d-lg-block' />
           <Col md={10}>
