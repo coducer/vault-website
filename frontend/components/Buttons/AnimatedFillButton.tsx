@@ -13,7 +13,7 @@ const AnimatedFillButton = ({ text, prefixIconChildren, sufixIconChildren, onCli
   return (
     <button className="fancy-button animated-button" onClick={onClick}>
       {prefixIconChildren && <span className="button__icon">{prefixIconChildren}</span>}
-      <span>{text}</span>
+      <span className="text-uppercase">{text}</span>
       {sufixIconChildren && <span className="button__icon">{sufixIconChildren}</span>}
     </button>
   )

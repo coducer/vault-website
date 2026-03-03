@@ -81,7 +81,7 @@ export default function PartnerWithUs({ data }: { data?: HomePartnerWithUsData |
             pinSpacing: true,
           });
         },
-        '(max-width: 1023px)': function () {},
+        '(max-width: 1023px)': function () { },
       });
     });
 
@@ -120,28 +120,29 @@ export default function PartnerWithUs({ data }: { data?: HomePartnerWithUsData |
             const fallbackSrc = FALLBACK_ITEMS[i % FALLBACK_ITEMS.length]?.img ?? network;
             const imageSrc = typeof item.img !== 'string' ? item.img : fallbackSrc;
             return (
-            <div
-              key={i}
-              ref={(el) => {
-                if (el) sectionsRef.current[i] = el;
-              }}
-              className="partner-with-us-content d-flex flex-column gap-3"
-            >
-              {showStrapiImg ? (
-                <img
-                  src={item.img as string}
-                  alt={item.title}
-                  onError={() => setFailedImgIndices((prev) => new Set(prev).add(i))}
-                />
-              ) : (
-                <Image src={imageSrc} alt={item.title} />
-              )}
-              <div>
-                <h3 className="font-libre fs-42 text-white">{item.title}</h3>
-                <p className="text-secondary fs-15 fw-lighter mb-0">{item.subtitle}</p>
+              <div
+                key={i}
+                ref={(el) => {
+                  if (el) sectionsRef.current[i] = el;
+                }}
+                className="partner-with-us-content d-flex flex-column gap-3"
+              >
+                {showStrapiImg ? (
+                  <img
+                    src={item.img as string}
+                    alt={item.title}
+                    width={200} height={200}
+                    onError={() => setFailedImgIndices((prev) => new Set(prev).add(i))}
+                  />
+                ) : (
+                  <Image src={imageSrc} alt={item.title} width={200} height={200} />
+                )}
+                <div>
+                  <h3 className="font-libre fs-42 text-white">{item.title}</h3>
+                  <p className="text-secondary fs-15 fw-lighter mb-0">{item.subtitle}</p>
+                </div>
               </div>
-            </div>
-          );
+            );
           })}
         </div>
       </div>
