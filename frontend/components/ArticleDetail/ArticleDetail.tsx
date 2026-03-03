@@ -17,7 +17,7 @@ export default function ArticleDetail({ sectionLabel, date, title, content }: Ar
           {sectionLabel}
         </div>
         {date && <div className="fs-13 fw-medium primary-text pt-2">{date}</div>}
-        <h1 className="font-libre fs-42 text-dark pt-2">{title}</h1>
+        <h1 className="font-libre fs-42 text-dark py-2 mt-2">{title}</h1>
       </section>
       <div className="article-detail-body px-4" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="article-detail-body-inner">
