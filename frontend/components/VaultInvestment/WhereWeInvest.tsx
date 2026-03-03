@@ -1,10 +1,11 @@
-import React from 'react'
-import './VaultInvestment.css'
-import { Col, Row } from 'react-bootstrap'
-import FlickButton from '../Buttons/FlickButton'
-import { GoArrowDownRight } from 'react-icons/go'
+/* eslint-disable @next/next/no-img-element */
+import React from 'react';
+import './VaultInvestment.css';
+import { Col, Row } from 'react-bootstrap';
+import FlickButton from '../Buttons/FlickButton';
+import { GoArrowDownRight } from 'react-icons/go';
 
-const currency = "/assests/Crypto,%20Currency,%20Bitcoin,%20Ethereum.png";
+const currency = '/assests/Crypto,%20Currency,%20Bitcoin,%20Ethereum.png';
 
 const investCards = [
   {
@@ -18,7 +19,6 @@ const investCards = [
   {
     title: 'Mobility Tech',
     icon: currency,
-
   },
   {
     title: 'AgriTech',
@@ -27,8 +27,8 @@ const investCards = [
   {
     title: 'HealthTech',
     icon: currency,
-  }
-]
+  },
+];
 
 const WhereWeInvest = () => {
   return (
@@ -39,36 +39,29 @@ const WhereWeInvest = () => {
         </div>
         <div className="font-libre fs-42 pb-4 text-white">Strategic Focus Areas</div>
       </div>
-      <Row
-        className="g-0 "
-      >
+      <Row className="g-0 ">
         {investCards.map((card) => (
           <Col md={4} key={card.title}>
-            <div
-              className="invest-card position-relative d-flex flex-column justify-content-between gap-3 p-4 text-white"
-            >
+            <div className="invest-card position-relative d-flex flex-column justify-content-between gap-3 p-4 text-white">
               <div className="d-flex justify-content-end align-items-center mb-3">
-                <img
-                  src={card.icon}
-                  alt={`${card.title} Icon`}
-                  width={50}
-                  height={50}
-                />
+                <img src={card.icon} alt={`${card.title} Icon`} width={50} height={50} />
               </div>
 
-              <div className="font-libre fs-24 text-white fw-semibold mt-auto">
-                {card.title}
-              </div>
+              <div className="font-libre fs-24 text-white fw-semibold mt-auto">{card.title}</div>
             </div>
           </Col>
         ))}
-
-        <div className="d-flex justify-content-end px-4 py-4">
-          <FlickButton text="SCHEDULE A CONVERSATION" sufixIconChildren={<GoArrowDownRight size={20} />} />
-        </div>
+        <Col md={4} className="d-flex flex-column justify-content-end">
+          <div className="mt-auto d-flex justify-content-end px-4">
+            <FlickButton
+              text="SCHEDULE A CONVERSATION"
+              sufixIconChildren={<GoArrowDownRight size={20} />}
+            />
+          </div>
+        </Col>
       </Row>
     </div>
-  )
-}
+  );
+};
 
-export default WhereWeInvest
+export default WhereWeInvest;

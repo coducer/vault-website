@@ -5,50 +5,8 @@ import homeBg from '@/public/assests/home-img.jpg';
 import Image from 'next/image';
 import { useState } from 'react';
 import { FaLinkedin } from 'react-icons/fa';
+import { menu } from '../Header/Header';
 import './Footer.css';
-
-const siteMapMenu = [
-  {
-    label: 'Home',
-    href: '/',
-  },
-  {
-    label: 'About Us',
-    href: 'aboutus',
-  },
-  {
-    label: 'What We Do',
-    submenu: [
-      { label: 'Service menu', href: '#' },
-      { label: 'Work with Vaults', href: '#' },
-      { label: 'Career vaultnews', href: '#' },
-      { label: 'Portfolio', href: '#' },
-    ],
-  },
-  {
-    label: 'Vault People',
-    submenu: [
-      { label: 'Vault Story', href: '/vaultstory' },
-      { label: 'Team', href: '#' },
-      { label: 'Operating Partners', href: '#' },
-    ],
-  },
-  {
-    label: 'Vault Perspectives',
-    submenu: [
-      { label: 'News', href: '#' },
-      { label: 'Food For Thought', href: '#' },
-    ],
-  },
-  {
-    label: 'Events',
-    href: '/event',
-  },
-  {
-    label: 'Career',
-    href: '#',
-  },
-];
 
 const governanceLinks = [
   { label: 'Privacy Policy', href: '/privacy-policy' },
@@ -78,7 +36,7 @@ const Footer = () => {
         <div className="mb-4 mb-lg-0" style={{ minWidth: 185 }}>
           <div className="fs-15 text-white fw-medium letter-spacing mb-3">Site Map</div>
           <ul className="list-unstyled mb-0">
-            {siteMapMenu.map((item, idx) => (
+            {menu.map((item, idx) => (
               <li key={item.label} className="mb-1">
                 {item.submenu ? (
                   <>
