@@ -73,19 +73,17 @@ const ArticleDetails = ({ event }: { event?: EventItem | null }) => {
           {event?.participants?.map((logo, idx) => (
             <Col md={3} xs={12} key={idx}>
               <div
-                className="p-3 border d-flex justify-content-center align-items-center bg-white"
-                style={{ height: '230px' }}
+                className=" border d-flex justify-content-center align-items-center bg-white"
+                style={{ height: '230px', overflow: "hidden" }}
               >
                 <img
                   src={resolveStrapiMediaUrl(logo.url)}
                   alt={logo.alternativeText ?? `Participant ${idx + 1}`}
                   style={{
-                    maxHeight: '90px',
-                    maxWidth: '100%',
-                    objectFit: 'contain',
-                    width: 'auto',
+                    height: "100%",
+                    width: '100%',
+                    objectFit: 'cover',
                   }}
-                  // Use loading="lazy" for non-critical images
                   loading="lazy"
                   decoding="async"
                 />
@@ -105,17 +103,16 @@ const ArticleDetails = ({ event }: { event?: EventItem | null }) => {
           {event?.partners?.map((logo, idx) => (
             <Col md={3} xs={12} key={idx}>
               <div
-                className="p-3 border d-flex justify-content-center align-items-center bg-white"
-                style={{ height: '230px' }}
+                className=" border d-flex justify-content-center align-items-center bg-white"
+                style={{ height: '230px', overflow: "hidden" }}
               >
                 <img
                   src={resolveStrapiMediaUrl(logo.url)}
                   alt={logo.alternativeText ?? `Partner ${idx + 1}`}
                   style={{
-                    maxHeight: '90px',
-                    maxWidth: '100%',
-                    objectFit: 'contain',
-                    width: 'auto',
+                    height: "100%",
+                    width: '100%',
+                    objectFit: 'cover',
                   }}
                   loading="lazy"
                   decoding="async"
