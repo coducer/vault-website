@@ -1,17 +1,7 @@
 {
-  "global": {
-    "siteName": "Strapi Blog",
-    "defaultSeo": {
-      "metaTitle": "Page",
-      "metaDescription": "A blog made with Strapi",
-      "shareImage": null
-    },
-    "siteDescription": "A Blog made with Strapi",
-    "favicon": null
-  },
   "about": {
     "title": "About Us",
-    "heroImage": "aboutus.jpg",
+    "heroImage": "aboutus_bg.jpg",
     "details": [
       {
         "heading": "Vault is a mission-driven network.",
@@ -25,273 +15,519 @@
         "heading": "To achieve our mission, we",
         "body": "orchestrate Vault Investments, Vault PE Advisory and Vault Wealth around talented and ambitious founders and companies. We accelerate their growth and improve their chances to deliver on their mission in a responsible manner."
       }
-    ],
-    "blocks": []
+    ]
   },
-  "categories": [
-    {
-      "name": "news",
-      "slug": "news"
-    },
-    {
-      "name": "tech",
-      "slug": "tech"
-    },
-    {
-      "name": "food",
-      "slug": "food"
-    },
-    {
-      "name": "nature",
-      "slug": "nature"
-    },
-    {
-      "name": "story",
-      "slug": "story"
-    }
-  ],
-  "authors": [
-    {
-      "name": "David Doe",
-      "email": "daviddoe@strapi.io",
-      "avatar": "daviddoe@strapi.io.jpg"
-    },
-    {
-      "name": "Sarah Baker",
-      "email": "sarahbaker@strapi.io",
-      "avatar": "sarahbaker@strapi.io.jpg"
-    }
-  ],
-  "articles": [
-    {
-      "title": "The internet's Own boy",
-      "slug": "the-internet-s-own-boy",
-      "category": {
-        "id": 5
+  "vaultStory": {
+    "title": "Our Story",
+    "heroImage": "vaultstory_bg.jpg",
+    "details": [
+      {
+        "heading": "Our foundation is strong operational capacity.",
+        "body": "It allowed us to build trust of investors and pivot into growth oriented multi-family office. Vault was founded by four partners with diverse experience in law, finance and business. Together, they have advised on and executed several billions in transactions over 25 years, working closely with founders, families and institutions across multiple jurisdictions."
       },
-      "author": {
-        "id": 1
+      {
+        "heading": "Before coming together at Vault,",
+        "body": "The founders held leadership positions as COOs, NEDs, CLOs and CFOs within unicorns and investment platforms. This mix of investment and operating experience shaped a very practical way of working, focused on outcomes."
       },
-      "description": "Follow the story of Aaron Swartz, the boy who could change the world",
-      "cover": null,
-      "blocks": [
-        {
-          "__component": "shared.rich-text",
-          "body": "## Probant \n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. \n\n## Abit sua\n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. "
-        },
-        {
-          "__component": "shared.quote",
-          "title": "Thelonius Monk",
-          "body": "You've got to dig it to dig it, you dig?"
-        },
-        {
-          "__component": "shared.media",
-          "file": "coffee-art.jpg"
-        },
-        {
-          "__component": "shared.rich-text",
-          "body": "## Spatiantia astra \n\nFoeda, medio silva *errandum*: onus formam munere. Mutata bibulis est auxiliare arces etiamnunc verbis virgineo Priamidas illa Thescelus, nam fit locis lucis auras. Exitus hospes gratulor ut pondere [speslimite](http://www.curas.io/figuram); quid habent, Avernales faciente de. Pervenit Ino sonabile supplex cognoscenti vires, Bacchumque errat miserarum venandi dignabere dedisti. Discrimina iuncosaque virgaque tot sine superest [fissus](http://quos.org/sitet.aspx). Non color esset potest non sumit, sed vix arserat. Nisi immo silva tantum pectusque quos pennis quisquam artus!"
-        },
-        {
-          "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
-        }
-      ]
-    },
-    {
-      "title": "This shrimp is awesome",
-      "slug": "this-shrimp-is-awesome",
-      "category": {
-        "id": 4
-      },
-      "author": {
-        "id": 1
-      },
-      "description": "Mantis shrimps, or stomatopods, are marine crustaceans of the order Stomatopoda.",
-      "cover": null,
-      "blocks": [
-        {
-          "__component": "shared.rich-text",
-          "body": "## Probant \n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. \n\n## Abit sua\n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. "
-        },
-        {
-          "__component": "shared.quote",
-          "title": "Thelonius Monk",
-          "body": "You've got to dig it to dig it, you dig?"
-        },
-        {
-          "__component": "shared.media",
-          "file": "coffee-art.jpg"
-        },
-        {
-          "__component": "shared.rich-text",
-          "body": "## Spatiantia astra \n\nFoeda, medio silva *errandum*: onus formam munere. Mutata bibulis est auxiliare arces etiamnunc verbis virgineo Priamidas illa Thescelus, nam fit locis lucis auras. Exitus hospes gratulor ut pondere [speslimite](http://www.curas.io/figuram); quid habent, Avernales faciente de. Pervenit Ino sonabile supplex cognoscenti vires, Bacchumque errat miserarum venandi dignabere dedisti. Discrimina iuncosaque virgaque tot sine superest [fissus](http://quos.org/sitet.aspx). Non color esset potest non sumit, sed vix arserat. Nisi immo silva tantum pectusque quos pennis quisquam artus!"
-        },
-        {
-          "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
-        }
-      ]
-    },
-    {
-      "title": "A bug is becoming a meme on the internet",
-      "slug": "a-bug-is-becoming-a-meme-on-the-internet",
-      "category": {
-        "id": 2
-      },
-      "author": {
-        "id": 2
-      },
-      "description": "How a bug on MySQL is becoming a meme on the internet",
-      "cover": null,
-      "blocks": [
-        {
-          "__component": "shared.rich-text",
-          "body": "## Probant \n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. \n\n## Abit sua\n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. "
-        },
-        {
-          "__component": "shared.quote",
-          "title": "Thelonius Monk",
-          "body": "You've got to dig it to dig it, you dig?"
-        },
-        {
-          "__component": "shared.media",
-          "file": "coffee-art.jpg"
-        },
-        {
-          "__component": "shared.rich-text",
-          "body": "## Spatiantia astra \n\nFoeda, medio silva *errandum*: onus formam munere. Mutata bibulis est auxiliare arces etiamnunc verbis virgineo Priamidas illa Thescelus, nam fit locis lucis auras. Exitus hospes gratulor ut pondere [speslimite](http://www.curas.io/figuram); quid habent, Avernales faciente de. Pervenit Ino sonabile supplex cognoscenti vires, Bacchumque errat miserarum venandi dignabere dedisti. Discrimina iuncosaque virgaque tot sine superest [fissus](http://quos.org/sitet.aspx). Non color esset potest non sumit, sed vix arserat. Nisi immo silva tantum pectusque quos pennis quisquam artus!"
-        },
-        {
-          "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
-        }
-      ]
-    },
-    {
-      "title": "Beautiful picture",
-      "slug": "beautiful-picture",
-      "category": {
-        "id": 4
-      },
-      "author": {
-        "id": 2
-      },
-      "description": "Description of a beautiful picture",
-      "cover": null,
-      "blocks": [
-        {
-          "__component": "shared.rich-text",
-          "body": "## Probant \n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. \n\n## Abit sua\n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. "
-        },
-        {
-          "__component": "shared.quote",
-          "title": "Thelonius Monk",
-          "body": "You've got to dig it to dig it, you dig?"
-        },
-        {
-          "__component": "shared.media",
-          "file": "coffee-art.jpg"
-        },
-        {
-          "__component": "shared.rich-text",
-          "body": "## Spatiantia astra \n\nFoeda, medio silva *errandum*: onus formam munere. Mutata bibulis est auxiliare arces etiamnunc verbis virgineo Priamidas illa Thescelus, nam fit locis lucis auras. Exitus hospes gratulor ut pondere [speslimite](http://www.curas.io/figuram); quid habent, Avernales faciente de. Pervenit Ino sonabile supplex cognoscenti vires, Bacchumque errat miserarum venandi dignabere dedisti. Discrimina iuncosaque virgaque tot sine superest [fissus](http://quos.org/sitet.aspx). Non color esset potest non sumit, sed vix arserat. Nisi immo silva tantum pectusque quos pennis quisquam artus!"
-        },
-        {
-          "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
-        }
-      ]
-    },
-    {
-      "title": "What's inside a Black Hole",
-      "slug": "what-s-inside-a-black-hole",
-      "category": {
-        "id": 1
-      },
-      "author": {
-        "id": 2
-      },
-      "description": "Maybe the answer is in this article, or not...",
-      "cover": null,
-      "blocks": [
-        {
-          "__component": "shared.rich-text",
-          "body": "## Probant \n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. \n\n## Abit sua\n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. "
-        },
-        {
-          "__component": "shared.quote",
-          "title": "Thelonius Monk",
-          "body": "You've got to dig it to dig it, you dig?"
-        },
-        {
-          "__component": "shared.media",
-          "file": "coffee-art.jpg"
-        },
-        {
-          "__component": "shared.rich-text",
-          "body": "## Spatiantia astra \n\nFoeda, medio silva *errandum*: onus formam munere. Mutata bibulis est auxiliare arces etiamnunc verbis virgineo Priamidas illa Thescelus, nam fit locis lucis auras. Exitus hospes gratulor ut pondere [speslimite](http://www.curas.io/figuram); quid habent, Avernales faciente de. Pervenit Ino sonabile supplex cognoscenti vires, Bacchumque errat miserarum venandi dignabere dedisti. Discrimina iuncosaque virgaque tot sine superest [fissus](http://quos.org/sitet.aspx). Non color esset potest non sumit, sed vix arserat. Nisi immo silva tantum pectusque quos pennis quisquam artus!"
-        },
-        {
-          "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
-        }
-      ]
-    }
-  ],
+      {
+        "heading": "Now united under Vault MFO",
+        "body": "The recipe proposed by Vault People has been helpful for many founders and investors. Just right balance between operational and investor acumen set Vault's portfolio companies from ambitious vision to multi-billion corporations."
+      }
+    ]
+  },
   "news": [
     {
-      "title": "Market Update: Q4 2025",
-      "slug": "market-update-q4-2025",
-      "description": "Key trends and developments in the market landscape",
-      "author": { "id": 1 },
-      "blocks": [
-        {
-          "__component": "shared.rich-text",
-          "body": "## Market Overview\n\nQuarterly market analysis and outlook for investors."
-        }
-      ]
+      "title": "DIFC Innovation Licence granted to Vault Tech Ltd",
+      "slug": "difc-innovation-licence-granted-to-vault-tech-ltd",
+      "description": "Vault Tech Ltd. receives DIFC Innovation Licence and joins the DIFC Innovation Hub.\nWe are pleased to announce that Vault Tech Ltd. has been granted a DIFC Innovation Licence, marking Vault’s entry into the DIFC ecosystem.\nVault Tech will prioritize infrastructure projects and will run two separate R&D streams in parallel. The first stream will focus on infrastructure to extend the benefits of tokenized future from institutions to broader groups. The second stream will work on infrastructure to improve efficiency and resolve “side effects” of AI transition through application of technology.\nVault Tech is an R&D-led technology studio launched to design and build frontier technologies solutions. Based in the DIFC Innovation Hub, Vault Tech is positioned inside the region’s most active innovation environment, alongside the teams shaping the next generation of financial and enterprise technology.\nVault Tech will be supervised by a supervisory board chaired by Vault CEO, Aleko Nanadze. It will also be supported by its advisory board from the investment and technology space.\nVault Tech will produce in-house intellectual property. The work will be delivered in close collaboration with Vault Advisory, pairing tech execution with corporate and operational support. The goal is simple: create durable technology, attract talent and build capabilities that can scale into new products and future spin-outs.\nVault Tech is a foundational step in Vault’s path to becoming fully institutionalised and regulated in DIFC. In parallel to building our technology capability, Vault is progressing toward its next milestone: securing a DFSA Category 4 licence, targeted for mid-2026 (subject to regulatory approvals), enabling Vault to provide regulated financial services.",
+      "date": "2025-12-21T00:00:00.000Z",
+      "bgImage": "difc-innovation-licence-granted-to-vault-tech-ltd.jpg"
     },
     {
-      "title": "Regulatory Changes Ahead",
-      "slug": "regulatory-changes-ahead",
-      "description": "Upcoming regulatory changes and their impact",
-      "author": { "id": 2 },
-      "blocks": [
-        {
-          "__component": "shared.rich-text",
-          "body": "## Regulatory Update\n\nImportant regulatory developments to watch."
-        }
-      ]
+      "title": "AIM Summit London 2025 on 'The Future of BTC Mining",
+      "slug": "aim-summit-london-2025-on-the-future-of-btc-mining",
+      "description": "On May 20, our Co-founder Jeremy Sewell moderated a panel discussion at AIM Summit London 2025 on ‘The Future of BTC Mining: Mining at Scale Amid Bitcoin and Hashrate All-Time Highs.’\nThe panel brought together leading voices such as S. Matthew Schultz of CleanSpark, Jeffrey Lucas of Bitfarms, and Manash Goswami, CPA, CFA, MBA of Synteq Digital.\nThank you to AIM Summit for hosting such a timely and insightful conversation.",
+      "date": "2025-11-12T00:00:00.000Z",
+      "bgImage": "aim-summit-london-2025-on-the-future-of-btc-mining.jpg"
+    },
+    {
+      "title": "Vault x Spectrum: Data Centre Leadership Dinner",
+      "slug": "vault-x-spectrum-data-centre-leadership-dinner",
+      "description": "On 11 November 2025, Vault joins Spectrum EHCS in co-hosting an exclusive leadership dinner in Mayfair, London – bringing together data centre executives and investors for high-level discussion under the Chatham House Rule\nGlobal Data Centre Ecosystem – Leadership Dinner\n11 November 2025 · 6:30 PM – 9:00 PM\nMayfair, London, United Kingdom\nBy invitation only\nFor participation inquiries, please contact info@thevaultpartners.com",
+      "date": "2025-11-02T00:00:00.000Z",
+      "bgImage": "default_image.png"
+    },
+    {
+      "title": "Vault Private Equity Backs Longbow Motorcar",
+      "slug": "vault-private-equity-backs-longbow-motorcar",
+      "description": "Vault Private Equity acquired a minority position in Longbow Motorcar, a U.K-based startup set to launch the first lightweight electric sports cars in the U.K. with deliveries starting in 2026. The company was founded by former senior employees of Tesla, Lucid, BYD, Lotus, Xshore – Daniel Davey, Mark Tapscott and Jenny Keisu.\nWhy did Longbow stand out in the EV market? The team has had hands-on experience in: (i) the first Tesla Roadster; (ii) the most technologically advanced EV (Lucid); and (iii) the most efficient (BYD) EV manufacturing. Add the wider industry experience in this blend and the novel, cap-ex light manor in which Longbow will be delivering an affordable lightweight EV sports car for drivers are unparalleled. Also, the go-to-market for Longbow is timely. When delivered, it will be virtually the only player in its class of electric vehicles.\n\nWe partnered with Longbow because they are building something that resonates with how we run Vault – in a lean and flexible way, focused on execution. Longbow is a company that strips away what doesn’t matter – and sharpens what does: the thrill of driving, the purity of performance, and the practicality of owning an EV that’s efficient.\n\nThis participation was acquired in cooperation with Vault Services, which will continue providing strategic advisory services to Longbow and its board. “We engaged Vault Services to ensure we focus our energy on delivery of our business plan, while Vault Services support execution and in-house affairs” – says the CEO of Longbow.\n\nAbout Vault PE\n\nVault Private Equity (Vault PE) is an independent arm of Vault Group, which acquires minority stakes in growth companies and matured startups. Vault PE has a predominant interest in data center infrastructure, FinTech, tech automotive, health-tech and nutrition, food security, energy security, and real estate.\n\nOne of its co-founders, Nicola Mariani marked Vault PE’s launch with a note which well describes our vision: “In my 25 years’ experience as a partner in major law firms and CLO in large corporations, a remarkable tendency has emerged in the last few years: clients want their senior advisors to have skin in the game. They no longer accept just a good “legal guy” or good “numbers guy”. This is why we launched Vault PE to run hand in hand with Vault Services”.",
+      "date": "2025-10-15T00:00:00.000Z",
+      "bgImage": "vault-private-equity-backs-longbow-motorcar.webp"
+    },
+    {
+      "title": "AIM Summit London 2025",
+      "slug": "aim-summit-london-2025",
+      "description": "We are excited to announce Jeremy Sewell, Co-Founder at The Vault Partners, as a moderator at AIM Summit London Edition, taking place on May 19-20, 2025.\n\nJeremy Sewell is a Senior Partner and Co-Founder of Vault, a multidisciplinary services firm empowering growth companies, investment firms and HNWIs. He is an investor, advisor and board member with companies in the global technology sector, working with leadership teams, founders, investors, and boards to help drive growth.",
+      "date": "2025-10-12T00:00:00.000Z",
+      "bgImage": "aim-summit-london-2025.jpg"
+    },
+    {
+      "title": "Vault Launches Lexminster Brand, with its First Law Firm in Uzbekistan",
+      "slug": "vault-launches-lexminster-brand-with-its-first-law-firm-in-uzbekistan",
+      "description": "Vault has launched Lexminster, a newly established brand for full-service law firms. Its first office will be in Tashkent. The investment extends Vault’s reach to premium advisory services and enhances our ability to internalize work on complex transactions and regulatory matters.\n\nLexminster is built on a clear proposition: cross-border expertise, regional insight, strategic solutions. The firm combines transactional and litigation expertise with sector depth across energy, infrastructure, financial services, technology, real estate, corporate and M&A. Lexminster’s first office in Tashkent will be led by the Uzbek team and supported by lawyers experienced in the UK, UAE, North America, Austria and France. Lexminster can support clients throughout the entire lifecycle, from entry and licensing to operations, restructuring, enforcement and exit.\n\nUzbekistan is Central Asia’s largest market and a growing hub for trade and energy corridors connecting Asia and Europe. Ongoing reforms are advancing privatizations, infrastructure delivery and capital-markets development. As Tashkent’s role as the region’s administrative and financial center continues to expand, clarity on deal structure and enforcement becomes essential.\n\n“We would like to leverage our existing deal-making capabilities in the West and Middle East in our call to push Vault’s footprint in the new region. Tashkent was an easy pick as the first place to launch Lexminster as it is gaining momentum. Investment in law firm is a strategic step for Vault as it will improve our deal execution across three regions. Our objective is to deploy multiple Lexminster offices over the coming years.”\n\n– Aleko Nanadze, CEO of Vault\n\nAbout Vault\n\nVault Partners is an investment platform with an integrated advisory boutique, empowering growth-oriented companies, investment firms and high-net-worth individuals (HNWIs). With a global network of industry insiders, multidisciplinary experts and investors, Vault helps both companies and investors unlock value where conventional firms do not see it. Vault’s goal is to push growth, realize investments and protect interests through strategic funding or tailored mandates.\n\nVault’s investment arm targets minority or majority stakes in growth companies across services, edge technologies, automotive, FinTech, health-tech, food and energy security, and data centre infrastructure. Our founders’ combined legal, financial and operational expertise ensures that every investment is backed by both capital and counsel.",
+      "date": "2025-03-05T00:00:00.000Z",
+      "bgImage": "default_image.png"
+    },
+    {
+      "title": "Vault Partners Launches its Operating Partner & Associate Program",
+      "slug": "vault-partners-launches-its-operating-partner-and-associate-program",
+      "description": "We are excited to announce the operating partner and associate programs to boost our network and further extend our execution capacity globally.\n\nThe primary goal of the programs is to strengthen value add for our portfolio companies.\n\nThis program establishes the framework on how we deploy domain expertise with a single objective: to build and back high-quality companies in complex transactions.\n\nThe structure is two-tier:\n\nOperating Partners are senior domain leaders who collaborate with us on fundraise, value-creation, strategy and interim mandates.\n\nOperating Associates are high-caliber operators who support due diligence, analytics, portfolio workstreams and focused operating sprints alongside Vault.\n\nBoth tracks deepen industry coverage, improve decision quality and accelerate execution.\n\nThe framework will build specific domain knowledge, open networks and compound results.\n\nVault will be talking with individuals of demonstrable track record, strong domain presence and alignment with our standards, ethics and values.\n\nWe are committed to the sustainable and global growth of Vault’s ecosystem to the benefit of all its members.",
+      "date": "2025-01-29T00:00:00.000Z",
+      "bgImage": "default_image.png"
+    },
+    {
+      "title": "Vault Increases its Exposure in Longbow Motorcars",
+      "slug": "vault-increases-its-exposure-in-longbow-motorcars",
+      "description": "Vault is proud to announce an additional allocation in Longbow Motorcar, a U.K-based startup set to debut its lightweight electric sports car in 2026.\n\nFounded by Daniel Davey (Tesla; Lucid; Polestar), Mark Tapscott (Tesla; Lucid; Hyundai; BYD) and Jenny Keisu (Xshore), Longbow combines world-class engineering with a capital-efficient, lean manufacturing model to bring high-performance electric sports cars to market.\n\nWe’re committed to helping Longbow accelerate to the road ahead.\n\nAbout Vault Private Equity\n\nVault’s investment arm targets minority or majority stakes in high-growth companies across technology, automotive innovation, FinTech, health-tech, food and energy security, and infrastructure. Our founders’ combined legal, financial and operational expertise ensures that every investment is backed by both capital and counsel.",
+      "date": "2025-01-04T00:00:00.000Z",
+      "bgImage": "vault-private-equity-backs-longbow-motorcar.webp"
+    }
+  ],
+  "blogs": [
+    {
+      "title": "How Swiss Family-Office Money Flows",
+      "slug": "how-swiss-family-office-money-flows",
+      "description": "A structural view of origins, booking, and global deployment\n\nSwitzerland remains a significant hub for international private wealth. Despite increasing competition from the United Kingdom, the United States, and Asian financial centres, the Swiss system continues to attract, administer and allocate large pools of cross-border capital. The picture that emerges is not about money being stored in Switzerland, but about money processed through Switzerland: governed, structured and deployed globally.\n\nOrigins\n\nDeloitte’s International Wealth Management Centre Ranking 2024 maps the global “source to destination” matrix for cross-border wealth. In this framework, Switzerland remains a primary booking centre for two regions in particular:\n\nEurope/Switzerland: approximately USD 1.17 trillion\n\nMiddle East & Africa/Switzerland: approximately USD 450 billion[1]\n\nTogether, these two client bases describe Switzerland’s core franchise: families and entrepreneurs based in nearby European markets and in Middle East/Africa hubs using Switzerland as the governance and booking layer for internationally diversified portfolios. The pattern is structural: proximity, long-standing advisory relationships, a deep bench of providers, and a legal environment designed to handle multi-jurisdiction complexity at scale.\n\nOther regions show different patterns. North American wealth is more diversified across the UK, US, and Switzerland, while Asia Pacific wealth flows predominantly to Hong Kong (USD 650 billion), with Switzerland playing a secondary role.\n\nThe Family Office Layer\n\nBeneath the banking system sits the institutionalising layer: single family offices (SFOs). These are often the entities that turn “wealth booked in Switzerland” into an investment programme with asset allocation, manager selection, co-investments and governance.\n\nA Reuters report on a Swiss Single Family Office Association study notes an estimate of 250-300 Swiss-based SFOs overseeing around CHF 600bn (USD 670bn)[9].\n\nThese SFOs play a critical role in transforming booked wealth into investment decisions. Their portfolios are markedly institutional, with a significant allocation to alternative assets, particularly private equity and private debt.\n\nThe study also provides one of the clearest available insights into geographic allocation among Swiss family offices:\n\nNorth America: ~ 33% of portfolio allocation\nSwitzerland: ~ 32%\n\nThis is the Swiss flow in one line: wealth is booked in Switzerland, governed through Swiss infrastructure, then allocated into global markets, often with a pronounced tilt toward North American depth and liquidity.\n\nHowever, despite its scale, Switzerland’s position is no longer unchallenged. Foreign assets under Swiss management declined from USD 2.624 trillion (2020) to USD 2.174 trillion (2023), reducing Switzerland’s offshore market share from 23.7% to 21.4%[10].\n\nThe competitive story is not ideological. It is operational: other centres offer strong providers, large capital markets and sometimes more favourable regulatory/tax positioning.\n\nBooking\n\nSwiss wealth management is often discussed as “assets in Switzerland”. A more precise description is: assets administered in Switzerland through custody, mandates, and reporting infrastructure.\n\nThe Swiss Bankers Association reports CHF 9,284bn in assets under management at banks in Switzerland (2024). Within that, cross-border assets under management for private clients were CHF 2,427bn.[2]\n\nA defining characteristic of Swiss wealth management is its custody-centric structure. According to the Swiss Bankers Association, approximately 86% of the assets managed in Switzerland are held as securities in custody accounts rather than cash deposits[3]. That is Switzerland’s core business model: not passive storage, but portfolio administration: custody, corporate actions, manager selection, reporting and risk management wrapped in a stable legal framework.\n\nBanking secrecy is no longer the defining attribute. The modern Swiss “edge” is execution competence: Switzerland as a place where sophisticated private capital can be governed cleanly and operated professionally.\n\nSwitzerland implemented the Automatic Exchange of Information (AEOI/CRS) with the legal basis entering into force on 1 January 2027, with data collection from 2017 and the first exchanges taking place in 2018[4]. This matters because it shifts the “Swiss advantage” away from opacity and towards regulated confidentiality plus operational competence.\n\nOnboarding and monitoring are similarly codified. FINMA states that, for banks and security firms, the obligation to verify the identity of the contracting party and identify the beneficial owner is governed by the Swiss banks’ due diligence agreement CDB 20, enacted by the Swiss Bankers Association and approved by FINMA[5]. In parallel, Switzerland’s financial intelligence function has become more visible. The Money Laundering Reporting Office Switzerland (MROS) received 15,141 suspicious activity reports in 2024, a 27.5% increase compared with 2023[6].\n\nEnforcement shows these are not abstract rules. FINMA found that HSBC Private Bank (Suisse) seriously breached anti-money laundering obligations in connection with politically exposed persons and imposed measures to restore compliance[7]. Regulatory pressure is not limited to large institutions: the Financial Institutions Act (FinIA), fully enforceable from 2022, expanded licensing and supervision to portfolio managers and trustees, raising the compliance baseline and cost of doing business across the wealth ecosystem[8].\n\nIn short, Switzerland edge is not that compliance is lighter. It is that compliance, custody and reporting are organized into a mature operating model, one can be efficient for well-documented clients, demanding – for everyone else.\n\nIn practice, the flow has three moving parts: (1) where the capital originates, (2) why it is booked and managed in Switzerland, and (3) where it is ultimately gets invested.\n\n[1] Deloitte, International Wealth Management Centre Ranking 2024, “Source and destination of international wealth (Q4 2023).”\n\n[2] Swiss Bankers Association, Banking Barometer 2025, total AUM (CHF 9,284bn), cross-border private-client assets (CHF 2,427bn), custody structure.\n\n[3] Swiss Bankers Association, Banking Barometer 2025, total AUM (CHF 9,284bn), cross-border private-client assets (CHF 2,427bn), custody structure.\n\n[4] https://www.estv.admin.ch/estv/en/home/international-fiscal-law/automatic-exchange-information-aeoi.html\n\n[5] https://www.swissbanking.ch/_Resources/Persistent/6/2/e/e/62eec3df0685e359c5a376dfca79dec8b908ea9c/SBA_Agreement_CDB_2020_EN.pdf\n\n[6] MROS (fedpol), Annual Report 2024\n\n[7] https://www.finma.ch/en/news/2024/06/20240618-mm-hsbc/\n\n[8] https://www.swissinfo.ch/eng/workplace/swiss-finance-shrinks-as-regulators-tighten-grip-on-prized-sector/90306756\n\n[9] https://www.reuters.com/business/single-family-offices-switzerland-worth-670-bln-study-shows-2024-06-04/\n\n[10] https://www.reuters.com/business/finance/swiss-attract-less-foreign-cash-rich-clients-credit-suisse-crash-weighs-survey-2024-10-23/",
+      "date": "2025-12-07T00:00:00.000Z",
+      "bgImage": "default_image.png"
+    },
+    {
+      "title": "Turning Social Reach into Real Financial Access",
+      "slug": "turning-social-reach-into-real-financial-access",
+      "description": "Remittances are a financial lifeline. In 2024, families in low- and middle-income countries were on track to receive about $685 billion from relatives working abroad – more than foreign investment and aid combined[1]. Most of this money goes to everyday essentials: rent, groceries, school fees, and healthcare. Yet sending just $200 still costs an average 6.49% worldwide[2] (with non-digital services consistently pricier than digital)[3]. Those fees are hardest for lower-income households, because remittances make up a larger share of their monthly budgets and, in many countries, of national income too. The quickest way to ease that burden is not inventing fancy new finance for the already-banked. It’s making the rails people already use, their phones and social apps, do more of the work.\n\nHow do today’s prices stack up across options?\n\nMoving money online is usually cheaper than paying at a counter. The World Bank’s tracking shows that sending $200 via digital services averages roughly 4.6-5.0%, while cash-based services sit closer to 6.9-7.3%. Apps that behave more like banks can be lower still on simple bank-to-bank routes: for example, Revolut typically applies the mid-market rate on weekdays within plan allowances, then adds a 0.5% “fair-usage” fee above monthly thresholds and a ~1% weekend markup for Standard users[4]; some international transfers can also incur a fixed fee of up to 5%, depending on corridor and method[5]. By contrast, Western Union’s over-the-counter cash pickups fall into the non-digital bucket that tends to cost more on average, though WU’s value is its reach when the recipient needs cash[6].\n\nIn short: bank-style apps often price below 5% on many account-to-account lanes and cash pickup rails are typically higher.\n\nHow big players fit together\n\nThink of two roles that complement each other. Western Union and MoneyGram run the densest cash-out grids on earth, hundreds of thousands of agent locations in 200+ countries, while rapidly adding digital send and wallet payouts[7]. Wise and Revolut specialize in low-fee bank-to-bank and wallet transfers at scale, great when both sides already have accounts or e-money.\n\nWhat regulators are doing and why it matters for fees\n\nPolicy is converging on three levers:\n\nPrice and speed parity for instant payments: Europe’s Instant Payments Regulation (EU) 2024/886 requires PSPs to make instant euro transfers broadly available, verify the payee’s name at no extra charge, and move toward fee parity with non-instant credit transfers, nudging providers to price real-time payments like regular ones.\n\nClearer FX and fee disclosure: The EU’s Cross-Border Payments Regulation (2019/518)[8] forces providers to show currency-conversion mark-ups and total charges up front, curbing hidden spreads that often drive remittance costs.\n\nSafer, more connected cross-border rails: The G20/FSB-CPMI Roadmap[9] measures progress on cost, speed, access, transparency and backs projects like BIS Project Nexus[10] to link national instant-payment systems (targeting first live connections by 2026). In parallel, the FATF updated Recommendation 16 (June 2025)[11] to extend “payment transparency” requirements across payment types, tightening originator/beneficiary data to fight fraud while endorsing a risk-based approach that avoids blanket de-risking of regulated remittance providers.\n\nTherefore, the regulatory push is more competition, more interoperability, and fewer hidden FX markups – pressure that typically lowers the end price for families.\n\nHowever, the above is helpful in the Western or upper developing countries where currency and bank access is widespread.\n\nWho still gets left out and why the channels matter\n\nBy 2024, 79% of adults worldwide had an account at a bank, similar institution, or with a mobile-money provider[12]. But big gaps remain: Sub-Saharan Africa sits at 58%, and the Middle East & North Africa at 53%[13]. Those are exactly the places where cheaper, app-based rails can move the needle fastest, because people may lack a bank branch, but they do have a phone.\n\nRoughly 5.64 billion social-media identities are active today (about 68% of the world)[14] meaning it’s easier to reach people in a chat than at a bank counter. At the same time, digital wallets keep scaling: mobile-money systems processed $1.68 trillion in 2024[15], with international remittances via mobile money among the fastest-growing use cases (up to $29 billion in 2023 vs. 2022)[16]. And because digital services typically cost less than cash-based options, steering remittances into wallets (when recipients can use them) directly lowers the fee burden on families.\n\nHow social and modern PSP rails turn chats into money movement\n\nYou don’t build a bank, you simply assemble rails. That means a wallet that can issue virtual IBANs (vIBANs) for clean reconciliation, virtual cards for instant issuance, and multiple cash-out options to bank accounts, mobile wallets, cards, or cash pickup[17]. Wrap that with KYC/AML, fraud controls, and messaging-native flows. The front door is social or messaging: onboarding and payment requests can start inside apps people already use: WhatsApp in India now has nationwide UPI access[18], and Telegram supports in-chat payments via approved providers[19], while settlement rides compliant bank/payment partners behind the scenes. It’s a distribution-first model: meet people where they are, then route funds over the cheapest reliable rail to where (and how) the recipient wants to receive.\n\nApps in-use\n\nIndia: The cap on WhatsApp’s UPI expansion was lifted in late 2024, opening access to 500M+ users (even if traction remains modest versus incumbents). Separately, UPI–PayNow live linkage lets people move money instantly between India and Singapore.\n\nBrazil: WhatsApp enabled business payments, signaling a path for P2M remittance use-cases (e.g., paying bills or merchants for relatives).\n\nSoutheast Asia: QRIS cross-border now works in Singapore, Malaysia, Thailand with expansion plans; PromptPay–PayNow has been live since 2021. The region is designing multi-country instant links under BIS Project Nexus by 2026.\n\nPhilippines: GCash lets recipients pull Western Union transfers directly into a mobile wallet—an example of bridging legacy senders and digital receive.\n\nHong Kong–SEA: WeChat Pay HK WeRemit routes funds to Southeast Asia corridors through an app many migrants already use.\n\nSocial media will definitely improve accessibility and coverage of digital wallets. There are few issues withholding social media’s full potential as a remittance platform. These are still high costs associated with the banking rails supporting digital wallets; and restrictions in some unbanked countries (where even digital wallets or any foreign currency in any form are not allowed).\n\nTwo things may tackle these challenges:\n\n(A) Cheaper plumbing: giving non-bank providers (which may include wealthy social media companies) controlled access to payment systems and linking instant-payment systems. In practice, better access arrangements and API harmonisation reduce liquidity locked in pre-funding and move value in minutes rather than days without every provider opening accounts everywhere and charging fees.\n\n(B) Token rails – used carefully: some firms now add a “dual rail”: they keep fiat-to-fiat routes for coverage, and switch to on-chain settlement (stablecoins) when it’s faster or cheaper (or is the only accessible route). New companies emerged in 2024 and 2025 which roll out a cross-border platform that dynamically routes each payment over fiat rails or blockchain rails (including stablecoins) “based on speed and cost,” while pursuing a Payment Institution authorization in the UK/EU, and a MiCA permission in the EU.\n\nConclusion\n\nRemittances remain a substantial element of the global money market. Digital banking has been a major breakthrough, making transfers instantaneous and cheaper, however, these services, are available only in closed loop of developed countries. Worldwide on average, remittances are still expensive, marginally more for those who need them the most.\n\nDigital wallets partially fixed this problem, but they have two key issues: they are not universal and still depend on multiple financial services providers to execute transactions. Also, their costs increase with the speed of transaction. As a result, disadvantaged remittance counterparties still lack access to digital wallets.\n\nSocial media companies have been keen to incorporate payment systems as they understand that they have much broader coverage than conventional digital wallets and even more than banks. They also have necessary funds to implement instant payments on scale. This is not progressing as the regulatory environment is not yet suitable. Both, personal data and banking rules require involvement of multiple intermediaries to execute cross boarder transaction. If those rules are adapted to modern digital payment demand, remittances stand a chance of getting cheaper and more inclusive.\n\nFor good measure, tokenized money transfers are able to shave some unnecessary cost as they do not generally require intermediaries. However, their potential will remain underutilized until stablecoins’ P2P nature is fully recognized by regulators.",
+      "date": "2025-08-21T00:00:00.000Z",
+      "bgImage": "default_image.png"
+    },
+    {
+      "title": "Courts and Legislators Nudge for a New Data Market",
+      "slug": "courts-and-legislators-nudge-for-a-new-data-market",
+      "description": "“Clean Data” Debate in Generative AI\n\nIn the last 30 days two landmark copyright decisions came out of the Northern District of California and, one week later, the European Parliament released a 175‑page study on generative‑AI training. Both say the same thing in different ways: right‑now there is no recognised market for licensing books, images or music as AI‑training fodder. U.S. judges treat that vacuum as proof of “no market harm,” while EU policy‑makers call it a market failure that must be fixed.\n\nJudge Chhabria (Kadrey v. Meta): “Llama is not capable of generating enough text from the plaintiffs’ books to matter, and the plaintiffs are not entitled to the market for licensing their works as AI training data.” [1]\n\nJudge Alsup (Bartz v. Anthropic): “A market could develop … Even so, such a market … is not one the Copyright Act entitles Authors to exploit.” [2]\n\nEU Parliament study: Current EU law “leaves creators without any enforceable mechanism to authorise, deny, or license the use of their works for AI training under negotiated terms.” [3]\n\nJune 2025 Northern District of California Decisions\n\nBartz v. Anthropic (Alsup J., 23 June 2025)\n\nThree authors said Anthropic scanned millions of print and pirate‑site books and used them to train Claude. Alsup found that the training copies were fair use because the model transforms whole books into “statistical abstractions” that never substitute for the originals. On market harm (Factor 4) he accepted, for argument’s sake, that a licensing market could emerge, but held it is “not one the Copyright Act entitles Authors to exploit.” The only infringement he left standing is Anthropic’s internal “pirated library,” which will go to trial on damages. In short: training is safe (for now), while hoarding pirated PDFs not. [4]\n\nKadrey v. Meta (Chhabria J., 25 June 2025)\n\nThirteen novelists sued Meta for scraping “shadow libraries” to build Llama. The court said Llama’s weights are “highly transformative”: they store patterns, not expressive chunks. Meta’s expert ran “adversarial prompting” experiments and could not coax any Llama model to emit more than 50 consecutive tokens (≈ 50 words) from any plaintiff’s book. The plaintiffs’ own expert agreed that Llama could not reproduce “any significant percentage” of the texts.[5]\n\nMeta also submitted testimony that none of the 13 authors has ever licensed – or even been asked to license – a book for AI-training purposes. If no market exists, Meta’s unlicensed use cannot depress it and there is nothing for the copyright holder to lose.\n\nOn Factor 4 Chhabria called the licensing‑market theory a “clear loser,” writing that the authors “are not entitled to the market for licensing their works as AI training data.” He granted Meta summary judgment on training copies but flagged that better evidence of market dilution could swing future cases.\n\nBoth judges imposed an empirical burden on plaintiffs: show a functioning or nascent licensing market. Until such a market exists – with prices, contracts, measurable revenue, AI models enjoy a sizeable fair‑use advantage.\n\nEU’s Generative AI and Copyright: Training, Creation, Regulation\n\nThe Parliament’s Justice Committee study, published on 30 June 2025, suggested that there should be some kind of remuneration for authors who’s works are used for AI training. However, the Committee, just like the US Courts recognized that any protection of such economic rights cannot be enforced as authors have no practical way to license their work for AI training.\n\nIn both cases – US and EU – it comes down to whether the licensing market for authors data vis a vis AI training models exists or not. The US Courts will wait for more evidence from future plaintiffs. As for EU, the Committee proposed pro-active steps to establish such market and build licensing channel at a legislation level.\n\nIf Europe builds a paid licensing channel, U.S. plaintiffs could soon point to that very market to show cognizable harm, erasing the defense advantage that Meta and Anthropic just enjoyed.\n\nWhat Happens when the “Licensing Void” Fills\n\nModels that can prove “clean data” will cost more\n\nAdobe’s Firefly image tool promotes itself as “commercially safe” because it was trained only on Adobe Stock, public‑domain and openly licensed pictures.[6] On the supply side, Photobucket is asking 5 cents to $1 per photo to license its 13 billion‑image archive which is content that used to sit online for free.[7]\n\nPublic‑domain or Creative Commons Attribution licence (CC BY) material remains free, but any option that comes with a clear paper trail will carry a premium. After all, it protects both users and developers from potential lawsuits.\n\nA two‑tier data economy will settle in\n\nTier I: premium, traceable datasets such as newspapers, professional photo libraries, industry research all licensed through collective deals or pay per asset APIs.\n\nReddit has already priced its user posts at ≈ $60 million a year for Google. [8]\n\nTier II: public‑domain text, Wikipedia, government data that is still free and legal in the US under fair‑use rules. US likely keeps fair-use baseline, but market will converge on global “reference rates” for high value sectors like music, images, specialized text.\n\nOver time, prices in the premium lane will settle into “reference rates” (think “$x per photo” or “$y per song”) for high‑value sectors such as images, music and specialist text.\n\nData marketplaces will feel like app stores\n\nCloud vendors already host one‑click catalogues of “ready‑to‑license” filesets. Amazon Web Services Data Exchange lists 3,000‑plus commercial and 1,000‑plus free datasets covering everything from news wires to medical scans.[9]\n\nAs deals scale, AI model builders will bolt on leakage‑testing dashboards and provenance logs to reassure investors and to comply with the EU AI Act’s rule saying big models must publish a training‑data summary.[10]\n\nPractical take-aways for stakeholders\n\nData is becoming a tradeable commodity. Until recently, tech companies scraped whatever text or images they could find on the open web for free. Now, they are being pushed to pay for clean, permission-based datasets.\n\nEU is signaling that silence will no longer equal consent. Successful AI products in the next decade will be those built on traceable, fairly acquired data streams.\n\nThe era of free-for-all scraping is giving way to a regulated data-supply chain where proof of origin and proof of non-harm will decide who can train, and at what price.\n\nSpecialized data brokers are springing up. Think of them as “Spotify” for training data, platforms where you can subscribe to texts, images, or medical scans. This will make buying data easier and give creator a single place to license their work. But consequently, this will raise prices for high-quality collection of data for end-users.\n\nThe AI training‑dataset market, valued at USD 2.6 billion in 2024, is projected to reach USD 8.6 billion by 2030, expanding at a CAGR of 21.9 %.[11]\n\nEvery day AI tools like search assistants, email co‑pilots, and simple image generators will likely remain low‑cost or free. But the “niche” models those offering medical advice, legal research, or high‑end graphics will come with a higher price tag, and they’ll be upfront about why: “built on licensed data, with $50K indemnification.” You’ll also start seeing little provenance badges everywhere, so you’ll always know which outputs are safe to reuse in your own projects.\n\nThe June 2025 US decisions didn’t green‑light endless scraping, they just pointed out that authors couldn’t show any market harm yet, since no market exists. Then, the EU Parliament study proposed creating that market and putting a price on data.\n\nEven if no court or legislative backing is fully achieved, the magnitude of AI boom and its dependency on quality data creates so much upside for authors that we may see the emergence of siloed platforms which will hold the keys to the quality data. They will be a gatekeeper to keep AI agents or their APIs away from such data unless subscription is paid. If this happens, the quality data may gradually reduce in public domain and move into pockets of pre-licensed platforms.",
+      "date": "2025-07-19T00:00:00.000Z",
+      "bgImage": "default_image.png"
+    },
+    {
+      "title": "Tokenization in 2025: Reality Check",
+      "slug": "tokenization-in-2025-reality-check",
+      "description": "Market: From Pilot Scale to Institutional Surge\n\nReal-world asset (RWA) tokenization has moved from pilot to serious scale in just three years. In 2022, less than $5 billion of RWAs had been recorded on-chain; in 2025, it’s over $24 billion—a nearly fivefold expansion, easily outpacing every other digital-asset category. More than 200,000 wallets now hold RWA tokens, and over 190 issuers are live—ranging from global banks to regulated investment managers. What was once a “maybe” is now a “how big?”: Boston Consulting Group projects $16 trillion of tokenized assets by 2030 (≈10% of projected global GDP). Standard Chartered sees a $30 trillion market by 2034.\n\nWhat’s driving this? It’s big institutions, not crypto-native startups. BlackRock’s BUIDL Fund nears $2 billion in assets. J.P. Morgan’s Kinexys platform has processed $1.5 trillion of notional repo transactions. Franklin Templeton’s on-chain money-market fund now enables peer-to-peer transfers on both Ethereum and Stellar.\n\nWhy Now – And for Whom?\n\n- The largest, most active RWAs are: BlackRock, Franklin Templeton, UBS, J.P. Morgan, Citi, MAS and their consortia. Not fintech upstarts, but household names.\n- New “pipes” facilitate large-scale tokenization, mainly for bank treasuries, funds, and interbank liquidity—not retail art or collectibles.\n\nPrevailing Myths—And What Actually Happens\n\nMyth 1: Tokenization lets anyone fractionalize anything, instantly.\nReality: All relevant securities, AML, and investor-protection laws still apply (EU MiCA/MiFID, US SEC rules, Swiss DLT Act, etc.). Prospectuses, KYC, transfer restrictions—same as paper.\n\nMyth 2: Putting assets on-chain magically creates liquidity.\nReality: Even on-chain, tokens need regulated, well-supplied venues (like Securitize Markets or JPM Onyx). Absent critical mass, trading is shallow and spreads are wide.\n\nMyth 3: Tokenization allows regulatory bypass.\nReality: Regulators are converging and becoming stricter, not looser. Supervision is the norm; compliance workflows are increasingly coded into the tokens themselves.\n\nToday, for most mid-size issuers, classic paper notes still offer greater capital access. Tokenization’s business case must depend on real cost savings, capital efficiency, or new functions—not just digital “dematerialization.”\n\nLeading Adopters and Real Bank-Level Benefits\n\n| Lead Adopter    | Tokenised Product                        | Claimed Benefit                                     | Source                |\n| --------------- | ---------------------------------------- | --------------------------------------------------- | --------------------- |\n| BlackRock       | BUIDL on Ethereum                        | Intraday liquidity, global wallet distribution      | Fund flow data        |\n| Franklin Temp.  | OnChain US Govt MMF (BENJI)              | Processing cost cut from $1 to 0.003¢ (per transfer)| RWA Summit            |\n| UBS             | uMINT USD money-market token             | 24/7 smart-contract subscriptions/redemptions       | Press releases        |\n| J.P. Morgan     | Kinexys (token repo & dep. receipts)     | Same-day collateral movement, lower overdrafts      | Platform metrics      |\n| MAS Project Grd | Tokenised MMF with Citi, DBS, Fidelity   | Cross-chain DvP, automated compliance               | Regulator PRs         |\n\nCommon Thread: Tokenization is being used for large, highly-liquid products (cash, repo, money market)—not illiquid assets. Why? Because:\n\n1. Margins are thin—a few bps saved matter.\n2. High transaction volumes—instant settlement can eliminate overdrafts and enable 24/7 operation.\n3. Products are standardized—T-bills, repos, and short-term CP don’t need complex structuring.\n4. Regulators are comfortable—these assets are well-understood and pose fewer surprises.\n\nThree Big Bank-Level Benefits\n\nA. Operational cost & error-reduction: Franklin Templeton’s blockchain system cut transfer-processing costs by 60%+ vs legacy admin labs. J.P. Morgan’s Project EPIC estimates 35–65% savings on reconciliation and corporate actions for tokenized instruments.\nB. Capital efficiency: “Atomic settlement” (moving from T+1 to T+0) unlocks intraday liquidity, reducing counterparty/funding risk. JPM’s Kinexys enables multiple repo cycles daily instead of one, lowering cash drag.\nC. Programmability & transparency: Smart contracts can hard-code transfer restrictions, coupon payments, NAV, audits; on-chain registers give investors and regulators up-to-date cap tables—no registrar delays.\n\nTokenised vs. Classical Securitisation—What’s Different?\n\n| Feature              | Tokenised Money-Market     | Securitised Note       |\n|--------------------- |---------------------------|------------------------|\n| Trade/Settlement     | Atomic on DLT (seconds)   | T+1 via CSD, CLS, etc. |\n| Servicing Cost       | 35–65% less (on-chain)    | High (agent/registrar) |\n| Mkt. Access          | 24/7, still shallow        | Very deep, fixed hours |\n| Compliance           | Coded, auditable trail    | Manual, periodic audit |\n\nInterpretation: For high-volume, vanilla products, tokenization is already cheaper and faster. For complex, long-dated/structured deals, legacy legal work and distribution remain dominant.\n\nMacro Picture: Top-Down, Institutional, Not Retail\n\nThe growth is top-down—giant banks and fund platforms seeking efficiency, not retail buyers wanting exotic fractions. Most new volume is: (a) money-market/repo tokens between large institutions; (b) token fund shares for professional investors. Retail tokenization projects (fractional art, real-estate NFTs) remain marginal until compliant exchanges grow and custodians adapt. \n\nRegulation is not rolling back—tokens must comply with securities law everywhere; automation of compliance is a feature, not a loophole.\n\nSummary: Tokenization is real infrastructure for institutional-grade cash and money-market, not a “shortcut to easy capital.” Its benefits are only compelling where (a) milliseconds or basis points matter, or (b) cost savings outweigh new digital frictions.\n\nMomentum is clearly institutional and top-down—driven by the very largest finance players optimizing their pipes, not upstarts seeking regulatory arbitrage. Eventually, deeper venues and widespread tech will bring these benefits to smaller issuers—but for now, it’s a game of scale.",
+      "date": "2025-06-28T00:00:00.000Z",
+      "bgImage": "default_image.png"
+    },
+    {
+      "title": "What’s Going on with Nuclear Micro Reactors?",
+      "slug": "whats-going-on-with-nuclear-micro-reactors",
+      "description": "As our power consumption takes off (predominantly thanks to AI), one big problem arises:\n\n→ Where will all the power come from?\n\nThe power surge ahead\n\nGlobal data center electricity use is projected to double by 2030, reaching the same level as Japan’s entire grid.\n\nAI’s share of that demand is set to quadruple. Goldman Sachs says the rise could hit +165% in just a few years. This kind of growth is happening faster than most energy systems can accommodate.\n\nCan renewables catch up?\n\nYes, solar and wind are growing. But not fast enough.\n\nEven with record investments, renewables are already committed to powering transport, heating, and industry – not just AI. Most clean energy sources don’t run 24/7 – and AI needs constant, reliable power, not just when the sun shines or wind blows.\n\nAI demand is rising much faster than clean energy supply. That leaves two options: ‘go dirty or go nuclear’.\n\nNuclear Micro Reactors\n\nNew generation micro reactors and small modular reactors (SMRs) are:\n• Small and factory-built\n• Capable of running 24/7 for years, without refuelling\n• Clean, with near-zero carbon emissions\n• Designed to be installed right next to data centers, even in remote areas or underground\n\nThis is why they’re getting attention: from governments, tech giants, and investors.\n\nRecent SMR Initiatives\n\nRolls-Royce SMRs (UK)\nSelected for national deployment; first reactors planned by 2032. Government committed £2.5 billion.\n\nWestinghouse eVinci (US)\nTiny, portable 5 MWe reactor—approved for testing. 8-year fuel cycle, no on-site refuelling.\n\nLast Energy PWR-20 (Texas)\n30 reactors being built to power data centers. First large-scale micro reactor deployment in the US.\n\nWhy it is a fit for AI\n\nModern AI data centers need:\n\n• High, steady power\n• Ability to expand in remote areas\n• Energy control and independence\n• Low emissions to meet ESG targets\n\nMicro reactors check all these boxes. They’re small, clean, and can go where other power sources can’t.\n\nWho’s investing?\n\nAmazon is buying nuclear power for its data centers through a long-term deal with Talen Energy- and backing SMR company X-energy.\n\nGoogle is securing nuclear power for its data centers through a first-of-its-kind agreement with Kairos Power — committing to buy up to 500 MW from a U.S. fleet of SMRs by 2035.\n\nGovernments in the US, UK, and EU have committed billions to make micro-nuclear a reality.\n\nAlthough it sounds promising, two main challenges are – regulation & public perception and supply chain.\n\nUK is leading the way in restarting its nuclear capacity and in fixing its supply chain challenges. France follows closely as it has maintained its commitment to nuclear power. The NUWARD project, led by EDF (Electricity of France), aims for deployment of SMRs by 2030. However, it seems that the UK is slightly ahead in engineering capacity and will probably be the first to roll out SMRs at a larger scale.\n\nSwitzerland plans to lift the ban, opening the door to SMRs in the 2030s, however regulatory discussions at an early stage and the outcome will probably lag behind UK and France.\n\nGermany’s nuclear engineering is strong in Europe, however Germany maintains a firm anti-nuclear stance, having completed its nuclear phase-out in 2023, with no political or legal support for SMR deployment. If there is no rollback of regulation in Germany, its engineering capacity is likely to migrate to France, UK or U.S.\n\nIn terms of supply chain, the key challenge is fuel. SMRs mostly operate on HALEU fuel (high-assay low-enriched uranium), which is in short supply and has limited producers globally. De-globalization made access to HALEU worse.",
+      "date": "2025-06-16T00:00:00.000Z",
+      "bgImage": "default_image.png"
+    },
+    {
+      "title": "Investor Protection: Non-Legal Way",
+      "slug": "investor-protection-non-legal-way",
+      "description": "Market is suddenly getting large\n\nOver the past three years, real-world assets (RWAs) recorded on public and permissioned blockchains have expanded from a pilot-sized US $5 billion in 2022 to roughly US $24 billion today—an almost five-fold rise that has outpaced every other digital-asset segment. Daily wallets holding RWA tokens now exceed 200,000, and more than 190 distinct issuers are active, ranging from global banks to regulated fund complexes. Analysts no longer ask if tokenization will matter but how large it can become: Boston Consulting Group’s mid-range scenario foresees US $16 trillion of tokenized assets by 2030, roughly 10% of projected global GDP, while Standard Chartered’s longer-dated forecast suggests as much as US $30 trillion by 2034.\n\nThe drivers are unmistakably institutional. BlackRock’s USD Institutional Digital Liquidity Fund (BUIDL) has climbed toward US $2 billion in assets; J.P. Morgan’s Kinexys platform has processed more than US $1.5 trillion in notional repo volume since launch; and Franklin Templeton’s on-chain money-market fund now supports peer-to-peer transfers on Ethereum and Stellar.\n\nSize and trajectory: the on-chain “real-world asset” (RWA) market has ballooned from roughly $5 billion in 2022 to $24 billion today – a 4-fold increase in three years.\n\nLong-range forecasts: Boston Consulting Group projects as much as $16 trillion of assets could be tokenised by 2030 (≈10% of global GDP).\n\nWho is minting? The most active issuers are not DeFi start-ups; they are household financial brands: BlackRock, Franklin Templeton, UBS Asset Management, J.P. Morgan, Citi and the MAS-backed Project Guardian consortium.\n\nPrevailing assumptions vs. regulatory and market constraints\n\nWidely-held assumption #1:\n\nTokenization lets anyone mint a fractional claim on anything.\n\nWhat the current framework actually implies:\n\nSecurities and consumer-protection laws apply in full. EU MiCA/MiFID, U.S. Securities Act tests and Swiss FINMA’s DLT Act treat most security tokens exactly like paper-based securities. Issuers must still publish prospectuses, perform KYC/AML and respect transfer restrictions.\n\nWidely-held assumption #2:\n\nPutting an asset on-chain magically solves the liquidity problem.\n\nWhat the current framework actually implies:\n\nA token still needs distribution and market-making. Listing demands a regulated digital exchange (e.g., Securitize Markets) or a permissioned venue (e.g., JPM Onyx). Absent market depth, bid-ask spreads remain wide.\n\nWidely-held assumption #3:\n\nIf I tokenise, liquidity is automatic/Tokenization is a back-door way to avoid supervision.\n\nWhat the current framework actually implies:\n\nGlobal regulators are increasingly proactive: U.S. enforcement actions against unregistered token sales and EU sandbox programmes demonstrate that oversight is converging, not loosening.\n\nFor most mid-size issuers, conventional certificates and notes still reach deeper capital pools at lower distribution risk. Tokenization must therefore stand on hard economic merits—cost, capital efficiency, or new functionality—not on the mere promise of digital “dematerialisation.”\n\nWho is driving adoption and what benefits do they name?\n\nThe common thread: large, liquid cash-equivalent instruments that already price to $1 per share or have overnight duration.\n\nThe three bank-level benefits they cite most often:\n\nOperational cost and error reduction\n- Franklin Templeton’s blockchain back-end cut the cost of processing 50,000 shareholder transactions by over 60% versus its legacy fund-admin stack.\n- J.P. Morgan’s Project EPIC estimates 35–65% savings on reconciliation, corporate-action processing and transfer-agency fees for tokenised instruments.\n\nCapital efficiency through near-instant settlement\n- Moving from T+1 to so-called atomic (T+0) settlement frees intraday liquidity and slashes counterparty risk – precisely what money-market desks optimise for.\n- JPM’s Kinexys repo platform lets treasurers recycle collateral several times a day instead of once, lowering funding costs and “cash drag.”\n\nProgrammability & transparency\n- Smart contracts can enforce transfer-restrictions, coupon payments, NAV calculations and even regulatory reporting in code, reducing manual errors and audit latency.\n- On-chain registers give both regulators and investors an up-to-date cap table without waiting for registrar uploads.\n\nWhy money-market instruments are moving first\n\nA. Margin-thin products: a basis-point of cost saved is material to a fund yielding 4% or less.\nB. High redemption volume: same-day settlement eliminates daylight overdrafts and allows 24/7 dealing desks.\nC. Standardised assets: treasury bills, repo and short-dated CP are already homogeneous; tokenising them does not require complex SPV or tranche structuring.\nD. Regulatory comfort: money-market instruments are well understood by prudential regulators; tokenising them changes format, not underlying credit risk.\n\nIt is therefore unsurprising that virtually every live institutional tokenisation pilot in 2024–25 is a money-market or cash-management instrument rather than real-estate or art.\n\nTokenisation vs securitisation once everyone is on-chain\n\nTop-down, not bottom-up\n\nTokenisation is spreading because balance-sheet giants find it improves treasury plumbing, not because retail investors suddenly crave fractionalised exotic assets. The headline growth figures obscure that almost all new volume is:\n- Treasury or repo tokens issued by banks to other banks or funds; or\n- Tokenised money-market fund shares sold to professional investors.\n\nRetail-focused experiments (fractional art, real-estate NFTs) remain marginal. Until regulated exchanges have deeper order-books and more custodians support digital securities, most corporates will still prefer conventional certificates or notes for broad distribution.\n\nTop-down transformation: adoption is led by giants who move large amounts of money and tokenization gives benefits on scale.\n\nRegulation is converging, not retreating: issuers must treat tokens as securities in every major jurisdiction; compliance automation is a feature, not a loophole.\n\nToday, tokenization seems beneficial only if (i) real-time settlement materially benefits the issuer (either by reduced cost or increased liquidity), or (ii) operational savings outweigh distribution frictions.\n\nTokenization is no shortcut to easy capital. It is, however, becoming indispensable infrastructure for money-market, where milliseconds matter and basis-points are profit. The momentum is unmistakably institutional and top-down—driven by the largest banks and asset managers optimising their own liquidity—not by small issuers looking for regulatory arbitrage.\n\nEventually the shift will occur, and the benefits will pour down to smaller issuers.",
+      "date": "2025-06-09T00:00:00.000Z",
+      "bgImage": "default_image.png"
+    },
+    {
+      "title": "How Bad Companies Fail Great Products",
+      "slug": "how-bad-companies-fail-great-products",
+      "description": "It is easy to believe that a great product is all it takes to succeed. Founders often pour their energy into perfecting their offering—be it a sleek app, a futuristic gadget, or a novel tech service. But history tells a different story: even the most innovative products can fail when they lack the support of strong corporate infrastructure.\n\nConsider the infamous case of WeWork—a brand that redefined coworking and captured global attention with its sleek, community-driven office spaces. The product resonated with freelancers, startups, and enterprise clients alike, fueling explosive growth and a peak valuation of $47 billion. But beneath the surface, the company suffered from a lack of financial discipline, poor governance, and a founder-centric culture that prioritized rapid expansion over sustainable strategy.\n\nNo company is “too big to fail” if infected by vicious “bad corporate.”\n\nWhen WeWork attempted to go public, its flawed business model and erratic leadership were exposed, leading to a failed IPO and a dramatic collapse in valuation.\n\nThen there’s BlackBerry, once a dominant force in mobile phones. Even with a superior product for business users, its inability to pivot quickly, paired with a slow-moving executive culture, led to a market share drop from 20% in 2009 to less than 1% within a few years.\n\nA great company means effective governance systems, legal compliance, financial planning, and strong investor relations. These functions propel products and good founders. They also support both when challenges arise.\n\nFor these reasons, investors usually assess the entire company. They look for a competent management team, robust legal and financial systems, and clear communication strategies. Without these elements, a company may struggle to gain investor confidence, regardless of how innovative its product may be.\n\nAt Vault, we specialize in helping founders and investors build the necessary infrastructure to turn a great product into a great company. From establishing solid finance and legal teams to managing investor relationships and leveraging our extensive network, we help ensure that innovative products are supported by equally strong companies, built to last.",
+      "date": "2025-05-31T00:00:00.000Z",
+      "bgImage": "default_image.png"
+    },
+    {
+      "title": "Why Secondary Buyouts Make Sense for Growth Companies",
+      "slug": "why-secondary-buyouts-make-sense-for-growth-companies",
+      "description": "For many growth-stage companies, expanding to the next level often raises a crucial question: how can we access more capital without giving up too much ownership or control? Secondary buyouts offer a smart, often overlooked answer. Rather than raising new primary financing that dilutes current shareholders, a secondary buyout lets existing owners—founders, early employees, or angel investors—sell part of their stake to a new financial sponsor. There’s no need to issue additional shares or change the company’s capital structure; it’s a targeted approach that welcomes a long-term partner and delivers liquidity without sacrificing control.\n\nSome of the world’s fastest-growing companies have used secondaries at pivotal moments. Facebook, prior to its Series C, allowed early employees and investors to participate in a $500 million secondary transaction, giving them an early chance to cash in and stay motivated. Airbnb’s $200m+ secondary sale during its Series C/D rounds supported employee retention and added major new investors before its IPO. In the UK, Gymshark made its first institutional deal in 2020 entirely through a ~$265 million secondary buyout, enabling founders to crystallize value while keeping the company private.\n\nBut secondary buyouts aren’t just about liquidity—they strengthen governance, attract experienced partners, and boost the company’s credibility in the market. The result is capital, continuity, and a clean cap table—all at once.\n\nSecondaries show confidence in the business’s long-term outlook and growth runway. Perhaps most importantly, they let founders and early teams continue building, with renewed motivation and a new institutional ally.\n\nAt Vault, we view secondary buyouts as strategic milestones rather than cash-out moments. We support companies in weighing whether a secondary fits their goals, preparing for stakeholder conversations, and structuring transactions that drive future growth. Done right, a secondary buyout isn’t just a liquidity event—it’s a catalyst for your next chapter.",
+      "date": "2025-05-23T00:00:00.000Z",
+      "bgImage": "default_image.png"
+    },
+    {
+      "title": "Planning your Exit? Timing is Good, Preparation is Better",
+      "slug": "planning-your-exit-timing-is-good-preparation-is-better",
+      "description": "For many business owners, exiting a business feels like a distant milestone—something to think about “someday.” At Vault, we believe that true exit preparation should begin much earlier: ideally from the moment you bring in your first meaningful investment, long before you’re ready to step back or sell.\n\nA well-executed exit isn’t only about maximizing valuation. It’s about protecting your legacy, looking after key stakeholders, and ensuring a smooth, controlled handover. Whether you’re eyeing a sale, planning a succession, or just want to keep all your options open, early preparation gives you control and flexibility—and helps you avoid unpleasant surprises.\n\nEffective exit planning means more than tidying up your financials. It’s about strengthening operations, establishing a board that questions and helps you grow, and building self-correcting habits into your business. At Vault, we guide you to take a proactive approach: aligning personal, investor, and business goals, increasing enterprise value, and ensuring your business can thrive even when you step back from daily operations. The outcome isn’t just “sale-ready”—it’s a business that’s stronger, leaner, and more resilient no matter what comes next.\n\nOur team supports founders and investors at every stage of the exit journey—from readiness assessments and valuation benchmarking, to vetting buyers and supporting negotiations. Whether your exit is five months or five years away, the sooner you start preparing, the more value and options you’ll unlock.\n\nWhen it comes to selling or transitioning your business, timing may open the window—but preparation is what lets you set the terms.\n\nExit on your terms—partner with Vault to protect your legacy, maximize your company’s full value, and take charge of what’s next.",
+      "date": "2025-05-16T00:00:00.000Z",
+      "bgImage": "default_image.png"
+    },
+    {
+      "title": "What Liquidity Planning Really Means",
+      "slug": "what-liquidity-planning-really-means",
+      "description": "For many growing companies, reaching the next stage of expansion often brings a critical question to the table: How do we fuel growth without giving up too much control? This is where secondary buyouts step in as a smart, underutilized lever. Unlike traditional capital raises, secondary buyouts allow existing shareholders—often founders or early investors—to sell a portion of their equity to a new financial sponsor. No need to issue additional shares. No need to dilute ownership. It’s a clean, strategic move that brings in fresh capital and a partner aligned with long-term growth.\n\nWe’ve seen some of the world’s most recognizable brands turn to secondary buyouts as a smart way to reward early believers while setting the stage for future growth. Facebook, for example, allowed early employees and seed investors to sell a portion of their equity in a landmark $500 million secondary transaction between 2006 and 2007, pre its Series C. Years later, Airbnb followed a similar path during its Series C/D in 2014–2015, enabling early employees and angels to participate in a $200m+ secondary sale, which helped the company attract and retain top talent while remaining private ahead of its IPO. More recently, UK-based fitness brand Gymshark executed its first institutional deal in 2020 entirely through a ~$265 million secondary transaction.\n\nSecondary buyouts aren’t just about cashing out—they’re about professionalizing governance, bringing in a new partner who understands the next leg of the journey, and boosting your company’s reputation in the capital markets. In short, they check multiple boxes: capital, credibility, and continuity.\n\nSecondaries signal that the business has staying power and a long runway ahead. And perhaps best of all? The cap table stays clean.\n\nAt Vault, we see secondary buyouts as more than just liquidity events—they are inflection points. We help companies assess whether a secondary is the right fit, manage investor conversations, and structure transactions that serve both strategic and financial goals. When done right, a secondary buyout isn’t just a liquidity event — it’s a growth catalyst.",
+      "date": "2025-05-08T00:00:00.000Z",
+      "bgImage": "default_image.png"
     }
   ],
   "events": [
     {
       "title": "Data Centre Leadership Dinner",
       "slug": "data-centre-leadership-dinner",
-      "date": "2023-11-01T18:00:00.000Z",
-      "description": "Annual leadership dinner for data centre executives",
-      "category": "",
-      "link": "/event",
-      "articleLabel": "READ ARTICLE"
+      "date": "2025-11-11T00:00:00.000Z",
+      "description": "Exclusive networking and insights event for industry leaders in the data centre sector, November 2025.",
+      "bgImage": "data-centre-leadership-dinner.jpg",
+      "detailsImage": [
+        {
+          "header": "On November 11, 2025,",
+          "description": "On the evening of 11th November in Mayfair, London, in partnership with Spectrum, Vault Partners curated a group of board-level leaders from across the European data centre supply chain for a peer group discussion over dinner and a unique networking opportunity. The evening focused on two core topics shaping the future of digital infrastructure.",
+          "image": "data-centre-leadership-dinner.jpg"
+        },
+        {
+          "header": "Powering the data centre",
+          "description": "The energy consumption of data centres is substantial, as power and cooling requirements are significant.\n\nWe explored the primary implications for the industry, including:\n\n- Energy supply and cost as a factor in new data centre locations\n- The role of batteries, and of alternative sources of energy (which can’t feed into the grid)\n- The pros and cons of nuclear power as a solution\n- Energy regulation\n- The ageing electricity grid network\n- The perception of data centres by politicians and the public, and the need for the industry to collectively present and justify its case",
+          "image": "data-centre-leadership-dinner.jpg"
+        },
+        {
+          "header": "Deployment of capital",
+          "description": "The data centre sector is attracting enormous investment. This segment of the discussion focused on:\n\n- The difference between investing in infrastructure (typically offering a 7–8-year payback period) and investing in neoclouds and GPUs (where investors may see a 2–3-year return)\n- Expectations around the expansion of the total addressable market for AI\n- The key question of time to adoption: How quickly will enterprises begin to use AI at scale?\n- Identifying the use cases: Where is the revenue coming from to sustain these significant CAPEX investments?\n- The pattern of capital circulation, with the industry supporting itself through funding\n- Data centre tenant renewal risk\n- Credit risk\n- Geopolitical risk\n\nThis event was co-hosted by Jeremy Sewell, Co-founder of Vault Partners, and Daniel Osmer, Managing Partner at Spectrum Executive Search.",
+          "image": "data-centre-leadership-dinner.jpg"
+        }
+      ],
+      "participants": [
+        "1-300x169.jpg",
+        "2-300x100.jpg",
+        "3-300x68.webp",
+        "4-300x118.png",
+        "5-300x150.png",
+        "6-300x107.png",
+        "7.svg",
+        "8-300x87.jpg",
+        "9-300x168.png",
+        "10.svg",
+        "11-300x157.jpg",
+        "12-300x197.jpg",
+        "13-1-300x158.jpg",
+        "14-300x98.png",
+        "15-300x51.jpeg",
+        "16.svg"
+      ],
+      "partners": [
+        "spectrum-logo-2018-1.svg"
+      ]
     },
     {
       "title": "Panel Discussion: HPC Investment Landscape",
       "slug": "panel-discussion-hpc-investment-landscape",
-      "date": "2023-07-10T14:00:00.000Z",
-      "description": "Discussion on HPC investment opportunities",
-      "category": "",
-      "link": "/event",
-      "articleLabel": ""
+      "date": "2025-07-10T00:00:00.000Z",
+      "description": "A focused panel exploring investment trends in High Performance Computing (HPC), July 2025.",
+      "bgImage": "panel-discussion-hpc-investment-landscape.jpg",
+      "detailsImage": [
+        {
+          "header": "On July 10, 2025,",
+          "description": "We were pleased to co-host a private panel discussion on the landscape of High-Performance Computing (HPC) investments, in collaboration with Eversheds Sutherland and Polar.\n\nDavid Smith, Partner at Eversheds Sutherland, opened the session with introductory remarks.\n\nModerated by Rob Donell, the panel featured perspectives from our Co-founder Jeremy Sewell, Andy Hayes, CEO of Polar DC, and Richard Ludwig, ACA, Director of Investment Banking at Alantra.",
+          "image": "edi1-rinah4eu4fk1l0vv2gye9bbyybg08c427j6son0om8.jpg"
+        },
+        {
+          "header": "The panel held a lively Q&A discussion with",
+          "description": "the audience representing both industry players and financiers. The questions covered the demand and supply of HPC, competition and spillover between the European and US markets, the state of financing and capital in the space, and operational/deployment aspects.\n\nA huge thank you to our partners and all who joined us for the session.",
+          "image": "edi2-rinalibq0lk7riihgd7pw7her1to5hiyt8sdb4ijkw.png"
+        }
+      ],
+      "participants": [
+        "9bf669b013b854a6d8b2e5d00-1-300x68.png",
+        "Fusion-logo-464x105-1-300x68.png",
+        "GreenScale_Primary_Logo_Positive_WEB-300x48.webp",
+        "HSBC-logo-300x81.png",
+        "Microsoft-logo-300x78.webp",
+        "Nomura_Bank-300x100.png",
+        "Platform-Markets-Group-Logo-300x157.jpg",
+        "Red.png",
+        "TD-Securities-300x62.png",
+        "Temple-150x150.jpeg",
+        "yuso-300x118.png"
+      ],
+      "partners": [
+        "image-26.png",
+        "image-27.png",
+        "image-28.png"
+      ]
     },
     {
-      "title": "Executive Roundtable",
-      "slug": "executive-roundtable",
-      "date": "2023-06-20T09:00:00.000Z",
-      "description": "Executive roundtable on industry trends",
-      "category": "",
-      "link": "/event",
-      "articleLabel": ""
+      "title": "FRLIVE Roundtable",
+      "slug": "frlive-roundtable",
+      "date": "2025-06-05T00:00:00.000Z",
+      "description": "Industry leaders and investors convene for the FRLIVE Roundtable to discuss emerging themes and collaboration opportunities.",
+      "bgImage": "FRLIVE Roundtable.jpg",
+      "detailsImage": [
+        {
+          "header": "On June 05, 2025,",
+          "description": "Our Co-Founder, Jeremy Sewell, joined Fusion Recruitment’s #FRLIVE roundtable at Home House, London — sharing insights on leadership, scaling, and strategy across tech and infrastructure.\n\nThanks to the Fusion Consulting Group for facilitating such insightful dialogue.",
+          "image": "1749199666896-rjdgdab7lt9ysvdv7glxkph8ruf5hl685d10g31o68.jpg'"
+        }
+      ],
+      "participants": [],
+      "partners": [
+        "Fusion-logo-464x105-1-1-300x68.png"
+      ]
+    }
+  ],
+  "ceoAnnualLetters": [
+    {
+      "name": "Aleko Nanadze",
+      "designation": "Co Founder & CEO",
+      "avatar": "Aleko Nanadze_avatar.png",
+      "image": "ami.jpg",
+      "downloadFile": "default_image.png",
+      "quote": "More technology and more capital have created more ideas and founders than ever.\n\nYet great businesses remain rare — because operational excellence has not scaled with entrepreneurship.\n\nA board seat, an observer, or even a full-time investment controller is no longer enough to help founders or protect investors. Competitive advantage is increasingly defined by operations and execution.\n\nWe are obsessed with operational excellence, partnering closely with founders to build companies designed to perform, to endure, and to be profitable."
+    }
+  ],
+  "whatWeDo": {
+    "header": "Growth through Operational Excellence",
+    "items": [
+      {
+        "title": "Investments",
+        "item_title": "Investment Strategy",
+        "description": "Vault invests in companies and founders at growth stage, where operational focus, strong fundamentals and controls are becoming crucial for the continued growth and investor support",
+        "points": [
+          {
+            "text": "Direct Investments"
+          },
+          {
+            "text": "Secondary Buyouts"
+          },
+          {
+            "text": "Incubations"
+          },
+          {
+            "text": "M&A and Purpose Funds"
+          }
+        ],
+        "link": "/investments"
+      },
+      {
+        "title": "Wealth Services",
+        "item_title": "Wealth Services",
+        "description": "Vault’s Wealth services support the structuring, protection and long-term oversight of private wealth through established vehicles in Switzerland and the UAE.",
+        "points": [
+          {
+            "text": "Personal Wealth"
+          },
+          {
+            "text": "Family & Estate Matters"
+          },
+          {
+            "text": "Banking"
+          },
+          {
+            "text": "Portfolio Oversight"
+          }
+        ],
+        "link": "/wealth_services"
+      },
+      {
+        "title": "PE Advisory",
+        "item_title": "PE Advisory",
+        "description": "Vault PE Advisory supports founders and investors in building strong fundamentals and controls, accelerate growth or improve underperforming business.",
+        "points": [
+          {
+            "text": "Restructurings"
+          },
+          {
+            "text": "Management Roles (CFO, COO, CLO)"
+          },
+          {
+            "text": "Non-executive Board"
+          },
+          {
+            "text": "Advisory Board"
+          }
+        ],
+        "link": "/pe_advisory"
+      }
+    ]
+  },
+  "ourStory": {
+    "header": "Operational Excellence is our Edge",
+    "items": [
+      {
+        "title": "Global Presence",
+        "image": "Global Presence.png",
+        "details": [
+          {
+            "text": "London, UK"
+          },
+          {
+            "text": "Geneva, CH"
+          },
+          {
+            "text": "Dubai (DIFC), UAE"
+          }
+        ]
+      },
+      {
+        "title": "Operational Strength",
+        "image": "",
+        "details": [
+          {
+            "text": "25 years of executing the vision of ambitious founders"
+          },
+          {
+            "text": "building fundamentals, operations and controls"
+          }
+        ]
+      },
+      {
+        "title": "Resilience of Building",
+        "image": "Resilience of Building.png",
+        "details": [
+          {
+            "text": "10+ stories of resilience, turnaround and success"
+          },
+          {
+            "text": "following founders long-term"
+          }
+        ]
+      }
+    ]
+  },
+  "team": [
+    {
+      "name": "Aleko Nanadze",
+      "designation": "Co Founder & CEO",
+      "description": "Vault Partners incarnates Aleko’s experience in a wide array of domains as he has held senior legal roles in multiple industries, such as oil and gas, telecom, international consulting at EY, financial technology and data center infrastructure.\n\nTrained as a legal and finance graduate overseas, he subsequently obtained MSc of Public Policy at London School of Economics (LSE) specializing in administration and economics.\n\nLeveraging his diverse background in multiple disciplines and industries, in synergy with his partners at Vault, Aleko has an ability to identify top tier experts, bringing them together to build high performing teams.",
+      "image": "Aleko Nanadze.png",
+      "linkedin": "https://www.linkedin.com/in/aleko-nanadze-bb7aa2a1/%20",
+      "email": "nanadze@thevaultpartners.com",
+      "phone": ""
+    },
+    {
+      "name": "Nicola Mariani",
+      "designation": "Co Founder",
+      "description": "Nicola is an established cross-border deal architect. A legal strategist bridging international frontiers between Europe and North America.\n\nNicola brings two decades of engineering in M&A deals and untangling transactional complexities. His experience and network as a former chief legal officer and Partner of international law firms, transformed him into a visionary deal maker in private equity markets.\n\nHe implements his strategic vision through his experience of negotiations, deal making and reconciliation techniques and is leading the private equity arm of the Vault Partners.",
+      "image": "Nicola Mariani.png",
+      "linkedin": "https://www.linkedin.com/in/nicola-mariani-ab23394/%20",
+      "email": "mariani@thevaultpartners.com",
+      "phone": ""
+    },
+    {
+      "name": "Archil Giorgadze",
+      "designation": "Co Founder",
+      "description": "As an international lawyer covering eastern Europe, Archil Giorgadze specializes in cross-border M&A, foreign investments, and project ﬁnancing.\n\nWith over two decades of experience, he’s a former National Partner at Dechert LLP and CEO of JSC Nenskra, where he led major infrastructure projects.\n\nRanked in Chambers Global and Chambers Europe for his M&A expertise, Archil is known for his ability to navigate complex transactions, and his success in securing strategic deals. He’s also an Adjunct Professor of Law at Tbilisi Free University and Founder of the National Center of Business Law in Georgia.",
+      "image": "Archil Giorgadze.png",
+      "linkedin": "https://www.linkedin.com/in/archil-giorgadze-29860b52/%20",
+      "email": "giorgadze@thevaultpartners.com",
+      "phone": ""
+    },
+    {
+      "name": "Jeremy Sewell",
+      "designation": "Co Founder",
+      "description": "Commercial high tech global NED, COO & CFO advising investors, growth companies and founders. Experienced leader driving commercial growth in technology and service businesses, with broad roles across business development, fund raising, governance and control.\n\nExtensive recent capital markets, M&A and governance experience across North America, Europe and Asia. Multiple private placement and private capital transactions as well as RTOs and IPOs in North America, ranging from $10m to $100m in fundraise.\n\nJeremy brings a sharp analytical and broad strategic experience into companies and as a seasoned CFO, Jeremy will revitalize ﬁrms to overcome ﬁnancial stress, market headwinds and drive growth and efficiency.",
+      "image": "Jeremy Sewell.png",
+      "linkedin": "https://www.linkedin.com/in/jeremy-sewell-8a985a14/",
+      "email": "sewell@thevaultpartners.com",
+      "phone": ""
+    },
+    {
+      "name": "David Khubua",
+      "designation": "Head of CFO Services",
+      "description": "David Khubua specializes in M&A advisory, with a strong focus on industrial and German SMEs as well as DAX-listed companies which he focused on during his tenure at Deloitte in Munich.\n\nDavit has led comprehensive due diligence, carve-outs, and post-merger integration projects for multinational clients in sectors such as healthcare, specialty chemicals, and industrial manufacturing.\n\nCurrently in London, he works with funds specializing in ﬁnancial restructuring and distressed M&A transactions. This combination of restructuring and strategic M&A advisory has made him a key advisor for transactions involving the UK, Germany, and broader European markets.\n\nDavit holds MSc in Accounting and Finance from LSE and is a CFA Level III.",
+      "image": "David Khubua.png",
+      "linkedin": "https://www.linkedin.com/in/davitkhubua/%20",
+      "email": "khubua@thevaultpartners.com",
+      "phone": ""
+    },
+    {
+      "name": "Ana Kochiashvili",
+      "designation": "Senior Counsel",
+      "description": "Ana Kochiashvili is a corporate lawyer with international experience in strategic transactions, regulatory compliance, and legal risk management. She advises on M&A, energy and infrastructure, financial regulation, and technology law, helping businesses operate confidently in complex legal environments.\n\nAna advises executive teams and boards on aligning legal risk with commercial strategy. Her experience includes cross-border acquisitions, complex regulatory matters, and public-private partnerships. She has also represented the Government of Georgia in ICSID proceedings and international tax and energy disputes.\n\nAna supports C-suite and board-level decisions by integrating legal, commercial, and compliance insights. She has led legal work on acquisitions, financing deals, and governance reform, with additional expertise in fintech, blockchain regulation, real estate, and securities law.\n\nAna holds a Master of Corporate Law from the University of Cambridge and is recognised for her pragmatic approach, sharp analytical skills, and commercially focused legal insight.",
+      "image": "Ana Kochiashvili.png",
+      "linkedin": "https://www.linkedin.com/in/ana-kochiashvili-6b1756aa/",
+      "email": "kochiashvili@thevaultpartners.com",
+      "phone": ""
+    },
+    {
+      "name": "Liza Beruashvili",
+      "designation": "Project Manager",
+      "description": "Liza is a Project Manager at Vault, where she leads and coordinates day-to-day project operations.\n\nWith a background in the implementation of development projects, Liza brings experience in strategic planning, stakeholder coordination, and managing donor relations and reporting obligations.\n\nPreviously, Liza served as a Program Associate at the Center for International Private Enterprise. Her work supported efforts to promote fair labour practices and strengthen business associations.\n\nLiza has also been involved in initiatives funded by BMZ, USAID, the NATO Public Diplomacy Division, and the Norwegian Ministry of Foreign Affairs, focusing on building community capacity to address social challenges, improving public health outreach, supporting economic inclusion for minority groups, and strengthening youth engagement in democratic governance.\n\nLiza holds a bachelor’s degree in International Relations from Free University of Tbilisi.",
+      "image": "Liza Beruashvili.png",
+      "linkedin": "https://www.linkedin.com/in/liza-beruashvili-353229268/%20",
+      "email": "beruashvili@thevaultpartners.com",
+      "phone": ""
+    }
+  ],
+  "operatingPartners": [
+    {
+      "name": "Stefan Carlsson",
+      "description": "Stefan Carlsson is a tech executive and NED with over 25 years experience in leadership roles across Europe, Asia, the Middle East and the US. Stefan has held CEO and CFO roles in publicly listed companies and high-growth scale-ups backed by leading institutional investors.",
+      "image": "Stefan Carlsson.png",
+      "linkedin": "https://www.linkedin.com/in/stcarlsson/",
+      "email": "carlsson@thevaultpartners.com",
+      "phone": ""
+    },
+    {
+      "name": "Brent Smith",
+      "description": "Brent Smith brings nearly three decades of experience in elite capital markets roles spanning New York City, Tokyo, London, Hong Kong, Singapore, and Dubai, having developed trusted, high-conviction relationships with family offices, pension funds, and institutional investors. Brent previously served as Head of Equity Sales at UBS in both Tokyo and London, and later as an Investment Adviser at RBC Dominion Securities — experience that shaped a disciplined, execution-focused approach to capital raising, investor engagement, and long-term relationship management. With a Master’s degree from the University of Chicago, Brent brings a rigorous analytical foundation to all conversations and projects.",
+      "image": "Brent Smith.png",
+      "linkedin": "https://www.linkedin.com/in/brentsmith65/",
+      "email": "smith@thevaultpartners.com",
+      "phone": ""
+    }
+  ],
+  "contact": {
+    "adminEmail": "info@thevaultpartners.com",
+    "displayEmail": "info@thevaultpartners.com",
+    "addressLine1": "Level 1, Gate Avenue\nDubai International Financial Centre (DIFC)",
+    "addressLine2": "IFZA Properties, DSO-IFZA\nIFZA Business Park,\nDubai Silicon Oasis"
+  },
+  "homeAboutUs": {
+    "title": "Vault MFO",
+    "text": [
+      {
+        "text": "Vault MFO comprises Vault Investments, Vault Wealth and Vault Advisory which have played key role in launch, incubation and growth of several unicorns in the emerging technology space."
+      },
+      {
+        "text": "Our mission is to enable responsible growth across the entire value chain – aligning capital, companies, and founders around shared outcomes, and ensuring that progress benefits people and respects the environment."
+      },
+      {
+        "text": "We advance our mission through strategic funding, incubations, acquisitions, and tailored mandates."
+      }
+    ],
+    "buttonName": "See our portfolio",
+    "link": "/our_portfolio"
+  },
+  "eventsPage": {
+    "title": "Events",
+    "heroImage": "event_bg.jpg"
+  },
+  "homePartnerWithUs": {
+    "title": "Become our Operating Partner",
+    "buttonName": "Contact Us",
+    "link": "/contact",
+    "items": [
+      {
+        "icon": "aboutus_bg.jpg",
+        "title": "Network Effect",
+        "subtitle": "Multiply network of investors and founders with Vault"
+      },
+      {
+        "icon": "aboutus_bg.jpg",
+        "title": "Know How",
+        "subtitle": "Exchange business or operational know how with Vault"
+      },
+      {
+        "icon": "aboutus_bg.jpg",
+        "title": "Industry Expertise",
+        "subtitle": "Exchange deep industry insights with Vault"
+      },
+      {
+        "icon": "aboutus_bg.jpg",
+        "title": "Expand Reach",
+        "subtitle": "Expand your reach to deal flow"
+      }
+    ]
+  },
+  "wantToKnowMore": [
+    {
+      "path": "/career",
+      "title": "Learn more about our work",
+      "buttonName": "Meet the team",
+      "link": "/teams"
     }
   ]
 }

@@ -63,65 +63,71 @@ const ArticleDetails = ({ event }: { event?: EventItem | null }) => {
           );
         })}
 
-      <div>
-        <div className="pt-4 d-flex flex-column gap-4">
-          <div className="primary-text text-uppercase letter-spacing fw-semibold fs-15">
-            Participants
+      {(event?.participants?.length ?? 0) > 0 && (
+        <div>
+          <div className="pt-4 d-flex flex-column gap-4">
+            <div className="primary-text text-uppercase letter-spacing fw-semibold fs-15">
+              Participants
+            </div>
           </div>
+          <Row className="g-3 mb-4 mt-3">
+            {event?.participants?.map((logo, idx) => (
+              <Col md={3} xs={12} key={idx}>
+                <div
+                  className=" border d-flex justify-content-center align-items-center bg-white"
+                  style={{ height: '230px', overflow: 'hidden' }}
+                >
+                  <img
+                    src={resolveStrapiMediaUrl(logo.url)}
+                    alt={logo.alternativeText ?? `Participant ${idx + 1}`}
+                    style={{
+                      height: '100%',
+                      width: '100%',
+                      objectFit: 'cover',
+                    }}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </Col>
+            ))}
+          </Row>
         </div>
-        <Row className="g-3 mb-4 mt-3">
-          {event?.participants?.map((logo, idx) => (
-            <Col md={3} xs={12} key={idx}>
-              <div
-                className=" border d-flex justify-content-center align-items-center bg-white"
-                style={{ height: '230px', overflow: "hidden" }}
-              >
-                <img
-                  src={resolveStrapiMediaUrl(logo.url)}
-                  alt={logo.alternativeText ?? `Participant ${idx + 1}`}
-                  style={{
-                    height: "100%",
-                    width: '100%',
-                    objectFit: 'cover',
-                  }}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </Col>
-          ))}
-        </Row>
-      </div>
-      <div>
-        <div className="pt-4 d-flex flex-column gap-4">
-          <div className="primary-text text-uppercase letter-spacing fw-semibold fs-15">
-            Partners
+      )}
+      {(event?.partners?.length ?? 0) > 0 && (
+        <div>
+          <div className="pt-4 d-flex flex-column gap-4">
+            <div className="primary-text text-uppercase letter-spacing fw-semibold fs-15">
+              Partners
+            </div>
+            <div className="font-libre fs-42 pb-4 text-dark">
+              Collaborating with Leading Partners
+            </div>
           </div>
-          <div className="font-libre fs-42 pb-4 text-dark">Collaborating with Leading Partners</div>
+          <Row className="g-3 mb-4 mt-3">
+            {event?.partners?.map((logo, idx) => (
+              <Col md={3} xs={12} key={idx}>
+                <div
+                  className=" border d-flex justify-content-center align-items-center bg-white"
+                  style={{ height: '230px', overflow: 'hidden' }}
+                >
+                  <img
+                    src={resolveStrapiMediaUrl(logo.url)}
+                    alt={logo.alternativeText ?? `Partner ${idx + 1}`}
+                    style={{
+                      height: '100%',
+                      width: '100%',
+                      objectFit: 'cover',
+                    }}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </Col>
+            ))}
+          </Row>
         </div>
-        <Row className="g-3 mb-4 mt-3">
-          {event?.partners?.map((logo, idx) => (
-            <Col md={3} xs={12} key={idx}>
-              <div
-                className=" border d-flex justify-content-center align-items-center bg-white"
-                style={{ height: '230px', overflow: "hidden" }}
-              >
-                <img
-                  src={resolveStrapiMediaUrl(logo.url)}
-                  alt={logo.alternativeText ?? `Partner ${idx + 1}`}
-                  style={{
-                    height: "100%",
-                    width: '100%',
-                    objectFit: 'cover',
-                  }}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </Col>
-          ))}
-        </Row>
-      </div>
+      )}
     </section>
   );
 };

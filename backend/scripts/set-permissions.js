@@ -1,5 +1,6 @@
 'use strict';
 
+// Map of API content types to allowed public actions
 const PERMISSIONS_TO_SET = {
   blog: ['find', 'findOne'],
   'news.newspost': ['find', 'findOne'],
@@ -20,11 +21,10 @@ const PERMISSIONS_TO_SET = {
   contact: ['find', 'findOne'],
   'contact-submission': ['create'],
   'events-page': ['find', 'findOne'],
-  'about': ['find', 'findOne'],
-  'want-to-know-more': ['find', 'findOne'],
 };
 
 async function setPublicPermissions() {
+  // Fetch the "public" role
   const publicRole = await strapi.db
     .query('plugin::users-permissions.role')
     .findOne({ where: { type: 'public' } });
@@ -33,14 +33,19 @@ async function setPublicPermissions() {
     throw new Error('Public role not found');
   }
 
+  // Fetch all existing permissions for the "public" role
   const existingPermissions = await strapi.db
     .query('plugin::users-permissions.permission')
     .findMany({ where: { role: publicRole.id } });
 
+  // Build a set of currently defined action strings
   const existingActions = new Set(existingPermissions.map((p) => p.action));
 
+  // Array to collect missing permissions that need creation
   const toCreate = [];
+
   for (const [controller, actions] of Object.entries(PERMISSIONS_TO_SET)) {
+    // For dot notation like 'news.newspost', split for correct API key
     const [apiId, contentTypeId] = controller.includes('.')
       ? controller.split('.')
       : [controller, controller];
@@ -57,6 +62,7 @@ async function setPublicPermissions() {
     return;
   }
 
+  // Sequentially create missing permissions and log progress
   for (const perm of toCreate) {
     await strapi.db.query('plugin::users-permissions.permission').create({
       data: perm,
@@ -73,7 +79,7 @@ async function main() {
   const appContext = await compileStrapi();
   const app = await createStrapi(appContext).load();
 
-  // Scripts expect global strapi (e.g. seed.js); set it so setPublicPermissions can run
+  // Provide the Strapi global so referenced code can access it as expected
   global.strapi = app;
   app.log.level = 'error';
 

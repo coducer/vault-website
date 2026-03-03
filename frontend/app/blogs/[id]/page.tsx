@@ -25,12 +25,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
   return (
     <main className="home-page position-relative">
       <Header />
-      <ArticleDetail
-        sectionLabel="blogs"
-        date={dateStr}
-        title={blog.title ?? ''}
-        content={blog.description}
-      />
+      <ArticleDetail sectionLabel="blogs" title={blog.title ?? ''} content={blog.description} />
       <WantToKnowMore entries={wantToKnowMoreList ?? null} />
       <Footer />
     </main>

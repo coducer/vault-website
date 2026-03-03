@@ -3,25 +3,45 @@
 const fs = require('fs-extra');
 const path = require('path');
 const mime = require('mime-types');
-const { categories, authors, articles, global, about, news, events } = require('../data/data.json');
+const rawData = require('../data/data.json');
+const {
+  about = {},
+  news = [],
+  events = [],
+  vaultStory = {},
+  ceoAnnualLetters = [],
+  whatWeDo = {},
+  ourStory = {},
+  team = [],
+  operatingPartners = [],
+  contact = {},
+  homeAboutUs = {},
+  eventsPage = {},
+  homePartnerWithUs = {},
+  wantToKnowMore = [],
+  blogs = [],
+} = rawData;
 
-const vaultAboutUsDetails = [
-  {
-    id: 1,
-    heading: 'Vault is a mission-driven network.',
-    body: 'Our mission is to promote growth in a responsible manner at all levels. In our network, capital grows responsibly towards funders; companies – towards their investors; founders – towards their companies; and industries – towards humans and environment.',
-  },
-  {
-    id: 2,
-    heading: 'We address the stated mission at',
-    body: `all levels of value creation – from wealth structuring, down to direct investment and operational management. Such strategy of vertical engagement, normally slow and cumbersome, was made easily possible by diverse background of Vault's founders and its operating partners. Vertical engagement and the network of operating partners are key to performance of our ecosystem.`,
-  },
-  {
-    id: 3,
-    heading: 'To achieve our mission, we',
-    body: 'orchestrate Vault Investments, Vault PE Advisory and Vault Wealth around talented and ambitious founders and companies. We accelerate their growth and improve their chances to deliver on their mission in a responsible manner.',
-  },
-];
+// Register default admin user if it doesn't exist
+// async function registerDefaultAdminUser() {
+//   // This uses Strapi's built-in admin::user
+//   const adminUserService = strapi.admin.services.user;
+
+//   const existing = await adminUserService.findOne({ email: 'admin@thevaultpartners.com' });
+//   if (existing) {
+//     return;
+//   }
+//   // Create the admin user
+//   await adminUserService.create({
+//     firstname: 'vault',
+//     lastname: '',
+//     email: 'admin@thevaultpartners.com',
+//     password: 'TheVaultPartners@123#',
+//     roles: await strapi.admin.services.role.find(), // assign all default roles; restrict if needed
+//     blocked: false,
+//     isActive: true,
+//   });
+// }
 
 async function seedExampleApp() {
   const shouldImportSeedData = await isFirstRun();
@@ -117,7 +137,9 @@ async function uploadImage(filePath) {
   return uploadedFile;
 }
 
-async function uploadImageByName(fileName) {
+async function uploadImageByName(fileName, options = {}) {
+  if (!fileName || !String(fileName).trim()) return null;
+
   const name = path.basename(fileName, path.extname(fileName));
   const existingFile = await strapi.query('plugin::upload.file').findOne({
     where: { name },
@@ -129,19 +151,26 @@ async function uploadImageByName(fileName) {
 
   const filePath = path.join(SEED_IMAGES_DIR, fileName);
   if (!fs.existsSync(filePath)) {
-    throw new Error(`Seed image not found: ${filePath}. Add images to scripts/seed-data/images/`);
+    if (!options.silent) {
+      console.warn(`Seed image not found: ${fileName}. Skipping. Add to scripts/seed-data/images/`);
+    }
+    return null;
   }
 
   return uploadImage(filePath);
 }
 
 // Create an entry and attach files if there are any
-async function createEntry({ model, entry }) {
+async function createEntry({ model, entry, publish = false }) {
   try {
     const uid = model.includes('.') ? `api::${model}` : `api::${model}.${model}`;
-    await strapi.documents(uid).create({
-      data: entry,
-    });
+    const options = {
+      data: { ...entry, publishedAt: entry.publishedAt ?? new Date().toISOString() },
+    };
+    if (publish) {
+      options.status = 'published';
+    }
+    await strapi.documents(uid).create(options);
   } catch (error) {
     console.error({ model, entry, error });
   }
@@ -157,22 +186,15 @@ async function updateBlocks(blocks) {
   for (const block of blocks) {
     if (block.__component === 'shared.media') {
       const uploadedFiles = await uploadImagesByName([block.file]);
-      // Copy the block to not mutate directly
       const blockCopy = { ...block };
-      // Replace the file name on the block with the actual file
       blockCopy.file = uploadedFiles;
       updatedBlocks.push(blockCopy);
     } else if (block.__component === 'shared.slider') {
-      // Get files already uploaded to Strapi or upload new files
       const existingAndUploadedFiles = await uploadImagesByName(block.files);
-      // Copy the block to not mutate directly
       const blockCopy = { ...block };
-      // Replace the file names on the block with the actual files
       blockCopy.files = existingAndUploadedFiles;
-      // Push the updated block
       updatedBlocks.push(blockCopy);
     } else {
-      // Just push the block as is
       updatedBlocks.push(block);
     }
   }
@@ -181,16 +203,15 @@ async function updateBlocks(blocks) {
 }
 
 async function importBlogs() {
-  for (const blog of articles) {
+  for (const blog of blogs) {
     let bgImageFile = null;
     try {
-      bgImageFile = await uploadImagesByName([`${blog.slug}.jpg`]);
+      bgImageFile =
+        (blog.bgImage && (await uploadImageByName(blog.bgImage))) ||
+        (await uploadImageByName(`${blog.slug}.jpg`)) ||
+        (await uploadImageByName('default_image.png'));
     } catch {
-      try {
-        bgImageFile = await uploadImagesByName(['coffee-art.jpg']);
-      } catch {
-        bgImageFile = null;
-      }
+      bgImageFile = null;
     }
     const { cover, blocks, category, author, ...rest } = blog;
     await createEntry({
@@ -199,20 +220,18 @@ async function importBlogs() {
         ...rest,
         bgImage: bgImageFile?.id ?? null,
         date: rest.date ?? new Date().toISOString(),
-        publishedAt: Date.now(),
+        publishedAt: new Date().toISOString(),
       },
+      publish: true,
     });
   }
 }
 
 async function importNews() {
   for (const newsItem of news) {
-    let bgImageFile = null;
-    try {
-      bgImageFile = await uploadImagesByName(['coffee-art.jpg']);
-    } catch {
-      bgImageFile = null;
-    }
+    const bgImageFile =
+      (newsItem.bgImage && (await uploadImageByName(newsItem.bgImage))) ||
+      (await uploadImageByName('default_image.png'));
     const { cover, blocks, author, ...rest } = newsItem;
     await createEntry({
       model: 'news.newspost',
@@ -220,96 +239,289 @@ async function importNews() {
         ...rest,
         bgImage: bgImageFile?.id ?? null,
         date: rest.date ?? new Date().toISOString(),
-        publishedAt: Date.now(),
+        publishedAt: new Date().toISOString(),
       },
+      publish: true,
     });
   }
 }
 
 async function importEvents() {
   for (const event of events) {
-    let bgImageFile = null;
-    try {
-      bgImageFile = await uploadImagesByName(['coffee-art.jpg']);
-    } catch {
-      bgImageFile = null;
-    }
-    const { cover, ...rest } = event;
+    const { cover, bgImage: bgImageName, detailsImage, participants: participantFiles, partners: partnerFiles, ...rest } = event;
+
+    const bgImageFile =
+      (bgImageName && (await uploadImageByName(bgImageName))) ||
+      (await uploadImageByName('event_bg.jpg')) ||
+      (await uploadImageByName('default_image.png'));
+
+    const resolvedDetailsImage = detailsImage
+      ? await Promise.all(
+          detailsImage.map(async (block) => {
+            const imageFile = block.image ? await uploadImageByName(String(block.image).replace(/'$/, '')) : null;
+            return {
+              header: block.header,
+              description: block.description,
+              image: imageFile?.id ?? null,
+            };
+          })
+        )
+      : [];
+
+    const participantIds = participantFiles
+      ? (await Promise.all((participantFiles || []).map((name) => uploadImageByName(name))))
+          .filter(Boolean)
+          .map((f) => f.id)
+      : [];
+
+    const partnerIds = partnerFiles
+      ? (await Promise.all((partnerFiles || []).map((name) => uploadImageByName(name))))
+          .filter(Boolean)
+          .map((f) => f.id)
+      : [];
+
     await createEntry({
       model: 'event',
       entry: {
         ...rest,
         bgImage: bgImageFile?.id ?? null,
-        publishedAt: Date.now(),
+        detailsImage: resolvedDetailsImage,
+        participants: participantIds,
+        partners: partnerIds,
+        publishedAt: new Date().toISOString(),
       },
+      publish: true,
     });
   }
 }
 
-async function importGlobal() {
-  const faviconFile = await uploadImagesByName(['favicon.png']);
-  const shareImageFile = await uploadImagesByName(['default-image.png']);
-  return createEntry({
-    model: 'global',
-    entry: {
-      ...global,
-      favicon: faviconFile?.id ?? null,
-      publishedAt: Date.now(),
-      defaultSeo: {
-        ...global.defaultSeo,
-        shareImage: shareImageFile?.id ?? null,
-      },
-    },
-  });
-}
 
 async function importAbout() {
-  const updatedBlocks = about.blocks?.length ? await updateBlocks(about.blocks) : [];
-  const heroImageFile = about.heroImage ? await uploadImageByName(about.heroImage) : null;
-
-  const { heroImage: _heroImage, ...aboutData } = about;
-
+  const heroImageFile = about?.heroImage ? await uploadImageByName(about.heroImage) : null;
+  const details = (about?.details || []).map((d, i) => ({
+    id: i + 1,
+    heading: d.heading,
+    body: d.body,
+  }));
   await createEntry({
     model: 'about',
     entry: {
-      ...aboutData,
+      ...about,
       heroImage: heroImageFile?.id ?? null,
-      details: vaultAboutUsDetails,
-      blocks: updatedBlocks,
-      publishedAt: Date.now(),
+      details,
+      publishedAt: new Date().toISOString(),
     },
   });
 }
 
-async function importCategories() {
-  for (const category of categories) {
-    await createEntry({ model: 'category', entry: category });
+async function importVaultStory() {
+  const updatedBlocks = vaultStory.blocks?.length ? await updateBlocks(vaultStory.blocks) : [];
+  const heroImageFile = vaultStory.heroImage ? await uploadImageByName(vaultStory.heroImage) : null;
+
+  const { heroImage: _heroImage, ...vaultStoryData } = vaultStory;
+
+  const details = (vaultStoryData.details || []).map((d, i) => ({
+    id: i + 1,
+    heading: d.heading,
+    body: d.body,
+  }));
+
+  await createEntry({
+    model: 'vault-story',
+    entry: {
+      ...vaultStoryData,
+      heroImage: heroImageFile?.id ?? null,
+      details,
+      blocks: updatedBlocks,
+      publishedAt: new Date().toISOString(),
+    },
+  });
+}
+
+async function importCeoAnnualLetters() {
+  for (const letter of ceoAnnualLetters) {
+    const avatarFile = letter.avatar ? await uploadImageByName(letter.avatar) : null;
+    const imageFile = letter.image ? await uploadImageByName(letter.image) : null;
+    const downloadFile =
+      letter.downloadFile
+        ? await uploadImageByName(letter.downloadFile)
+        : await uploadImageByName('default_image.png');
+
+    await createEntry({
+      model: 'ceo-annual-letter',
+      entry: {
+        name: letter.name,
+        designation: letter.designation || null,
+        avatar: avatarFile?.id ?? null,
+        image: imageFile?.id ?? null,
+        downloadFile: downloadFile?.id ?? null,
+        quote: letter.quote || null,
+        publishedAt: new Date().toISOString(),
+      },
+      publish: true,
+    });
   }
 }
 
-async function importAuthors() {
-  for (const author of authors) {
-    const avatarFile = await uploadImageByName(author.avatar);
+async function importWhatWeDo() {
+  await createEntry({
+    model: 'what-we-do',
+    entry: {
+      header: whatWeDo.header || null,
+      items: whatWeDo.items || [],
+      publishedAt: new Date().toISOString(),
+    },
+  });
+}
+
+async function importOurStory() {
+  const items = await Promise.all(
+    (ourStory.items || []).map(async (item) => {
+      const imageFile = item.image && String(item.image).trim() ? await uploadImageByName(String(item.image).replace(/'$/, '')) : null;
+      return {
+        title: item.title || null,
+        image: imageFile?.id ?? null,
+        details: (item.details || []).map((d) => ({ text: d.text })),
+      };
+    })
+  );
+
+  await createEntry({
+    model: 'our-story',
+    entry: {
+      header: ourStory.header || null,
+      items,
+      publishedAt: new Date().toISOString(),
+    },
+  });
+}
+
+async function importTeam() {
+  for (const member of team) {
+    const imageFile = member.image ? await uploadImageByName(member.image) : null;
 
     await createEntry({
-      model: 'author',
+      model: 'team',
       entry: {
-        ...author,
-        avatar: avatarFile?.id ?? null,
+        name: member.name,
+        designation: member.designation || null,
+        description: member.description || null,
+        image: imageFile?.id ?? null,
+        linkedin: member.linkedin || null,
+        email: member.email || null,
+        phone: member.phone || null,
+        publishedAt: new Date().toISOString(),
+      },
+      publish: true,
+    });
+  }
+}
+
+async function importOperatingPartners() {
+  for (const partner of operatingPartners) {
+    const imageFile = partner.image ? await uploadImageByName(partner.image) : null;
+
+    await createEntry({
+      model: 'operating-partner',
+      entry: {
+        name: partner.name,
+        description: partner.description || null,
+        image: imageFile?.id ?? null,
+        linkedin: partner.linkedin || null,
+        email: partner.email || null,
+        phone: partner.phone || null,
+        publishedAt: new Date().toISOString(),
+      },
+      publish: true,
+    });
+  }
+}
+
+async function importContact() {
+  await createEntry({
+    model: 'contact',
+    entry: {
+      adminEmail: contact.adminEmail || 'admin@example.com',
+      displayEmail: contact.displayEmail || null,
+      addressLine1: contact.addressLine1 || null,
+      addressLine2: contact.addressLine2 || null,
+      publishedAt: new Date().toISOString(),
+    },
+  });
+}
+
+async function importHomeAboutUs() {
+  await createEntry({
+    model: 'home-about-us',
+    entry: {
+      title: homeAboutUs.title || null,
+      text: homeAboutUs.text || [],
+      buttonName: homeAboutUs.buttonName || null,
+      link: homeAboutUs.link || null,
+      publishedAt: new Date().toISOString(),
+    },
+  });
+}
+
+async function importEventsPage() {
+  const heroImageFile = eventsPage.heroImage ? await uploadImageByName(eventsPage.heroImage) : null;
+
+  await createEntry({
+    model: 'events-page',
+    entry: {
+      title: eventsPage.title || null,
+      heroImage: heroImageFile?.id ?? null,
+      publishedAt: new Date().toISOString(),
+    },
+  });
+}
+
+async function importHomePartnerWithUs() {
+  const items = await Promise.all(
+    (homePartnerWithUs.items || []).map(async (item) => {
+      const iconFile = item.icon ? await uploadImageByName(item.icon) : null;
+      return {
+        icon: iconFile?.id ?? null,
+        title: item.title || null,
+        subtitle: item.subtitle || null,
+      };
+    })
+  );
+
+  await createEntry({
+    model: 'home-partner-with-us',
+    entry: {
+      title: homePartnerWithUs.title || null,
+      buttonName: homePartnerWithUs.buttonName || null,
+      link: homePartnerWithUs.link || null,
+      items,
+      publishedAt: new Date().toISOString(),
+    },
+  });
+}
+
+async function importWantToKnowMore() {
+  for (const item of wantToKnowMore) {
+    await createEntry({
+      model: 'want-to-know-more',
+      entry: {
+        path: item.path,
+        title: item.title || null,
+        buttonName: item.buttonName || null,
+        link: item.link || null,
+        publishedAt: new Date().toISOString(),
       },
     });
   }
 }
 
 async function importSeedData() {
-  // Allow read of application content types
   await setPublicPermissions({
     blog: ['find', 'findOne'],
     'news.newspost': ['find', 'findOne'],
     event: ['find', 'findOne'],
     category: ['find', 'findOne'],
     author: ['find', 'findOne'],
-    global: ['find', 'findOne'],
     about: ['find', 'findOne'],
     'vault-story': ['find', 'findOne'],
     'ceo-annual-letter': ['find', 'findOne'],
@@ -317,16 +529,28 @@ async function importSeedData() {
     'our-story': ['find', 'findOne'],
     team: ['find', 'findOne'],
     'operating-partner': ['find', 'findOne'],
+    contact: ['find', 'findOne'],
+    'home-about-us': ['find', 'findOne'],
+    'home-partner-with-us': ['find', 'findOne'],
+    'events-page': ['find', 'findOne'],
+    'want-to-know-more': ['find', 'findOne'],
   });
 
-  // Create all entries
-  await importCategories();
-  await importAuthors();
+  await importAbout();
+  await importVaultStory();
+  await importWhatWeDo();
+  await importOurStory();
+  await importHomeAboutUs();
+  await importEventsPage();
+  await importHomePartnerWithUs();
+  await importContact();
   await importBlogs();
   await importNews();
   await importEvents();
-  await importGlobal();
-  await importAbout();
+  await importCeoAnnualLetters();
+  await importTeam();
+  await importOperatingPartners();
+  await importWantToKnowMore();
 }
 
 async function main() {
