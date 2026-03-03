@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_partner_with_uses",
+  "info": {
+    "singularName": "home-partner-with-us",
+    "pluralName": "home-partner-with-uses",
+    "displayName": "Home Partner With Us",
+    "description": "Home screen Partner With Us: title, button, link, items (icon, title, subtitle)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "buttonName": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home-partner-with-us.item"
+    }
+  }
+}

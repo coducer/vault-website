@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "vault_stories",
+  "info": {
+    "singularName": "vault-story",
+    "pluralName": "vault-stories",
+    "displayName": "Vault Story",
+    "description": "Vault Story page content including hero image and details"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.detail-item"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": ["shared.media", "shared.quote", "shared.rich-text", "shared.slider"]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+# Dependencies
+node_modules
+
+# Build / cache
+.tmp
+dist
+build
+.strapi
+.strapi-updater.json
+.strapi-cloud.json
+*.tsbuildinfo
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+
+# Misc
+.git
+.gitignore
+*.md
+.env
+.env.*
+exports
+ssl
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads (mounted as volume in Docker)
+public/uploads/*
+!public/uploads/.gitkeep

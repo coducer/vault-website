@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_what_we_do_points",
+  "info": {
+    "displayName": "Point",
+    "icon": "bullet-list",
+    "description": "A point (text only)"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
+}

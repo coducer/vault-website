@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact",
+    "description": "Contact page content and admin email for form submissions"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "adminEmail": {
+      "type": "email",
+      "required": true
+    },
+    "displayEmail": {
+      "type": "string"
+    },
+    "addressLine1": {
+      "type": "text"
+    },
+    "addressLine2": {
+      "type": "text"
+    }
+  }
+}

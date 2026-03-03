@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_stories",
+  "info": {
+    "singularName": "our-story",
+    "pluralName": "our-stories",
+    "displayName": "Our Story",
+    "description": "Our Story section: header and items"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "our-story.item"
+    }
+  }
+}

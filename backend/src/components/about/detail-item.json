@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_about_detail_items",
+  "info": {
+    "displayName": "Detail Item",
+    "icon": "file-alt",
+    "description": "Heading and body for About Us details section"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

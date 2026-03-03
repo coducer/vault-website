@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "operating_partners",
+  "info": {
+    "singularName": "operating-partner",
+    "pluralName": "operating-partners",
+    "displayName": "Operating Partner",
+    "description": "Operating partners"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "linkedin": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}

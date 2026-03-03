@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ceo_annual_letters",
+  "info": {
+    "singularName": "ceo-annual-letter",
+    "pluralName": "ceo-annual-letters",
+    "displayName": "CEO Annual Letter",
+    "description": "CEO annual letter entries with quote, avatar and image"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "designation": {
+      "type": "string"
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "quote": {
+      "type": "text"
+    }
+  }
+}

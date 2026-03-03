@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_event_detail_blocks",
+  "info": {
+    "displayName": "Detail Block",
+    "icon": "file-image",
+    "description": "Header, description and image for event detail sections"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

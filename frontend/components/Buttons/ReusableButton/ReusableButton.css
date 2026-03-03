@@ -1,0 +1,11 @@
+.btn {
+  width: max-content;
+  min-width: 144px;
+  padding: 9px 16px;
+  text-align: center !important;
+  border-radius: 4px;
+  letter-spacing: var(--letter-spacing);
+}
+.btn:hover {
+  color: var(--white);
+}

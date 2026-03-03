@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "want_to_know_mores",
+  "info": {
+    "singularName": "want-to-know-more",
+    "pluralName": "want-to-know-mores",
+    "displayName": "Want To Know More",
+    "description": "Want to know more section per path: path (e.g. /, /aboutus), title, buttonName, link"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "path": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "buttonName": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

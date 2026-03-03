@@ -1,0 +1,297 @@
+{
+  "global": {
+    "siteName": "Strapi Blog",
+    "defaultSeo": {
+      "metaTitle": "Page",
+      "metaDescription": "A blog made with Strapi",
+      "shareImage": null
+    },
+    "siteDescription": "A Blog made with Strapi",
+    "favicon": null
+  },
+  "about": {
+    "title": "About Us",
+    "heroImage": "aboutus.jpg",
+    "details": [
+      {
+        "heading": "Vault is a mission-driven network.",
+        "body": "Our mission is to promote growth in a responsible manner at all levels. In our network, capital grows responsibly towards funders; companies – towards their investors; founders – towards their companies; and industries – towards humans and environment."
+      },
+      {
+        "heading": "We address the stated mission at",
+        "body": "all levels of value creation – from wealth structuring, down to direct investment and operational management. Such strategy of vertical engagement, normally slow and cumbersome, was made easily possible by diverse background of Vault's founders and its operating partners. Vertical engagement and the network of operating partners are key to performance of our ecosystem."
+      },
+      {
+        "heading": "To achieve our mission, we",
+        "body": "orchestrate Vault Investments, Vault PE Advisory and Vault Wealth around talented and ambitious founders and companies. We accelerate their growth and improve their chances to deliver on their mission in a responsible manner."
+      }
+    ],
+    "blocks": []
+  },
+  "categories": [
+    {
+      "name": "news",
+      "slug": "news"
+    },
+    {
+      "name": "tech",
+      "slug": "tech"
+    },
+    {
+      "name": "food",
+      "slug": "food"
+    },
+    {
+      "name": "nature",
+      "slug": "nature"
+    },
+    {
+      "name": "story",
+      "slug": "story"
+    }
+  ],
+  "authors": [
+    {
+      "name": "David Doe",
+      "email": "daviddoe@strapi.io",
+      "avatar": "daviddoe@strapi.io.jpg"
+    },
+    {
+      "name": "Sarah Baker",
+      "email": "sarahbaker@strapi.io",
+      "avatar": "sarahbaker@strapi.io.jpg"
+    }
+  ],
+  "articles": [
+    {
+      "title": "The internet's Own boy",
+      "slug": "the-internet-s-own-boy",
+      "category": {
+        "id": 5
+      },
+      "author": {
+        "id": 1
+      },
+      "description": "Follow the story of Aaron Swartz, the boy who could change the world",
+      "cover": null,
+      "blocks": [
+        {
+          "__component": "shared.rich-text",
+          "body": "## Probant \n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. \n\n## Abit sua\n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. "
+        },
+        {
+          "__component": "shared.quote",
+          "title": "Thelonius Monk",
+          "body": "You've got to dig it to dig it, you dig?"
+        },
+        {
+          "__component": "shared.media",
+          "file": "coffee-art.jpg"
+        },
+        {
+          "__component": "shared.rich-text",
+          "body": "## Spatiantia astra \n\nFoeda, medio silva *errandum*: onus formam munere. Mutata bibulis est auxiliare arces etiamnunc verbis virgineo Priamidas illa Thescelus, nam fit locis lucis auras. Exitus hospes gratulor ut pondere [speslimite](http://www.curas.io/figuram); quid habent, Avernales faciente de. Pervenit Ino sonabile supplex cognoscenti vires, Bacchumque errat miserarum venandi dignabere dedisti. Discrimina iuncosaque virgaque tot sine superest [fissus](http://quos.org/sitet.aspx). Non color esset potest non sumit, sed vix arserat. Nisi immo silva tantum pectusque quos pennis quisquam artus!"
+        },
+        {
+          "__component": "shared.slider",
+          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+        }
+      ]
+    },
+    {
+      "title": "This shrimp is awesome",
+      "slug": "this-shrimp-is-awesome",
+      "category": {
+        "id": 4
+      },
+      "author": {
+        "id": 1
+      },
+      "description": "Mantis shrimps, or stomatopods, are marine crustaceans of the order Stomatopoda.",
+      "cover": null,
+      "blocks": [
+        {
+          "__component": "shared.rich-text",
+          "body": "## Probant \n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. \n\n## Abit sua\n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. "
+        },
+        {
+          "__component": "shared.quote",
+          "title": "Thelonius Monk",
+          "body": "You've got to dig it to dig it, you dig?"
+        },
+        {
+          "__component": "shared.media",
+          "file": "coffee-art.jpg"
+        },
+        {
+          "__component": "shared.rich-text",
+          "body": "## Spatiantia astra \n\nFoeda, medio silva *errandum*: onus formam munere. Mutata bibulis est auxiliare arces etiamnunc verbis virgineo Priamidas illa Thescelus, nam fit locis lucis auras. Exitus hospes gratulor ut pondere [speslimite](http://www.curas.io/figuram); quid habent, Avernales faciente de. Pervenit Ino sonabile supplex cognoscenti vires, Bacchumque errat miserarum venandi dignabere dedisti. Discrimina iuncosaque virgaque tot sine superest [fissus](http://quos.org/sitet.aspx). Non color esset potest non sumit, sed vix arserat. Nisi immo silva tantum pectusque quos pennis quisquam artus!"
+        },
+        {
+          "__component": "shared.slider",
+          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+        }
+      ]
+    },
+    {
+      "title": "A bug is becoming a meme on the internet",
+      "slug": "a-bug-is-becoming-a-meme-on-the-internet",
+      "category": {
+        "id": 2
+      },
+      "author": {
+        "id": 2
+      },
+      "description": "How a bug on MySQL is becoming a meme on the internet",
+      "cover": null,
+      "blocks": [
+        {
+          "__component": "shared.rich-text",
+          "body": "## Probant \n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. \n\n## Abit sua\n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. "
+        },
+        {
+          "__component": "shared.quote",
+          "title": "Thelonius Monk",
+          "body": "You've got to dig it to dig it, you dig?"
+        },
+        {
+          "__component": "shared.media",
+          "file": "coffee-art.jpg"
+        },
+        {
+          "__component": "shared.rich-text",
+          "body": "## Spatiantia astra \n\nFoeda, medio silva *errandum*: onus formam munere. Mutata bibulis est auxiliare arces etiamnunc verbis virgineo Priamidas illa Thescelus, nam fit locis lucis auras. Exitus hospes gratulor ut pondere [speslimite](http://www.curas.io/figuram); quid habent, Avernales faciente de. Pervenit Ino sonabile supplex cognoscenti vires, Bacchumque errat miserarum venandi dignabere dedisti. Discrimina iuncosaque virgaque tot sine superest [fissus](http://quos.org/sitet.aspx). Non color esset potest non sumit, sed vix arserat. Nisi immo silva tantum pectusque quos pennis quisquam artus!"
+        },
+        {
+          "__component": "shared.slider",
+          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+        }
+      ]
+    },
+    {
+      "title": "Beautiful picture",
+      "slug": "beautiful-picture",
+      "category": {
+        "id": 4
+      },
+      "author": {
+        "id": 2
+      },
+      "description": "Description of a beautiful picture",
+      "cover": null,
+      "blocks": [
+        {
+          "__component": "shared.rich-text",
+          "body": "## Probant \n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. \n\n## Abit sua\n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. "
+        },
+        {
+          "__component": "shared.quote",
+          "title": "Thelonius Monk",
+          "body": "You've got to dig it to dig it, you dig?"
+        },
+        {
+          "__component": "shared.media",
+          "file": "coffee-art.jpg"
+        },
+        {
+          "__component": "shared.rich-text",
+          "body": "## Spatiantia astra \n\nFoeda, medio silva *errandum*: onus formam munere. Mutata bibulis est auxiliare arces etiamnunc verbis virgineo Priamidas illa Thescelus, nam fit locis lucis auras. Exitus hospes gratulor ut pondere [speslimite](http://www.curas.io/figuram); quid habent, Avernales faciente de. Pervenit Ino sonabile supplex cognoscenti vires, Bacchumque errat miserarum venandi dignabere dedisti. Discrimina iuncosaque virgaque tot sine superest [fissus](http://quos.org/sitet.aspx). Non color esset potest non sumit, sed vix arserat. Nisi immo silva tantum pectusque quos pennis quisquam artus!"
+        },
+        {
+          "__component": "shared.slider",
+          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+        }
+      ]
+    },
+    {
+      "title": "What's inside a Black Hole",
+      "slug": "what-s-inside-a-black-hole",
+      "category": {
+        "id": 1
+      },
+      "author": {
+        "id": 2
+      },
+      "description": "Maybe the answer is in this article, or not...",
+      "cover": null,
+      "blocks": [
+        {
+          "__component": "shared.rich-text",
+          "body": "## Probant \n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. \n\n## Abit sua\n\nse Lorem markdownum negat. Argo *saxa* videnda cornuaque hunc qui tanta spes teneas! Obliquis est dicenti est salutat ille tamen iuvenum nostrae dolore. - Colores nocituraque comitata eripiunt - Addit quodcunque solum cui et dextram illis - Nulli meus nec extemplo ille ferebat pressit Se blandita fulvae vox gravem Pittheus cesserunt sanguine herbis tu comitum tenuit. Sui in ruunt; Doridaque maculosae fuissem! Et loqui. "
+        },
+        {
+          "__component": "shared.quote",
+          "title": "Thelonius Monk",
+          "body": "You've got to dig it to dig it, you dig?"
+        },
+        {
+          "__component": "shared.media",
+          "file": "coffee-art.jpg"
+        },
+        {
+          "__component": "shared.rich-text",
+          "body": "## Spatiantia astra \n\nFoeda, medio silva *errandum*: onus formam munere. Mutata bibulis est auxiliare arces etiamnunc verbis virgineo Priamidas illa Thescelus, nam fit locis lucis auras. Exitus hospes gratulor ut pondere [speslimite](http://www.curas.io/figuram); quid habent, Avernales faciente de. Pervenit Ino sonabile supplex cognoscenti vires, Bacchumque errat miserarum venandi dignabere dedisti. Discrimina iuncosaque virgaque tot sine superest [fissus](http://quos.org/sitet.aspx). Non color esset potest non sumit, sed vix arserat. Nisi immo silva tantum pectusque quos pennis quisquam artus!"
+        },
+        {
+          "__component": "shared.slider",
+          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "title": "Market Update: Q4 2025",
+      "slug": "market-update-q4-2025",
+      "description": "Key trends and developments in the market landscape",
+      "author": { "id": 1 },
+      "blocks": [
+        {
+          "__component": "shared.rich-text",
+          "body": "## Market Overview\n\nQuarterly market analysis and outlook for investors."
+        }
+      ]
+    },
+    {
+      "title": "Regulatory Changes Ahead",
+      "slug": "regulatory-changes-ahead",
+      "description": "Upcoming regulatory changes and their impact",
+      "author": { "id": 2 },
+      "blocks": [
+        {
+          "__component": "shared.rich-text",
+          "body": "## Regulatory Update\n\nImportant regulatory developments to watch."
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "title": "Data Centre Leadership Dinner",
+      "slug": "data-centre-leadership-dinner",
+      "date": "2023-11-01T18:00:00.000Z",
+      "description": "Annual leadership dinner for data centre executives",
+      "category": "",
+      "link": "/event",
+      "articleLabel": "READ ARTICLE"
+    },
+    {
+      "title": "Panel Discussion: HPC Investment Landscape",
+      "slug": "panel-discussion-hpc-investment-landscape",
+      "date": "2023-07-10T14:00:00.000Z",
+      "description": "Discussion on HPC investment opportunities",
+      "category": "",
+      "link": "/event",
+      "articleLabel": ""
+    },
+    {
+      "title": "Executive Roundtable",
+      "slug": "executive-roundtable",
+      "date": "2023-06-20T09:00:00.000Z",
+      "description": "Executive roundtable on industry trends",
+      "category": "",
+      "link": "/event",
+      "articleLabel": ""
+    }
+  ]
+}

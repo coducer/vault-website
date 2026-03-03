@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "what_we_dos",
+  "info": {
+    "singularName": "what-we-do",
+    "pluralName": "what-we-dos",
+    "displayName": "What We Do",
+    "description": "What We Do section: header and items"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "what-we-do.item"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_home_partner_with_us_items",
+  "info": {
+    "displayName": "Partner Item",
+    "icon": "star",
+    "description": "Item with icon, title and subtitle for Partner With Us"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    }
+  }
+}

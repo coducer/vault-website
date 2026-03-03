@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_our_story_items",
+  "info": {
+    "displayName": "Our Story Item",
+    "icon": "file-alt",
+    "description": "Item with title, details list and background image"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "our-story.detail-item"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+services:
+  strapi:
+    build: ./backend
+    container_name: vault-strapi
+    ports:
+      - "1337:1337"
+    env_file:
+      - backend/.env
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "1337"
+    volumes:
+      - strapi-data:/app/.tmp
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: vault-frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - frontend/.env
+    environment:
+      STRAPI_URL: http://strapi:1337
+      NODE_ENV: production
+    depends_on:
+      - strapi
+    restart: unless-stopped
+
+volumes:
+  strapi-data:

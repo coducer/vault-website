@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_our_story_detail_items",
+  "info": {
+    "displayName": "Our Story Detail",
+    "icon": "file-alt",
+    "description": "A single detail line (string)"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
+}

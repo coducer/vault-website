@@ -1,0 +1,40 @@
+.article-detail-divider {
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 0;
+  border: none;
+}
+
+.article-detail-header {
+  padding: 1.25rem 1rem 0;
+}
+
+.article-detail-title {
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-detail-body {
+  padding: 1.5rem 1rem 2rem;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.article-detail-body .article-detail-body-inner {
+  column-count: 2;
+  column-gap: 3rem;
+  column-fill: balance;
+}
+
+.article-detail-body .article-detail-body-inner p {
+  break-inside: avoid;
+}
+
+@media (max-width: 768px) {
+  .article-detail-body .article-detail-body-inner {
+    column-count: 1;
+  }
+}
