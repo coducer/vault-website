@@ -19,10 +19,10 @@ function formatNewsItem(item: NewsItem): NewsCardItem {
   const date =
     dateSource && !isNaN(new Date(dateSource).getTime())
       ? new Date(dateSource).toLocaleDateString('en-US', {
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric',
-        })
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      })
       : '';
 
   return {
@@ -43,10 +43,7 @@ export default async function NewsPage() {
   return (
     <main className="home-page position-relative">
       <Header />
-      <section className="px-4 pt-5 pb-2">
-        <div className="primary-text text-uppercase letter-spacing fw-semibold fs-15">
-          news
-        </div>
+      <section className="px-4 mt-5 pt-5 pb-2">
         <div className="font-libre fs-42 text-dark pt-2">News</div>
       </section>
       <NewsCard news={newsCards} />
