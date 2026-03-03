@@ -15,7 +15,7 @@ export default function ArticleDetail({ sectionLabel, title, content }: ArticleD
         <div className="primary-text text-uppercase letter-spacing fw-semibold fs-15">
           {sectionLabel}
         </div>
-        <h1 className="font-libre fs-42 text-dark pt-2">{title}</h1>
+        <h1 className="font-libre fs-42 text-dark py-2 mt-2">{title}</h1>
       </section>
       <div className="article-detail-body px-4" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="article-detail-body-inner">
