@@ -26,7 +26,7 @@ const menu = [
   {
     label: 'What We Do',
     submenu: [
-      { label: 'Investments', href: '#' },
+      { label: 'Investments', href: '/vaultinvestment' },
       { label: 'Wealth Services', href: '#' },
       { label: 'PE Advisory', href: '#' },
       { label: 'Portfolio', href: '#' },
@@ -103,9 +103,8 @@ const Header = () => {
 
   return (
     <header
-      className={`vault-header px-4 py-3 d-flex align-items-center justify-content-between${
-        scrolled || isNoWhiteHeader ? ' vault-header-bg-white' : ''
-      } ${isHeaderVisible ? 'header-show' : 'header-hide'}`}
+      className={`vault-header px-4 py-3 d-flex align-items-center justify-content-between${scrolled || isNoWhiteHeader ? ' vault-header-bg-white' : ''
+        } ${isHeaderVisible ? 'header-show' : 'header-hide'}`}
     >
       <div className="d-flex align-items-center justify-content-between w-100 gap-3">
         <Image src={scrolled || isNoWhiteHeader ? blackLogo : logo} alt="Vault Logo" width={100} />
