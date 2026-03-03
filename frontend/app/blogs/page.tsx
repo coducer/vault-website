@@ -14,10 +14,10 @@ function formatBlogItem(item: BlogItem): BlogCardItem {
   const date =
     dateSource && !isNaN(new Date(dateSource).getTime())
       ? new Date(dateSource).toLocaleDateString('en-US', {
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric',
-        })
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      })
       : '';
 
   return {
@@ -35,10 +35,7 @@ export default async function BlogsPage() {
   return (
     <main className="home-page position-relative">
       <Header />
-      <section className="px-4 pt-5 pb-2">
-        <div className="primary-text text-uppercase letter-spacing fw-semibold fs-15">blogs</div>
-        <div className="font-libre fs-42 text-dark pt-2">Blogs</div>
-      </section>
+      <div className="font-libre fs-42 text-dark px-4 pt-5 pb-2 mt-5">Blogs</div>
       <BlogCard blogs={blogCards} />
       <WantToKnowMore entries={wantToKnowMoreList ?? null} />
       <Footer />

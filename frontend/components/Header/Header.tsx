@@ -28,8 +28,8 @@ const menu = [
     submenu: [
       { label: 'Investments', href: '/vaultinvestment' },
       { label: 'Wealth Services', href: '/wealth_services' },
-      { label: 'PE Advisory', href: '#' },
-      { label: 'Portfolio', href: '#' },
+      { label: 'PE Advisory', href: '/pe_advisory' },
+      { label: 'Portfolio', href: '/portfolio' },
     ],
   },
   {
@@ -72,6 +72,7 @@ const Header = () => {
   const isNoWhiteHeader =
     pathname === '/contact' ||
     pathname === '/news' ||
+    pathname === '/portfolio' ||
     pathname.startsWith('/news/') ||
     pathname === '/blogs' ||
     pathname.startsWith('/blogs/');

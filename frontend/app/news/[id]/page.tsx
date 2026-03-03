@@ -27,12 +27,14 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ id:
   return (
     <main className="home-page position-relative">
       <Header />
-      <ArticleDetail
-        sectionLabel="news"
-        date={dateStr}
-        title={news.title ?? ''}
-        content={news.description}
-      />
+      <div className=' mt-5 pt-5'>
+        <ArticleDetail
+          sectionLabel="news"
+          date={dateStr}
+          title={news.title ?? ''}
+          content={news.description}
+        />
+      </div>
       <WantToKnowMore entries={wantToKnowMoreList ?? null} />
       <Footer />
     </main>
