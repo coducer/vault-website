@@ -1,4 +1,5 @@
 import CustomCursor from '@/components/CustomCursor/CustomCursor';
+import InitialLoader from '@/components/InitialLoader/InitialLoader';
 import UnregisterServiceWorkers from '@/components/UnregisterServiceWorkers';
 import { DeviceProvider } from '@/context/DeviceProvider';
 import { ScrollProvider } from '@/context/ScrollProvider';
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ScrollProvider>
             <UnregisterServiceWorkers />
             <CustomCursor />
+            <InitialLoader />
             {children}
           </ScrollProvider>
         </DeviceProvider>
