@@ -1,0 +1,55 @@
+{
+  "kind": "singleType",
+  "collectionName": "investments",
+  "info": {
+    "singularName": "investment",
+    "pluralName": "investments",
+    "displayName": "Investment",
+    "description": "Investment page: hero, introduction, where we invest, what we do"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bgImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "introTitle": {
+      "type": "string"
+    },
+    "introDescription": {
+      "type": "richtext"
+    },
+    "investTitle": {
+      "type": "string"
+    },
+    "investItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "investment.invest-item"
+    },
+    "buttonName": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "whatWeDoTitle": {
+      "type": "string"
+    },
+    "whatWeDoItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "investment.what-we-do-item"
+    }
+  }
+}

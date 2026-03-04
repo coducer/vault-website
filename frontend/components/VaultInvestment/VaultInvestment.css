@@ -14,22 +14,12 @@
   color: var(--dark);
 }
 
-.what-we-do-content:hover {
-  background: var(--primary-blue);
-  color: var(--white);
-}
-
 .what-we-do-content-primary{
   background: transparent;
   transition: background 0.3s, border 0.3s;
   cursor: pointer;
   color: var(--white);
 }
-
-.what-we-do-content-primary:hover{
-  background: var(--primary-blue);
-}
-
 .what-we-do-text {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

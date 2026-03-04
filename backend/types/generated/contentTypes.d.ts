@@ -720,6 +720,47 @@ export interface ApiHomePartnerWithUsHomePartnerWithUs
   };
 }
 
+export interface ApiInvestmentInvestment extends Struct.SingleTypeSchema {
+  collectionName: 'investments';
+  info: {
+    description: 'Investment page: hero, introduction, where we invest, what we do';
+    displayName: 'Investment';
+    pluralName: 'investments';
+    singularName: 'investment';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    bgImage: Schema.Attribute.Media<'images'>;
+    buttonLink: Schema.Attribute.String;
+    buttonName: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    introDescription: Schema.Attribute.RichText;
+    introTitle: Schema.Attribute.String;
+    investItems: Schema.Attribute.Component<'investment.invest-item', true>;
+    investTitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investment.investment'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whatWeDoItems: Schema.Attribute.Component<
+      'investment.what-we-do-item',
+      true
+    >;
+    whatWeDoTitle: Schema.Attribute.String;
+  };
+}
+
 export interface ApiNewsNewspost extends Struct.CollectionTypeSchema {
   collectionName: 'news';
   info: {
@@ -1501,6 +1542,7 @@ declare module '@strapi/strapi' {
       'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::home-about-us.home-about-us': ApiHomeAboutUsHomeAboutUs;
       'api::home-partner-with-us.home-partner-with-us': ApiHomePartnerWithUsHomePartnerWithUs;
+      'api::investment.investment': ApiInvestmentInvestment;
       'api::news.newspost': ApiNewsNewspost;
       'api::operating-partner.operating-partner': ApiOperatingPartnerOperatingPartner;
       'api::our-story.our-story': ApiOurStoryOurStory;

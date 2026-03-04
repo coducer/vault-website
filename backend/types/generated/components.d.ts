@@ -53,6 +53,30 @@ export interface HomePartnerWithUsItem extends Struct.ComponentSchema {
   };
 }
 
+export interface InvestmentInvestItem extends Struct.ComponentSchema {
+  collectionName: 'components_investment_invest_items';
+  info: {
+    displayName: 'Invest Item';
+    icon: 'bullet-list';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images'>;
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface InvestmentWhatWeDoItem extends Struct.ComponentSchema {
+  collectionName: 'components_investment_what_we_do_items';
+  info: {
+    displayName: 'What We Do Item';
+    icon: 'link';
+  };
+  attributes: {
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface OurStoryDetailItem extends Struct.ComponentSchema {
   collectionName: 'components_our_story_detail_items';
   info: {
@@ -176,6 +200,8 @@ declare module '@strapi/strapi' {
       'event.detail-block': EventDetailBlock;
       'home-about-us.text-line': HomeAboutUsTextLine;
       'home-partner-with-us.item': HomePartnerWithUsItem;
+      'investment.invest-item': InvestmentInvestItem;
+      'investment.what-we-do-item': InvestmentWhatWeDoItem;
       'our-story.detail-item': OurStoryDetailItem;
       'our-story.item': OurStoryItem;
       'shared.media': SharedMedia;
