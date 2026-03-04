@@ -501,22 +501,22 @@
     "link": "/contact",
     "items": [
       {
-        "icon": "aboutus_bg.jpg",
+        "icon": "g1.svg",
         "title": "Network Effect",
         "subtitle": "Multiply network of investors and founders with Vault"
       },
       {
-        "icon": "aboutus_bg.jpg",
+        "icon": "g2.svg",
         "title": "Know How",
         "subtitle": "Exchange business or operational know how with Vault"
       },
       {
-        "icon": "aboutus_bg.jpg",
+        "icon": "g3.svg",
         "title": "Industry Expertise",
         "subtitle": "Exchange deep industry insights with Vault"
       },
       {
-        "icon": "aboutus_bg.jpg",
+        "icon": "g4.svg",
         "title": "Expand Reach",
         "subtitle": "Expand your reach to deal flow"
       }
