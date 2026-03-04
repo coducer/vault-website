@@ -2,7 +2,13 @@ import BlogCard, { type BlogCardItem } from '@/components/Blogs/BlogsCard';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import WantToKnowMore from '@/components/WantToKnowMore/WantToKnowMore';
-import { type BlogItem, getBlogs, getStrapiMediaUrl, getWantToKnowMoreList } from '@/lib/strapi';
+import {
+  formatEventDate,
+  getBlogs,
+  getStrapiMediaUrl,
+  getWantToKnowMoreList,
+  type BlogItem,
+} from '@/lib/strapi';
 import '../homePage.css';
 
 const DEFAULT_IMAGE =
@@ -11,14 +17,7 @@ const DEFAULT_IMAGE =
 function formatBlogItem(item: BlogItem): BlogCardItem {
   const bgImageUrl = item?.bgImage?.url;
   const dateSource = item?.date ?? item?.publishedAt;
-  const date =
-    dateSource && !isNaN(new Date(dateSource).getTime())
-      ? new Date(dateSource).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      })
-      : '';
+  const date = dateSource ? formatEventDate(dateSource) : '';
 
   return {
     id: item.documentId ?? '',

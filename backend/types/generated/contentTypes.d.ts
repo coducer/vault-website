@@ -818,6 +818,40 @@ export interface ApiOurStoryOurStory extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
+  collectionName: 'portfolio';
+  info: {
+    description: 'Create your portfolio content';
+    displayName: 'Portfolio';
+    pluralName: 'portfolios';
+    singularName: 'portfolio';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bgImage: Schema.Attribute.Media<'images'>;
+    category: Schema.Attribute.String;
+    company_url: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    display_title: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::portfolio.portfolio'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
   collectionName: 'teams';
   info: {
@@ -1470,6 +1504,7 @@ declare module '@strapi/strapi' {
       'api::news.newspost': ApiNewsNewspost;
       'api::operating-partner.operating-partner': ApiOperatingPartnerOperatingPartner;
       'api::our-story.our-story': ApiOurStoryOurStory;
+      'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::team.team': ApiTeamTeam;
       'api::vault-story.vault-story': ApiVaultStoryVaultStory;
       'api::want-to-know-more.want-to-know-more': ApiWantToKnowMoreWantToKnowMore;

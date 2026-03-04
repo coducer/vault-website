@@ -2,26 +2,10 @@
 'use client';
 
 import type { EventDetailBlock, EventItem } from '@/lib/strapi';
-import { getStrapiMediaUrl } from '@/lib/strapi';
+import { formatEventDate, resolveStrapiMediaUrl } from '@/lib/strapi';
 import meetingImg from '@/public/assests/event.jpg';
 import { Col, Row } from 'react-bootstrap';
 import './ArticleDetails.css';
-
-function formatEventDate(date?: string) {
-  if (!date || isNaN(Date.parse(date))) return '';
-  const dateObj = new Date(date);
-  return dateObj.toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-    timeZone: 'UTC',
-  });
-}
-
-function resolveStrapiMediaUrl(url?: string) {
-  if (!url) return '';
-  return getStrapiMediaUrl(url);
-}
 
 const ArticleDetails = ({ event }: { event?: EventItem | null }) => {
   const eventDate = event?.date && formatEventDate(event.date) ? formatEventDate(event.date) : '';

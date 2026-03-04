@@ -4,11 +4,12 @@ import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import WantToKnowMore from '@/components/WantToKnowMore/WantToKnowMore';
 import {
-  type EventItem,
+  formatEventDate,
   getEvents,
   getEventsPage,
   getStrapiMediaUrl,
   getWantToKnowMoreList,
+  type EventItem,
 } from '@/lib/strapi';
 import '../homePage.css';
 
@@ -17,14 +18,7 @@ const DEFAULT_IMAGE =
 
 function formatEvent(event: EventItem): EventCardItem {
   const bgImageUrl = event?.bgImage?.url;
-  const date =
-    event?.date && !isNaN(new Date(event.date).getTime())
-      ? new Date(event.date).toLocaleDateString('en-US', {
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric',
-        })
-      : '';
+  const date = event?.date ? formatEventDate(event.date) : '';
 
   return {
     id: event.documentId ?? '',

@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio",
+  "info": {
+    "singularName": "portfolio",
+    "pluralName": "portfolios",
+    "displayName": "Portfolio",
+    "description": "Create your portfolio content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "display_title": {
+      "type": "string",
+      "required": false
+    },
+    "category": {
+      "type": "string"
+    },
+    "bgImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "company_url": {
+      "type": "string"
+    }
+  }
+}

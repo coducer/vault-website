@@ -509,6 +509,47 @@ export async function getOperatingPartners(): Promise<OperatingPartnerItem[]> {
   }
 }
 
+// --- Portfolio (collection) ---
+
+// Note: The original code expects the Strapi collection to be "portfolio" but Strapi pluralizes automatically to "portfolios".
+// If you receive 404, try fetching from "/api/portfolios" instead.
+
+export interface PortfolioItem {
+  id: string;
+  documentId: string;
+  title: string;
+  display_title: string;
+  category: string;
+  bgImage: { url: string; alternativeText: string } | null;
+  description: string | StrapiRichTextBlock[];
+  company_url: string;
+}
+
+export async function getAllPortfolio(): Promise<PortfolioItem[]> {
+  try {
+    const json = await strapiFetch<PortfolioItem[] | PortfolioItem>(
+      '/api/portfolios?populate=bgImage'
+    );
+    const data = json?.data;
+    return Array.isArray(data) ? data : [];
+  } catch (error) {
+    console.error('Failed to fetch portfolios from Strapi:', error);
+    return [];
+  }
+}
+
+export async function getByIdPortfolio(id: string): Promise<PortfolioItem | null> {
+  try {
+    const json = await strapiFetch<PortfolioItem>(
+      `/api/portfolios/${id}?populate=bgImage`
+    );
+    return json?.data ?? null;
+  } catch (error) {
+    console.error('Failed to fetch portfolio item from Strapi:', error);
+    return null;
+  }
+}
+
 // --- Events ---
 export interface EventDetailBlock {
   header: string;
@@ -615,4 +656,21 @@ export async function getEventById(id: string): Promise<EventItem | null> {
     console.error('Failed to fetch event from Strapi:', error);
     return null;
   }
+}
+
+
+export function formatEventDate(date?: string) {
+  if (!date || isNaN(Date.parse(date))) return '';
+  const dateObj = new Date(date);
+  return dateObj.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+}
+
+export function resolveStrapiMediaUrl(url?: string) {
+  if (!url) return '';
+  return getStrapiMediaUrl(url);
 }
