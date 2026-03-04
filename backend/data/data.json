@@ -659,5 +659,47 @@
       "description": "Restake provides institutional-grade blockchain infrastructure and non-custodial staking services across multiple protocol ecosystems. Founded in 2022 by Lian Group and rebranded to Swyke in 2025, the company operates validator nodes through its Finality platform and supports infrastructure for networks including Ika, Union, Somnia, and Flare. Restake combines validator operations with Web3 venture capital and innovation labs, serving institutional clients and protocol foundations while maintaining a focus on secure, non-custodial staking solutions from its Dubai base.",
       "company_url": "https://www.swyke.ai"
     }
-  ]
+  ],
+  "investment": {
+    "bgImage": "investment_bg.png",
+    "title": "Vault Investments",
+    "introTitle": "Vault Investments focuses on strategic funding",
+    "introDescription": "Vault Investments focuses on strategic funding. Vault backs companies and founders at growth stage, where operational focus, strong fundamentals and controls are becoming crucial for the continued growth and investor support.\n\nVault executes its investments through strategic funding, secondary buyouts or M&A.\n\nSeparately, Vault Tech is Vault’s venture arm which backs founders and incubates technology ventures which enhance positive effects or relieve transitional effects of cutting edge developments in AI, FinTech, Energy, Agriculture, Health, etc. Vault Tech works with founders who are deeply experienced in their respective domains but need strong corporate team, network and financial backing for breakthrough.",
+    "investTitle": "Strategic Focus Areas",
+    "investItems": [
+      {
+        "text": "AI Infrastructure",
+        "icon": "AI Infrastructure.svg"
+      },
+      {
+        "text": "FinTech Infrastructure",
+        "icon": "FinTech Infrastructure.png"
+      },
+      {
+        "text": "Mobility Tech",
+        "icon": "Mobility Tech.svg"
+      },
+      {
+        "text": "AgriTech",
+        "icon": "AgriTech.svg"
+      },
+      {
+        "text": "HealthTech",
+        "icon": "HealthTech.svg"
+      }
+    ],
+    "buttonName": "SEE OUR Portfolio",
+    "buttonLink": "/portfolio",
+    "whatWeDoTitle": "what we do",
+    "whatWeDoItems": [
+      {
+        "title": "Wealth Services",
+        "link": "/wealth"
+      },
+      {
+        "title": "PE Advisory",
+        "link": "/advisory"
+      }
+    ]
+  }
 }

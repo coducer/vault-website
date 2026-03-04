@@ -1,13 +1,19 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
-import homeBg from '@/public/assests/Frame-134.jpg';
-import Image from 'next/image';
+import { resolveStrapiMediaUrl } from '@/lib/strapi';
 
-const Hero = () => {
+const Hero = ({
+  image,
+  title,
+}: {
+  image: { url: string; alternativeText?: string } | null | undefined;
+  title: string | undefined;
+}) => {
   return (
     <section className="hero-wrapper position-relative" style={{ height: '100vh' }}>
       <div className="img-background">
-        <Image src={homeBg} alt="homeBg" />
+        <img src={resolveStrapiMediaUrl(image?.url)} alt="homeBg" />
         <div className="img-overlay"></div>
       </div>
       <div className="vault-marquee">
@@ -22,8 +28,7 @@ const Hero = () => {
       </div>
 
       <div className="hero-section h-100 d-flex justify-content-center gap-5 flex-column px-4">
-        <div className=" text-white hero-text">Vault Perspectives
-        </div>
+        <div className=" text-white hero-text">{title}</div>
       </div>
     </section>
   );

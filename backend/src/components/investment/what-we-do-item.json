@@ -1,0 +1,16 @@
+{
+    "collectionName": "components_investment_what_we_do_items",
+    "info": {
+        "displayName": "What We Do Item",
+        "icon": "link"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "link": {
+            "type": "string"
+        }
+    }
+}

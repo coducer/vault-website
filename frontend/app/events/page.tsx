@@ -36,8 +36,6 @@ export default async function EventsPage() {
   ]);
   const eventCards = events.map(formatEvent);
 
-  console.log('eventsPage', eventsPage);
-
   return (
     <main className="home-page position-relative">
       <Header />

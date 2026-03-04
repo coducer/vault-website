@@ -20,7 +20,8 @@ const {
   homePartnerWithUs = {},
   wantToKnowMore = [],
   blogs = [],
-  portfolio = [], // ADDED: import portfolio array from data.json
+  portfolio = [],
+  investment = [],
 } = rawData;
 
 // Register default admin user if it doesn't exist
@@ -103,7 +104,6 @@ async function setPublicPermissions(newPermissions) {
   await Promise.all(allPermissionsToCreate);
 }
 
-// Seed images live in scripts/seed-data/images/ (recommended for CI/CD, keeps images in repo)
 const SEED_IMAGES_DIR = path.join(__dirname, 'seed-data', 'images');
 
 function getFileSizeInBytes(filePath) {
@@ -143,7 +143,6 @@ async function uploadImage(filePath) {
       files: file,
     });
 
-  // Defensive: Always check for upload result array
   return Array.isArray(uploaded) ? uploaded[0] : null;
 }
 
@@ -170,7 +169,6 @@ async function uploadImageByName(fileName, options = {}) {
   return uploadImage(filePath);
 }
 
-// Create an entry and attach files if there are any
 async function createEntry({ model, entry, publish = false }) {
   try {
     const uid = model.includes('.') ? `api::${model}` : `api::${model}.${model}`;
@@ -543,6 +541,51 @@ async function importPortfolio() {
   }
 }
 
+async function importInvestment() {
+  if (!investment) return;
+
+  let bgImageFile = null;
+  if (investment.bgImage) {
+    bgImageFile = await uploadImageByName(investment.bgImage);
+  }
+
+  const investItems = [];
+  for (const item of investment.investItems || []) {
+    let iconFile = null;
+    if (item.icon) {
+      iconFile = await uploadImageByName(item.icon);
+    }
+    investItems.push({
+      text: item.text,
+      icon: iconFile?.id || null,
+    });
+  }
+
+
+  const whatWeDoItems = (investment.whatWeDoItems || []).map(item => ({
+    title: item.title,
+    link: item.link,
+  }));
+
+  await createEntry({
+    model: 'investment',
+    entry: {
+      bgImage: bgImageFile?.id || null,
+      title: investment.title || null,
+      introTitle: investment.introTitle || null,
+      introDescription: investment.introDescription || null,
+      investTitle: investment.investTitle || null,
+      investItems,
+      buttonName: investment.buttonName || null,
+      buttonLink: investment.buttonLink || null,
+      whatWeDoTitle: investment.whatWeDoTitle || null,
+      whatWeDoItems,
+      publishedAt: new Date().toISOString(),
+    },
+    publish: true,
+  });
+}
+
 async function importSeedData() {
   await setPublicPermissions({
     blog: ['find', 'findOne'],
@@ -562,7 +605,8 @@ async function importSeedData() {
     'home-partner-with-us': ['find', 'findOne'],
     'events-page': ['find', 'findOne'],
     'want-to-know-more': ['find', 'findOne'],
-    'portfolio': ['find', 'findOne'], // ADDED: public permissions for portfolio
+    'portfolio': ['find', 'findOne'],
+    'investment': ['find', 'findOne'],
   });
 
   await importAbout();
@@ -580,7 +624,8 @@ async function importSeedData() {
   await importTeam();
   await importOperatingPartners();
   await importWantToKnowMore();
-  await importPortfolio(); // ADDED: Seed the portfolio items
+  await importPortfolio();
+  await importInvestment();
 }
 
 async function main() {

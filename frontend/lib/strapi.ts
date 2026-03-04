@@ -22,6 +22,8 @@ async function strapiFetch<T>(
   clearTimeout(timeout);
 
   if (!response.ok) {
+    const text = await response.text();
+    console.error('Strapi response:', text);
     throw new Error(`Strapi API error: ${response.status}`);
   }
 
@@ -511,9 +513,6 @@ export async function getOperatingPartners(): Promise<OperatingPartnerItem[]> {
 
 // --- Portfolio (collection) ---
 
-// Note: The original code expects the Strapi collection to be "portfolio" but Strapi pluralizes automatically to "portfolios".
-// If you receive 404, try fetching from "/api/portfolios" instead.
-
 export interface PortfolioItem {
   id: string;
   documentId: string;
@@ -546,6 +545,46 @@ export async function getByIdPortfolio(id: string): Promise<PortfolioItem | null
     return json?.data ?? null;
   } catch (error) {
     console.error('Failed to fetch portfolio item from Strapi:', error);
+    return null;
+  }
+}
+
+// --- Investment (single type) ---
+export interface InvestmentWhatWeDoItem {
+  title?: string;
+  link?: string;
+}
+
+export interface InvestmentInvestItem {
+  text?: string;
+  icon?: { url: string; alternativeText?: string } | null;
+}
+
+export interface InvestmentData {
+  id?: number;
+  bgImage?: { url: string; alternativeText?: string } | null;
+  title?: string;
+  introTitle?: string;
+  introDescription?: string | StrapiRichTextBlock[];
+  investTitle?: string;
+  investItems?: InvestmentInvestItem[];
+  buttonName?: string;
+  buttonLink?: string;
+  whatWeDoTitle?: string;
+  whatWeDoItems?: InvestmentWhatWeDoItem[];
+}
+
+const INVESTMENT_POPULATE =
+  "populate[0]=bgImage&populate[1]=investItems.icon&populate[2]=whatWeDoItems";
+
+export async function getInvestment(): Promise<InvestmentData | null> {
+  try {
+    const json = await strapiFetch<InvestmentData>(
+      `/api/investment?${INVESTMENT_POPULATE}`
+    );
+    return json?.data ?? null;
+  } catch (error) {
+    console.error('Failed to fetch investment data from Strapi:', error);
     return null;
   }
 }
