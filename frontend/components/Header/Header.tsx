@@ -26,7 +26,7 @@ export const menu = [
   {
     label: 'What We Do',
     submenu: [
-      { label: 'Investments', href: '/vaultinvestment' },
+      { label: 'Investments', href: '/investment' },
       { label: 'Wealth Services', href: '/wealth_services' },
       { label: 'PE Advisory', href: '/pe_advisory' },
       { label: 'Portfolio', href: '/portfolio' },
