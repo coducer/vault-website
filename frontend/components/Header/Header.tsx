@@ -25,6 +25,7 @@ export const menu = [
   },
   {
     label: 'What We Do',
+    href: '/investment',
     submenu: [
       { label: 'Investments', href: '/investment' },
       { label: 'Wealth Services', href: '/wealth_services' },
@@ -43,6 +44,7 @@ export const menu = [
   },
   {
     label: 'Vault Perspectives',
+    href: '/vault_perspective',
     submenu: [
       { label: 'News', href: '/news' },
       { label: 'Food For Thought', href: '/blogs' },
@@ -54,7 +56,7 @@ export const menu = [
   },
   {
     label: 'Career',
-    href: '#',
+    href: '/career',
   },
 ];
 
@@ -104,9 +106,8 @@ const Header = () => {
 
   return (
     <header
-      className={`vault-header px-4 py-3 d-flex align-items-center justify-content-between${
-        scrolled || isNoWhiteHeader ? ' vault-header-bg-white' : ''
-      } ${isHeaderVisible ? 'header-show' : 'header-hide'}`}
+      className={`vault-header px-4 py-3 d-flex align-items-center justify-content-between${scrolled || isNoWhiteHeader ? ' vault-header-bg-white' : ''
+        } ${isHeaderVisible ? 'header-show' : 'header-hide'}`}
     >
       <div className="d-flex align-items-center justify-content-between w-100 gap-3">
         <Image src={scrolled || isNoWhiteHeader ? blackLogo : logo} alt="Vault Logo" width={100} />
@@ -252,8 +253,7 @@ const Header = () => {
                     >
                       <a
                         className={`nav-link${scrolled || isNoWhiteHeader ? ' text-dark' : ' text-white'}`}
-                        href="#"
-                        onClick={(e) => e.preventDefault()}
+                        href={item.href}
                         style={{ cursor: 'pointer' }}
                       >
                         {item.label}
