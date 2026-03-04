@@ -6,57 +6,11 @@ import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { IoMdClose } from 'react-icons/io';
 
-const overlayStyles: React.CSSProperties = {
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  width: '100vw',
-  height: '100vh',
-  background: 'rgba(0,0,0,0.25)',
-  zIndex: 1048,
-  transition: 'opacity 0.2s',
-};
-
-const sideDrawerStyles: React.CSSProperties = {
-  position: 'fixed',
-  top: 0,
-  right: 0,
-  width: '100%',
-  maxWidth: 480,
-  height: '100vh',
-  background: '#fff',
-  zIndex: 1111,
-  boxShadow: '-2px 0 10px rgba(0,0,0,0.10)',
-  overflowY: 'auto',
-  padding: 32,
-  display: 'flex',
-  flexDirection: 'column',
-  animation: 'slideInRight .2s',
-};
-
 const closeBtnStyles: React.CSSProperties = {
   background: 'transparent',
   border: 'none',
   cursor: 'pointer',
 };
-
-if (
-  typeof window !== 'undefined' &&
-  typeof document !== 'undefined' &&
-  !document.getElementById('portfolio-drawer-anim')
-) {
-  const style = document.createElement('style');
-  style.id = 'portfolio-drawer-anim';
-  style.textContent = `
-    @keyframes slideInRight {
-      0% { transform: translateX(100%); opacity: 0.1; filter: blur(8px);}
-      60% { transform: translateX(-5%); opacity: 0.9; filter: blur(0.5px);}
-      80% { transform: translateX(2%); opacity: 1; filter: blur(0px);}
-      100% { transform: translateX(0%); opacity: 1; filter: blur(0px);}
-    }
-  `;
-  document.head.appendChild(style);
-}
 
 const Portfolio: React.FC<{ items: PortfolioItem[] }> = ({ items }) => {
   const [openIdx, setOpenIdx] = useState<string | null>(null);
@@ -119,8 +73,17 @@ const Portfolio: React.FC<{ items: PortfolioItem[] }> = ({ items }) => {
       </Row>
       {openIdx !== null && selected && (
         <>
-          <div style={overlayStyles} aria-label="Close details overlay" onClick={handleClose} />
-          <div style={sideDrawerStyles} role="dialog" aria-modal="true" tabIndex={-1}>
+          <div
+            className="side-drawer-overlay"
+            aria-label="Close details overlay"
+            onClick={handleClose}
+          />
+          <div
+            className="side-drawer"
+            role="dialog"
+            aria-modal="true"
+            tabIndex={-1}
+          >
             <div className="mb-5 d-flex justify-content-between align-items-center">
               <div className="font-libre fs-24 text-dark ">About Company</div>
               <button aria-label="Close" onClick={handleClose} tabIndex={0} style={closeBtnStyles}>

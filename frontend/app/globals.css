@@ -293,3 +293,55 @@ a, button, input, textarea {
 .carousel-image-wrap:hover .carousel-image {
   transform: scale(1.08);
 }
+
+/* --------------------------------- shared side drawer --------------------------------- */
+
+.side-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1048;
+  transition: opacity 0.2s ease;
+}
+
+.side-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: #ffffff;
+  z-index: 1111;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  animation: side-drawer-slide-in-right 0.2s ease-out;
+}
+
+@keyframes side-drawer-slide-in-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0.1;
+    filter: blur(8px);
+  }
+  60% {
+    transform: translateX(-5%);
+    opacity: 0.9;
+    filter: blur(0.5px);
+  }
+  80% {
+    transform: translateX(2%);
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}

@@ -38,7 +38,7 @@ export const menu = [
     href: '/vault_story',
     submenu: [
       { label: 'Vault Story', href: '/vault_story' },
-      { label: 'Team', href: '/vault_story' },
+      { label: 'Team', href: '/vault_people' },
       { label: 'Operating Partners', href: '/vault_story' },
     ],
   },
@@ -75,6 +75,7 @@ const Header = () => {
     pathname === '/contact' ||
     pathname === '/news' ||
     pathname === '/portfolio' ||
+    pathname === '/vault_people' ||
     pathname.startsWith('/news/') ||
     pathname === '/blogs' ||
     pathname.startsWith('/blogs/');
