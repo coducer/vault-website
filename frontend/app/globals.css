@@ -320,28 +320,37 @@ a, button, input, textarea {
   padding: 32px;
   display: flex;
   flex-direction: column;
-  animation: side-drawer-slide-in-right 0.2s ease-out;
+  transform: translateX(100%);
+}
+
+.side-drawer.open {
+  animation: side-drawer-slide-in-right 0.4s ease forwards;
+}
+
+.side-drawer.close {
+  animation: side-drawer-slide-out-right 0.4s ease forwards;
 }
 
 @keyframes side-drawer-slide-in-right {
   0% {
     transform: translateX(100%);
-    opacity: 0.1;
-    filter: blur(8px);
   }
   60% {
     transform: translateX(-5%);
-    opacity: 0.9;
-    filter: blur(0.5px);
   }
   80% {
     transform: translateX(2%);
-    opacity: 1;
-    filter: blur(0);
   }
   100% {
     transform: translateX(0);
-    opacity: 1;
-    filter: blur(0);
+  }
+}
+
+@keyframes side-drawer-slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
   }
 }

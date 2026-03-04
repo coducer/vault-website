@@ -14,6 +14,7 @@ const closeBtnStyles: React.CSSProperties = {
 
 const Portfolio: React.FC<{ items: PortfolioItem[] }> = ({ items }) => {
   const [openIdx, setOpenIdx] = useState<string | null>(null);
+  const [closing, setClosing] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -23,8 +24,19 @@ const Portfolio: React.FC<{ items: PortfolioItem[] }> = ({ items }) => {
     };
   }, [openIdx]);
 
-  const handleCardClick = useCallback((idx: string) => setOpenIdx(idx), []);
-  const handleClose = useCallback(() => setOpenIdx(null), []);
+  const handleCardClick = useCallback((idx: string) => {
+    setOpenIdx(idx);
+    setClosing(false);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setClosing(true);
+
+    setTimeout(() => {
+      setOpenIdx(null);
+      setClosing(false);
+    }, 400);
+  }, []);
 
   const selected = useMemo(
     () => (openIdx !== null ? items.find((i) => i.id === openIdx) : null),
@@ -105,7 +117,7 @@ const Portfolio: React.FC<{ items: PortfolioItem[] }> = ({ items }) => {
           </Col>
         ))}
       </Row>
-      {openIdx !== null && selected && (
+      {(openIdx !== null || closing) && selected && (
         <>
           <div
             className="side-drawer-overlay"
@@ -113,7 +125,7 @@ const Portfolio: React.FC<{ items: PortfolioItem[] }> = ({ items }) => {
             onClick={handleClose}
           />
           <div
-            className="side-drawer"
+            className={`side-drawer ${closing ? "close" : "open"}`}
             role="dialog"
             aria-modal="true"
             tabIndex={-1}

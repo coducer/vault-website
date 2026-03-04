@@ -17,6 +17,7 @@ const closeBtnStyles: React.CSSProperties = {
 
 const OperatingPartner: React.FC<{ partner: OperatingPartnerInterface }> = ({ partner }) => {
   const [open, setOpen] = useState(false);
+  const [closing, setClosing] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -28,8 +29,19 @@ const OperatingPartner: React.FC<{ partner: OperatingPartnerInterface }> = ({ pa
     };
   }, [open]);
 
-  const handleOpen = useCallback(() => setOpen(true), []);
-  const handleClose = useCallback(() => setOpen(false), []);
+  const handleOpen = useCallback(() => {
+    setOpen(true);
+    setClosing(false);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setClosing(true);
+
+    setTimeout(() => {
+      setOpen(false);
+      setClosing(false);
+    }, 400);
+  }, []);
 
   const details = useMemo(() => ({
     bio: "Senior Partner with extensive experience in private equity and industrial transformations. Stefan Carlsson brings a wealth of expertise in strategic deal-making, operational value creation, and industry leadership.",
@@ -100,7 +112,7 @@ const OperatingPartner: React.FC<{ partner: OperatingPartnerInterface }> = ({ pa
           <div className="fw-medium fs-15 mb-2">{partner.name}</div>
         </div>
       </div>
-      {open && (
+      {(open || closing) && (
         <>
           <div
             className="side-drawer-overlay"
@@ -108,7 +120,7 @@ const OperatingPartner: React.FC<{ partner: OperatingPartnerInterface }> = ({ pa
             onClick={handleClose}
           />
           <div
-            className="side-drawer"
+            className={`side-drawer ${closing ? "close" : "open"}`}
             role="dialog"
             aria-modal="true"
             tabIndex={-1}
