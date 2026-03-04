@@ -1,7 +1,8 @@
 'use client';
 
-import homeBg from '@/public/assests/Frame-134.jpg';
+import homeBg from '@/public/assests/wsbg.jpg';
 import Image from 'next/image';
+import "./WealthService.css"
 
 const Hero = () => {
   return (
@@ -22,7 +23,8 @@ const Hero = () => {
       </div>
 
       <div className="hero-section h-100 d-flex justify-content-center gap-5 flex-column px-4">
-        <div className=" text-white hero-text">Vault Perspectives
+        <div className=" text-white hero-text">Wealth Services
+
         </div>
       </div>
     </section>

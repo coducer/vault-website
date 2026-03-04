@@ -1,0 +1,43 @@
+.invest-card {
+  border: 1px dashed var(--border2);
+  height: 250px;
+  transition: background 0.3s, border 0.3s;
+}
+.invest-card:hover{
+  background-color: var(--primary-blue);
+}
+
+.what-we-do-content{
+  background: transparent;
+  transition: background 0.3s, border 0.3s;
+  cursor: pointer;
+  color: var(--dark);
+  overflow: hidden;
+}
+
+.what-we-do-content:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+}
+
+.what-we-do-content-primary{
+  background: transparent;
+  transition: background 0.3s, border 0.3s;
+  cursor: pointer;
+  color: var(--white);
+}
+
+.what-we-do-content-primary:hover{
+  background: var(--primary-blue);
+}
+
+.what-we-do-text {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* .what-we-do-text:hover {
+  transform: translateX(20px);
+} */
+
+.what-we-do-content:hover .what-we-do-text {
+  transform: translateX(20px);
+}
