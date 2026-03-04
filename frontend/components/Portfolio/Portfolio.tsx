@@ -34,6 +34,40 @@ const Portfolio: React.FC<{ items: PortfolioItem[] }> = ({ items }) => {
   return (
     <div className="px-4">
       <div className="font-libre fs-42 text-dark mt-5 pt-5 pb-2">Our Portfolio</div>
+      <div className="d-flex gap-4 my-3 " role="tablist" aria-label="Portfolio Filters" style={{ fontSize: 17 }}>
+        {([
+          { key: 'all', label: 'All Projects', count: 14 },
+          { key: 'incubation', label: 'Incubation And Spin-Off', count: 5 },
+          { key: 'investment', label: 'Investment', count: 4 },
+          { key: 'advisory', label: 'Advisory', count: 5 },
+        ] as const).map((tab, idx) => {
+          const isActive = idx === 0;
+          return (
+            <button
+              key={tab.key}
+              className="bg-transparent border-0 p-0 fw-medium fs-15"
+              style={{
+                outline: 'none',
+                color: isActive ? '#222' : '#8c8c8c',
+                borderBottom: isActive ? '2px solid #222' : 'none',
+                fontWeight: isActive ? 600 : 400,
+                letterSpacing: 0.2,
+                cursor: isActive ? 'default' : 'pointer',
+                background: 'none',
+                transition: 'color .16s, border-bottom .16s'
+              }}
+              tabIndex={isActive ? 0 : -1}
+              aria-current={isActive ? 'page' : undefined}
+              role="tab"
+              aria-selected={isActive}
+              disabled={isActive}
+            >
+              {tab.label}
+              <sup className=' fs-12 ms-1 text-muted fw-medium'>{tab.count}</sup>
+            </button>
+          );
+        })}
+      </div>
       <Row className="my-4">
         {items.map((item) => (
           <Col md={4} key={item.id || item.title} className="mb-4 d-flex flex-column gap-2">
