@@ -20,32 +20,32 @@ const {
   homePartnerWithUs = {},
   wantToKnowMore = [],
   blogs = [],
+  portfolio = [], // ADDED: import portfolio array from data.json
 } = rawData;
 
 // Register default admin user if it doesn't exist
-// async function registerDefaultAdminUser() {
-//   // This uses Strapi's built-in admin::user
-//   const adminUserService = strapi.admin.services.user;
-
-//   const existing = await adminUserService.findOne({ email: 'admin@thevaultpartners.com' });
-//   if (existing) {
-//     return;
-//   }
-//   // Create the admin user
-//   await adminUserService.create({
-//     firstname: 'vault',
-//     lastname: '',
-//     email: 'admin@thevaultpartners.com',
-//     password: 'TheVaultPartners@123#',
-//     roles: await strapi.admin.services.role.find(), // assign all default roles; restrict if needed
-//     blocked: false,
-//     isActive: true,
-//   });
-// }
+// Uncomment and use if you need to register a default admin
+/*
+async function registerDefaultAdminUser(strapi) {
+  const adminUserService = strapi.admin.services.user;
+  const existing = await adminUserService.findOne({ email: 'admin@thevaultpartners.com' });
+  if (existing) {
+    return;
+  }
+  await adminUserService.create({
+    firstname: 'vault',
+    lastname: '',
+    email: 'admin@thevaultpartners.com',
+    password: 'TheVaultPartners@123#',
+    roles: await strapi.admin.services.role.find(),
+    blocked: false,
+    isActive: true,
+  });
+}
+*/
 
 async function seedExampleApp() {
   const shouldImportSeedData = await isFirstRun();
-
   if (shouldImportSeedData) {
     try {
       console.log('Setting up the template...');
@@ -62,6 +62,7 @@ async function seedExampleApp() {
   }
 }
 
+// Fix: use process.env.NODE_ENV directly to get environment 
 async function isFirstRun() {
   const pluginStore = strapi.store({
     environment: strapi.config.environment,
@@ -79,9 +80,12 @@ async function setPublicPermissions(newPermissions) {
       type: 'public',
     },
   });
+  if (!publicRole) {
+    throw new Error('Could not find the public role for permissions');
+  }
 
   const allPermissionsToCreate = [];
-  Object.keys(newPermissions).map((controller) => {
+  Object.keys(newPermissions).forEach((controller) => {
     const actions = newPermissions[controller];
     const [apiId, contentTypeId] = controller.includes('.')
       ? controller.split('.')
@@ -103,8 +107,13 @@ async function setPublicPermissions(newPermissions) {
 const SEED_IMAGES_DIR = path.join(__dirname, 'seed-data', 'images');
 
 function getFileSizeInBytes(filePath) {
-  const stats = fs.statSync(filePath);
-  return stats['size'];
+  try {
+    const stats = fs.statSync(filePath);
+    return stats['size'];
+  } catch (err) {
+    console.error(`Cannot get size for file ${filePath}:`, err);
+    return 0;
+  }
 }
 
 async function uploadImage(filePath) {
@@ -120,7 +129,7 @@ async function uploadImage(filePath) {
     mimetype: mimeType,
   };
 
-  const [uploadedFile] = await strapi
+  const uploaded = await strapi
     .plugin('upload')
     .service('upload')
     .upload({
@@ -134,7 +143,8 @@ async function uploadImage(filePath) {
       files: file,
     });
 
-  return uploadedFile;
+  // Defensive: Always check for upload result array
+  return Array.isArray(uploaded) ? uploaded[0] : null;
 }
 
 async function uploadImageByName(fileName, options = {}) {
@@ -177,6 +187,7 @@ async function createEntry({ model, entry, publish = false }) {
 }
 
 async function uploadImagesByName(fileNames) {
+  if (!Array.isArray(fileNames)) return null;
   const results = await Promise.all(fileNames.map((name) => uploadImageByName(name)));
   return results.length === 1 ? results[0] : results;
 }
@@ -186,19 +197,16 @@ async function updateBlocks(blocks) {
   for (const block of blocks) {
     if (block.__component === 'shared.media') {
       const uploadedFiles = await uploadImagesByName([block.file]);
-      const blockCopy = { ...block };
-      blockCopy.file = uploadedFiles;
+      const blockCopy = { ...block, file: uploadedFiles };
       updatedBlocks.push(blockCopy);
     } else if (block.__component === 'shared.slider') {
       const existingAndUploadedFiles = await uploadImagesByName(block.files);
-      const blockCopy = { ...block };
-      blockCopy.files = existingAndUploadedFiles;
+      const blockCopy = { ...block, files: existingAndUploadedFiles };
       updatedBlocks.push(blockCopy);
     } else {
       updatedBlocks.push(block);
     }
   }
-
   return updatedBlocks;
 }
 
@@ -210,7 +218,7 @@ async function importBlogs() {
         (blog.bgImage && (await uploadImageByName(blog.bgImage))) ||
         (await uploadImageByName(`${blog.slug}.jpg`)) ||
         (await uploadImageByName('default_image.png'));
-    } catch {
+    } catch (e) {
       bgImageFile = null;
     }
     const { cover, blocks, category, author, ...rest } = blog;
@@ -295,7 +303,6 @@ async function importEvents() {
   }
 }
 
-
 async function importAbout() {
   const heroImageFile = about?.heroImage ? await uploadImageByName(about.heroImage) : null;
   const details = (about?.details || []).map((d, i) => ({
@@ -318,7 +325,7 @@ async function importVaultStory() {
   const updatedBlocks = vaultStory.blocks?.length ? await updateBlocks(vaultStory.blocks) : [];
   const heroImageFile = vaultStory.heroImage ? await uploadImageByName(vaultStory.heroImage) : null;
 
-  const { heroImage: _heroImage, ...vaultStoryData } = vaultStory;
+  const { heroImage: _, ...vaultStoryData } = vaultStory;
 
   const details = (vaultStoryData.details || []).map((d, i) => ({
     id: i + 1,
@@ -346,7 +353,6 @@ async function importCeoAnnualLetters() {
       letter.downloadFile
         ? await uploadImageByName(letter.downloadFile)
         : await uploadImageByName('default_image.png');
-
     await createEntry({
       model: 'ceo-annual-letter',
       entry: {
@@ -515,6 +521,28 @@ async function importWantToKnowMore() {
   }
 }
 
+async function importPortfolio() {
+  for (const item of portfolio) {
+    let imageFile = null;
+    if (item.bgImage) {
+      imageFile = await uploadImageByName(item.bgImage);
+    }
+    await createEntry({
+      model: 'portfolio',
+      entry: {
+        title: item.title,
+        display_title: item.display_title || null,
+        description: item.description || null,
+        company_url: item.company_url || null,
+        category: item.category || null,
+        bgImage: imageFile?.id ?? null,
+        publishedAt: new Date().toISOString(),
+      },
+      publish: true,
+    });
+  }
+}
+
 async function importSeedData() {
   await setPublicPermissions({
     blog: ['find', 'findOne'],
@@ -534,6 +562,7 @@ async function importSeedData() {
     'home-partner-with-us': ['find', 'findOne'],
     'events-page': ['find', 'findOne'],
     'want-to-know-more': ['find', 'findOne'],
+    'portfolio': ['find', 'findOne'], // ADDED: public permissions for portfolio
   });
 
   await importAbout();
@@ -551,6 +580,7 @@ async function importSeedData() {
   await importTeam();
   await importOperatingPartners();
   await importWantToKnowMore();
+  await importPortfolio(); // ADDED: Seed the portfolio items
 }
 
 async function main() {

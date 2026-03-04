@@ -16,6 +16,7 @@ import WhatWeDo from '@/components/WhatWeDo/WhatWeDo';
 import {
   BlogItem,
   EventItem,
+  formatEventDate,
   getBlogs,
   getCeoAnnualLetters,
   getEvents,
@@ -43,14 +44,7 @@ type EventCarouselItem = {
 
 function formatEvent(event: EventItem): EventCarouselItem {
   const bgImageUrl = event?.bgImage?.url;
-  const date =
-    event?.date && !isNaN(new Date(event.date).getTime())
-      ? new Date(event.date).toLocaleDateString('en-US', {
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric',
-        })
-      : '';
+  const date = event?.date ? formatEventDate(event.date) : '';
 
   return {
     date,
@@ -63,14 +57,7 @@ function formatEvent(event: EventItem): EventCarouselItem {
 
 function formatBlog(blog: BlogItem): BlogCarouselItem {
   const bgImageUrl = blog?.bgImage?.url;
-  const date =
-    blog?.date && !isNaN(new Date(blog.date).getTime())
-      ? new Date(blog.date).toLocaleDateString('en-US', {
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric',
-        })
-      : '';
+  const date = blog?.date ? formatEventDate(blog.date) : '';
   return {
     date,
     title: blog.title ?? '',

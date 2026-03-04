@@ -529,5 +529,135 @@
       "buttonName": "Meet the team",
       "link": "/teams"
     }
+  ],
+  "portfolio": [
+    {
+      "title": "Polar",
+      "display_title": "POLAR (Digital Infrastructure / HPC)",
+      "category": "Incubation and spin-off",
+      "bgImage": "Polar.jpg",
+      "description": "Polar DC is a European data center developer focused on next-generation infrastructure designed for high-performance computing and AI workloads. The company builds and operates advanced facilities that combine sustainability, operational excellence, and cutting-edge design to meet the growing demands of cloud, AI, and enterprise customers. Polar’s initial capacity is fully pre-sold and it continues to expand its footprint across strategic locations in Europe, backed by experienced leadership and institutional capital.",
+      "company_url": "https://www.polardc.com/"
+    },
+    {
+      "title": "CIFR",
+      "display_title": "CIFR (Digital Infrastructure / Compute Hosting)",
+      "category": "Incubation and spin-off",
+      "bgImage": "CIFR.jpg",
+      "description": "Cipher Mining Inc. is an industrial-scale data center operator originally focused on Bitcoin mining that has expanded into broader infrastructure hosting for high-performance computing. The company develops and operates facilities with significant power capacity and has secured large-scale leases that position it at the intersection of digital asset production and compute-intensive workloads, including AI and enterprise infrastructure customers.",
+      "company_url": "https://www.ciphermining.com"
+    },
+    {
+      "title": "Anan",
+      "display_title": "ANAN (Digital Infrastructure / HPC)",
+      "category": "Incubation and spin-off",
+      "bgImage": "ANAN.jpg",
+      "description": "Anan Data Centers is a data center operator based in Israel that provides secure, high-performance colocation and infrastructure services for enterprises and cloud providers. With secure, resilient facilities and a focus on performance and compliance, Anan supports a range of critical IT workloads, positioning itself as a core provider of infrastructure in the region.\n\nLearn more: www.anandata.io",
+      "company_url": "https://www.anandata.io"
+    },
+    {
+      "title": "Hut8",
+      "display_title": "HUT8 (Energy & Digital Infrastructure / Data Centers)",
+      "category": "Incubation and spin-off",
+      "bgImage": "Hut8.jpg",
+      "description": "Hut 8 is a diversified energy and digital infrastructure company that has evolved from its roots in Bitcoin mining into a broader platform spanning power generation, compute hosting, and data center development. The company now pursues large-scale data center projects across North America and has executed multi-billion-dollar agreements to provide energy-intensive compute capacity for AI workloads, reflecting its transition toward infrastructure supporting next-generation technology demand.\n\nLearn more: www.hut8.com",
+      "company_url": "https://www.hut8.com"
+    },
+    {
+      "title": "Longbow",
+      "display_title": "LONGBOW (Automotive / Electric Vehicles)",
+      "category": "Investment",
+      "bgImage": "LONGBOW.jpg",
+      "description": "Longbow Motors is a UK-based automotive innovator focused on lightweight, driver-centric electric sports cars. Founded by industry veterans with experience at leading EV and performance brands, Longbow aims to redefine the electric sports car segment with vehicles that prioritize engagement, agility, and craftsmanship. Its first series of models, including open-top and fixed-roof sports cars, are designed and hand-built in the UK with production targeted in the mid-2020s.\n\nLearn more: www.longbowmotors.com",
+      "company_url": "https://longbowmotors.com"
+    },
+    {
+      "title": "Dmanisi Pasture",
+      "display_title": "DCB (Agritech / Livestock)",
+      "category": "Investment",
+      "bgImage": "DCB.jpg",
+      "description": "Dmanisi Cattle Breeding is Georgia’s only large-scale cattle breeding operation, raising 800 head of premium French Salers cattle on over 1,600 hectares. The farm is developing Georgia’s first large-scale domestic beef brand to replace imported meat with locally-produced supply. Selected for their adaptation to Georgia’s climate and meat quality, the Salers breed achieves reproduction and fattening rates comparable to their French counterparts, enabling consistent year-round production for the local retail market.",
+      "company_url": "https://dmanisipasture.com"
+    },
+    {
+      "title": "Crystal Intelligence",
+      "display_title": "CRYSTAL INTELLIGENCE (Blockchain Analytics / Compliance)",
+      "category": "Advisory",
+      "bgImage": "CRYSTAL INTELLIGENCE.jpg",
+      "description": "Crystal Blockchain provides advanced analytics and forensic tools for cryptocurrency compliance and investigation. Developed by Bitfury Group, the platform enables financial institutions, law enforcement, and crypto businesses to trace transactions, assess risks, and maintain AML compliance across major blockchain networks. Crystal offers transaction monitoring, fund flow visualization, and custom risk scoring through SaaS, API, and public explorer interfaces, supporting regulatory compliance and risk management across the digital asset industry.\n\nLearn more: www.crystalintelligence.com",
+      "company_url": "https://www.crystalintelligence.com"
+    },
+    {
+      "title": "Lian",
+      "display_title": "LIAN CAPITAL PARTNERS (Private Equity / Venture Capital)",
+      "category": "Advisory",
+      "bgImage": "LIAN CAPITAL PARTNERS.png",
+      "description": "LIAN Capital Partners is a Luxembourg-based private equity and venture capital firm operating an investor-operator model across technology infrastructure and healthcare sectors. Founded in 2017 as part of LIAN Group, the firm provides capital and hands-on operational expertise to growth-stage companies, buyouts, and venture investments, with focus areas including blockchain, fintech, logistics, and real estate. LIAN targets Series B and later-stage rounds, serving institutional clients including family offices, private banks, and ultra-high-net-worth individuals. With offices in Luxembourg and Geneva, the firm acts as both investment manager and active operator, leveraging deep sector expertise to drive value creation in high-potential technology and healthcare companies.\n\nLearn more: www.liangroup.io",
+      "company_url": "https://liangroup.io"
+    },
+    {
+      "title": "WEO",
+      "display_title": "WEO (Health-Tech / Smart Bottle)",
+      "category": "Advisory",
+      "bgImage": "WEO.jpg",
+      "description": "Weo is a health-tech company specializing in biotechnology for hydration and immune health. The company has developed a smart bottle utilizing patented diamond-based electrolysis technology to alter the molecular structure of water, enhancing its antioxidant properties for human, animal, and plant consumption. Weo’s technology platform targets improved health outcomes through advanced water science, combining hardware innovation with biochemical research to deliver functional hydration solutions.",
+      "company_url": "https://www.we-o.com"
+    },
+    {
+      "title": "Korelya",
+      "display_title": "KORELYA CAPITAL (Venture Capital)",
+      "category": "Advisory",
+      "bgImage": "KORELYA CAPITAL.jpg",
+      "description": "Korelya Capital is a venture capital firm managing over €800 million to invest in European technology companies. Founded in 2016, the Paris-based firm backs early and growth-stage startups in AI, deep tech, and digital services, providing capital and strategic partnerships to facilitate expansion into Asian markets. With offices across Paris, London, Seoul, and Singapore, Korelya leverages relationships with major Asian corporates to support portfolio companies including GetYourGuide, Ledger, and Bolt in building global market positions.",
+      "company_url": "https://www.korelyacapital.com"
+    },
+    {
+      "title": "Layer5",
+      "display_title": "LAYER5 (Venture Capital / AI Applications)",
+      "category": "Investment",
+      "bgImage": "LAYER5.jpg",
+      "description": "Layer 5 backs domain experts building AI-powered solutions for enterprise problems. The firm combines venture capital with technical development services, partnering with industry veterans to create software for heavily regulated sectors with outdated legacy systems. Layer 5 focuses on the AI application layer, targeting industries where deep domain expertise and validated buyer pain create defensible advantages over purely technical AI teams.",
+      "company_url": "https://www.layer5.vc"
+    },
+    {
+      "title": "Bitfury",
+      "display_title": "BITFURY (Technology / Infrastructure)",
+      "category": "Investment",
+      "bgImage": "BITFURY.jpg",
+      "description": "Bitfury Group is a full-service blockchain technology company and one of the largest private infrastructure providers in the blockchain ecosystem. Founded in 2011, Bitfury specializes in hardware, security, and software solutions that secure the Bitcoin blockchain and advance Web 3.0 technologies. The company has transitioned from Bitcoin mining operations to operating as a technology incubator focused on ethical innovation in artificial intelligence, quantum computing, and decentralized systems. Bitfury’s infrastructure and technology solutions support the development of next-generation blockchain applications and emerging computational technologies.",
+      "company_url": "https://www.bitfury.com"
+    },
+    {
+      "title": "Lexminster",
+      "display_title": "LEXMINSTER (Legal Services)",
+      "category": "Incubation and spin-off",
+      "bgImage": "LEXMINSTER.jpg",
+      "description": "Lexminster is a business-oriented international law firm serving clients across Central Asia and global markets. Based in Uzbekistan and Kazakhstan with representations in Austria, the UAE, and the UK, the firm specializes in cross-border M&A, banking and finance, and real estate transactions. Lexminster advises private equity funds, financial institutions, and multinational companies on complex deals across more than 40 jurisdictions, delivering commercially focused legal solutions backed by deep regional expertise and an extensive international network.",
+      "company_url": "https://www.lexminster.com"
+    },
+    {
+      "title": "WOWCUBE",
+      "display_title": "WOWCUBE (Consumer Electronics)",
+      "category": "Advisory",
+      "bgImage": "WOWCUBE.jpg",
+      "description": "WOWCube Entertainment develops volumetric computing hardware for next-generation interactive entertainment. The company’s flagship product is a modular handheld gaming platform featuring 24 integrated high-resolution displays across eight processing units, controlled through six-axis motion input. WOWCube’s technology creates three-dimensional gaming experiences through physical device manipulation, establishing a new category in spatial computing that bridges tactile interaction with immersive digital content.",
+      "company_url": "https://www.wowcube.com"
+    },
+    {
+      "title": "Cowa",
+      "display_title": "COWA (Digital Infrastructure / Sustainable Computing)",
+      "category": "Advisory",
+      "bgImage": "COWA.png",
+      "description": "Cowa AI develops sustainable digital infrastructure for Bitcoin mining and AI computing. Based in London, the company operates zero-carbon data centers in the Nordic region powered by renewable hydro energy. Cowa provides infrastructure for blockchain mining, high-performance computing for machine learning, and PoS blockchain validation services, while also investing in technology and Web3 ventures. The company’s model leverages renewable energy resources to deliver environmentally sustainable solutions for energy-intensive computational applications.",
+      "company_url": "https://www.cowa.ai"
+    },
+    {
+      "title": "Restake",
+      "display_title": "RESTAKE (NOW SWIKE) (Blockchain Infrastructure / Staking)",
+      "category": "Advisory",
+      "bgImage": "RESTAKE.jpg",
+      "description": "Restake provides institutional-grade blockchain infrastructure and non-custodial staking services across multiple protocol ecosystems. Founded in 2022 by Lian Group and rebranded to Swyke in 2025, the company operates validator nodes through its Finality platform and supports infrastructure for networks including Ika, Union, Somnia, and Flare. Restake combines validator operations with Web3 venture capital and innovation labs, serving institutional clients and protocol foundations while maintaining a focus on secure, non-custodial staking solutions from its Dubai base.",
+      "company_url": "https://www.swyke.ai"
+    }
   ]
 }

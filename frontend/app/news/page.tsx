@@ -1,12 +1,13 @@
-import NewsCard, { type NewsCardItem } from '@/components/News/NewsCard';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import NewsCard, { type NewsCardItem } from '@/components/News/NewsCard';
 import WantToKnowMore from '@/components/WantToKnowMore/WantToKnowMore';
 import {
-  type NewsItem,
+  formatEventDate,
   getNews,
   getStrapiMediaUrl,
   getWantToKnowMoreList,
+  type NewsItem,
 } from '@/lib/strapi';
 import '../homePage.css';
 
@@ -16,14 +17,7 @@ const DEFAULT_IMAGE =
 function formatNewsItem(item: NewsItem): NewsCardItem {
   const bgImageUrl = item?.bgImage?.url;
   const dateSource = item?.date ?? item?.publishedAt;
-  const date =
-    dateSource && !isNaN(new Date(dateSource).getTime())
-      ? new Date(dateSource).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      })
-      : '';
+  const date = dateSource ? formatEventDate(dateSource) : '';
 
   return {
     id: item.documentId ?? '',
@@ -34,10 +28,7 @@ function formatNewsItem(item: NewsItem): NewsCardItem {
 }
 
 export default async function NewsPage() {
-  const [news, wantToKnowMoreList] = await Promise.all([
-    getNews(),
-    getWantToKnowMoreList(),
-  ]);
+  const [news, wantToKnowMoreList] = await Promise.all([getNews(), getWantToKnowMoreList()]);
   const newsCards = news.map(formatNewsItem);
 
   return (

@@ -21,6 +21,7 @@ const PERMISSIONS_TO_SET = {
   contact: ['find', 'findOne'],
   'contact-submission': ['create'],
   'events-page': ['find', 'findOne'],
+  portfolio: ['find', 'findOne'],
 };
 
 async function setPublicPermissions() {
