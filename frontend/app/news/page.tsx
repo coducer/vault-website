@@ -1,35 +1,12 @@
+import CommenListCard from '@/components/CommenListCard/CommenListCard';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
-import NewsCard, { type NewsCardItem } from '@/components/News/NewsCard';
 import WantToKnowMore from '@/components/WantToKnowMore/WantToKnowMore';
-import {
-  formatEventDate,
-  getNews,
-  getStrapiMediaUrl,
-  getWantToKnowMoreList,
-  type NewsItem,
-} from '@/lib/strapi';
+import { CardList, getNews, getWantToKnowMoreList } from '@/lib/strapi';
 import '../homePage.css';
-
-const DEFAULT_IMAGE =
-  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80';
-
-function formatNewsItem(item: NewsItem): NewsCardItem {
-  const bgImageUrl = item?.bgImage?.url;
-  const dateSource = item?.date ?? item?.publishedAt;
-  const date = dateSource ? formatEventDate(dateSource) : '';
-
-  return {
-    id: item.documentId ?? '',
-    title: item.title ?? '',
-    date,
-    image: bgImageUrl ? getStrapiMediaUrl(bgImageUrl) : DEFAULT_IMAGE,
-  };
-}
 
 export default async function NewsPage() {
   const [news, wantToKnowMoreList] = await Promise.all([getNews(), getWantToKnowMoreList()]);
-  const newsCards = news.map(formatNewsItem);
 
   return (
     <main className="home-page position-relative">
@@ -37,7 +14,7 @@ export default async function NewsPage() {
       <section className="px-4 mt-5 pt-5 pb-2">
         <div className="font-libre fs-42 text-dark pt-2">News</div>
       </section>
-      <NewsCard news={newsCards} />
+      <CommenListCard details={news as unknown as CardList[]} pathname="news" />
       <WantToKnowMore entries={wantToKnowMoreList ?? null} />
       <Footer />
     </main>

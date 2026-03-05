@@ -2,18 +2,22 @@ import { StrapiRichTextBlock } from '@/lib/strapi';
 import { Col, Row } from 'react-bootstrap';
 import RichTextBlock from '../RichTextBlock/RichTextBlock';
 
-const Details = ({
+const CommenDetails = ({
   heading,
   body,
+  headerText,
 }: {
+  headerText?: string;
   heading: string | undefined;
   body: string | StrapiRichTextBlock[] | undefined;
 }) => {
   return (
     <div className="px-4 py-5 d-flex flex-column gap-4">
-      <div className=" primary-text text-uppercase letter-spacing fw-semibold fs-15">
-        Introduction
-      </div>
+      {headerText && (
+        <div className=" primary-text text-uppercase letter-spacing fw-semibold fs-15">
+          {headerText}
+        </div>
+      )}
       <Row className="pb-5 mt-0">
         <div
           className="font-libre fs-26 text-dark fw-semibold pb-4 mb-4"
@@ -33,4 +37,4 @@ const Details = ({
   );
 };
 
-export default Details;
+export default CommenDetails;

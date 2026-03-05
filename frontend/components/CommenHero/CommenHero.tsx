@@ -3,17 +3,31 @@
 
 import { resolveStrapiMediaUrl } from '@/lib/strapi';
 
-const Hero = ({
-  image,
-  title,
-}: {
-  image: { url: string; alternativeText?: string } | null | undefined;
-  title: string | undefined;
-}) => {
+interface HeroProps {
+  heroImageUrl:
+    | {
+        url: string;
+        alternativeText?: string | undefined;
+      }
+    | null
+    | undefined;
+  title: string;
+}
+
+const CommenHero = ({ heroImageUrl, title }: HeroProps) => {
   return (
     <section className="hero-wrapper position-relative" style={{ height: '100vh' }}>
       <div className="img-background">
-        <img src={resolveStrapiMediaUrl(image?.url)} alt="homeBg" />
+        <img
+          src={resolveStrapiMediaUrl(heroImageUrl?.url)}
+          alt={
+            heroImageUrl?.alternativeText ||
+            'Contemporary lounge chair in luxury office with city view'
+          }
+          className="object-cover"
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          sizes="100vw"
+        />
         <div className="img-overlay"></div>
       </div>
       <div className="vault-marquee">
@@ -34,4 +48,4 @@ const Hero = ({
   );
 };
 
-export default Hero;
+export default CommenHero;

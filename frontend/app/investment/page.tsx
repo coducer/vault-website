@@ -1,7 +1,7 @@
+import CommenDetails from '@/components/CommenDetails/CommenDetails';
+import CommenHero from '@/components/CommenHero/CommenHero';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
-import Details from '@/components/VaultInvestment/Details';
-import Hero from '@/components/VaultInvestment/Hero';
 import WhatWeDo from '@/components/VaultInvestment/WhatWeDo';
 import WhereWeInvest from '@/components/VaultInvestment/WhereWeInvest';
 import WantToKnowMore from '@/components/WantToKnowMore/WantToKnowMore';
@@ -13,8 +13,12 @@ export default async function VaultInvestmentPage() {
   return (
     <main className="home-page position-relative">
       <Header />
-      <Hero image={investment?.bgImage} title={investment?.title} />
-      <Details heading={investment?.introTitle} body={investment?.introDescription} />
+      <CommenHero heroImageUrl={investment?.bgImage} title={investment?.title ?? ''} />
+      <CommenDetails
+        heading={investment?.introTitle}
+        body={investment?.introDescription}
+        headerText="Introduction"
+      />
       <WhereWeInvest
         investItems={investment?.investItems}
         investTitle={investment?.investTitle}

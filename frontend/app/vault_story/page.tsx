@@ -1,10 +1,10 @@
-import Hero from '@/components/AboutUs/AboutUsComponents/Hero';
-import Details from '@/components/AboutUs/AboutUsComponents/Details';
+import CommenDetailsArray from '@/components/CommenDetails/CommenDetailsArray';
+import CommenHero from '@/components/CommenHero/CommenHero';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import WantToKnowMore from '@/components/WantToKnowMore/WantToKnowMore';
 import type { AboutDetailItem } from '@/lib/strapi';
-import { getStrapiMediaUrl, getVaultStoryPage, getWantToKnowMoreList } from '@/lib/strapi';
+import { getVaultStoryPage, getWantToKnowMoreList } from '@/lib/strapi';
 import '../homePage.css';
 
 export default async function VaultStoryPage() {
@@ -12,16 +12,13 @@ export default async function VaultStoryPage() {
     getVaultStoryPage(),
     getWantToKnowMoreList(),
   ]);
-  const heroImageUrl = vaultStoryData?.heroImage?.url
-    ? getStrapiMediaUrl(vaultStoryData.heroImage.url)
-    : '';
   const detailsData: AboutDetailItem[] = (vaultStoryData?.details ?? []) as AboutDetailItem[];
 
   return (
     <main className="home-page position-relative">
       <Header />
-      <Hero heroImageUrl={heroImageUrl} title={vaultStoryData?.title ?? ''} />
-      <Details detailsData={detailsData} />
+      <CommenHero heroImageUrl={vaultStoryData?.heroImage} title={vaultStoryData?.title ?? ''} />
+      <CommenDetailsArray detailsData={detailsData} />
       <WantToKnowMore entries={wantToKnowMoreList ?? null} />
       <Footer />
     </main>

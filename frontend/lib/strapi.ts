@@ -428,6 +428,7 @@ export async function getBlogById(id: string): Promise<BlogItem | null> {
 
 // --- News ---
 export interface NewsItem {
+  id: string
   documentId: string;
   title?: string;
   description?: string | StrapiRichTextBlock[];
@@ -659,9 +660,9 @@ export interface PeAdvisoryData {
   title?: string;
   introTitle?: string;
   introDescription?: string | StrapiRichTextBlock[];
-  wealthServicesTitle?: string;
-  wealthServicesButtonName?: string;
-  wealthServicesButtonLink?: string;
+  peAdvisoryTitle?: string;
+  peAdvisoryButtonName?: string;
+  peAdvisoryButtonLink?: string;
   sections?: PeAdvisorySectionItem[];
   sectionsFirstImage?: { url: string; alternativeText?: string } | null;
   sectionsLastImage?: { url: string; alternativeText?: string } | null;
@@ -704,6 +705,15 @@ export interface EventItem {
   detailsImage?: EventDetailBlock[] | null;
   participants?: Array<{ url: string; alternativeText?: string }> | null;
   partners?: Array<{ url: string; alternativeText?: string }> | null;
+}
+
+export interface CardList {
+  id: string
+  title?: string;
+  date?: string;
+  description?: string;
+  slug?: string;
+  bgImage?: { url: string; alternativeText?: string } | null;
 }
 
 type MediaItem = { url: string; alternativeText?: string };

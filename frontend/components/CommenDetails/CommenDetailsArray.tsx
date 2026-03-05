@@ -5,7 +5,7 @@ interface DetailsProps {
   detailsData: AboutDetailItem[];
 }
 
-const Details = ({ detailsData }: DetailsProps) => {
+const CommenDetailsArray = ({ detailsData }: DetailsProps) => {
   return (
     <div className="px-4 py-5 d-flex flex-column gap-4">
       {detailsData.map((item, idx) => (
@@ -28,4 +28,4 @@ const Details = ({ detailsData }: DetailsProps) => {
   );
 };
 
-export default Details;
+export default CommenDetailsArray;

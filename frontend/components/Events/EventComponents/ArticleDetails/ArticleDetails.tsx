@@ -3,7 +3,6 @@
 
 import type { EventDetailBlock, EventItem } from '@/lib/strapi';
 import { formatEventDate, resolveStrapiMediaUrl } from '@/lib/strapi';
-import meetingImg from '@/public/assests/event.jpg';
 import { Col, Row } from 'react-bootstrap';
 import './ArticleDetails.css';
 
@@ -33,9 +32,7 @@ const ArticleDetails = ({ event }: { event?: EventItem | null }) => {
                 >
                   <div style={{ maxWidth: 400, height: 440, width: '100%' }}>
                     <img
-                      src={
-                        detail.image?.url ? resolveStrapiMediaUrl(detail.image.url) : meetingImg.src
-                      }
+                      src={resolveStrapiMediaUrl(detail?.image?.url)}
                       alt={detail.image?.alternativeText || 'Event detail'}
                       className="rounded shadow-sm w-100 h-100"
                       style={{ objectFit: 'cover' }}

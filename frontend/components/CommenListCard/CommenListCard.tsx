@@ -1,21 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
+import { CardList, resolveStrapiMediaUrl } from '@/lib/strapi';
 import Link from 'next/link';
-import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { GoArrowUpRight } from 'react-icons/go';
 
-export type BlogCardItem = {
-  id: string;
-  title: string;
-  date: string;
-  image: string;
-};
-
-const BlogCard = ({ blogs = [] }: { blogs?: BlogCardItem[] }) => {
+const CommenListCard = ({ details = [], pathname }: { details?: CardList[]; pathname: string }) => {
   return (
     <div className="px-4 py-5 my-4">
       <Row>
-        {blogs.map((item) => (
+        {details.map((item) => (
           <Col md={6} key={item.id}>
             <div
               className="mb-5 carousel-card event-carousel-card position-relative d-flex flex-column overflow-hidden h-100 border-0"
@@ -24,10 +17,10 @@ const BlogCard = ({ blogs = [] }: { blogs?: BlogCardItem[] }) => {
               }}
             >
               <Link
-                href={`/blogs/${item.id}`}
+                href={`/${pathname}/${item.id}`}
                 className="carousel-image-link text-decoration-none"
                 style={{ color: 'inherit' }}
-                aria-label={`Read blog: ${item.title}`}
+                aria-label={`Read article: ${item.title}`}
               >
                 <div
                   className="carousel-image-wrap w-100 position-relative overflow-hidden bg-secondary"
@@ -35,8 +28,8 @@ const BlogCard = ({ blogs = [] }: { blogs?: BlogCardItem[] }) => {
                 >
                   <img
                     className="carousel-image"
-                    src={item.image}
-                    alt={item.title}
+                    src={resolveStrapiMediaUrl(item.bgImage?.url)}
+                    alt={item.bgImage?.alternativeText}
                     style={{
                       objectFit: 'cover',
                       width: '100%',
@@ -44,7 +37,7 @@ const BlogCard = ({ blogs = [] }: { blogs?: BlogCardItem[] }) => {
                     }}
                   />
                   <div className="read-article fw-light letter-spacing text-white fs-13 text-uppercase d-flex justify-content-center align-items-center gap-2 w-100 h-100">
-                    READ BLOG{' '}
+                    READ ARTICLE{' '}
                     <span>
                       <GoArrowUpRight size={20} />
                     </span>
@@ -64,4 +57,4 @@ const BlogCard = ({ blogs = [] }: { blogs?: BlogCardItem[] }) => {
   );
 };
 
-export default BlogCard;
+export default CommenListCard;

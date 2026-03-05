@@ -774,9 +774,9 @@
     "title": "PE Advisory",
     "introTitle": "Vault Advisory opens up a wide range of opportunities to accelerate responsible growth and improve performance of existing investments.",
     "introDescription": "Vault PE Advisory engages in special mandates such as restructurings, investment or shareholder protections, governance, and transitional management support. Vault Advisory can be engaged on both: investor or company side. Vault Advisory team is normally deployed if the investment is underperforming or, on the opposite, is preparing for the next stage of growth (I.e. next investment round, M&A or IPO).",
-    "wealthServicesTitle": "List of Selected Mandates",
-    "wealthServicesButtonName": "Schedule A Consultation",
-    "wealthServicesButtonLink": "/portfolio",
+    "peAdvisoryTitle": "List of Selected Mandates",
+    "peAdvisoryButtonName": "Schedule A Consultation",
+    "peAdvisoryButtonLink": "/portfolio",
     "sections": [
       {
         "title": "Governance and Board-Level Advisory",
