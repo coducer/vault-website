@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { CardList, resolveStrapiMediaUrl } from '@/lib/strapi';
+import { CardList, formatEventDate, resolveStrapiMediaUrl } from '@/lib/strapi';
 import Link from 'next/link';
 import { Col, Row } from 'react-bootstrap';
 import { GoArrowUpRight } from 'react-icons/go';
@@ -9,15 +9,15 @@ const CommenListCard = ({ details = [], pathname }: { details?: CardList[]; path
     <div className="px-4 py-5 my-4">
       <Row>
         {details.map((item) => (
-          <Col md={6} key={item.id}>
+          <Col md={6} key={item.documentId}>
             <div
-              className="mb-5 carousel-card event-carousel-card position-relative d-flex flex-column overflow-hidden h-100 border-0"
+              className="mb-5 carousel-card event-carousel-card position-relative d-flex flex-column overflow-hdocumentIdden h-100 border-0"
               style={{
                 transition: 'transform 0.2s',
               }}
             >
               <Link
-                href={`/${pathname}/${item.id}`}
+                href={`/${pathname}/${item.documentId}`}
                 className="carousel-image-link text-decoration-none"
                 style={{ color: 'inherit' }}
                 aria-label={`Read article: ${item.title}`}
@@ -46,7 +46,7 @@ const CommenListCard = ({ details = [], pathname }: { details?: CardList[]; path
               </Link>
 
               <div className="py-3">
-                {item.date && <div className="fs-13 fw-medium primary-text">{item.date}</div>}
+                <div className="fs-13 fw-medium primary-text">{formatEventDate(item.date)}</div>
                 <div className="fs-16 fw-medium text-dark">{item.title}</div>
               </div>
             </div>

@@ -14,7 +14,12 @@ export default async function NewsPage() {
       <section className="px-4 mt-5 pt-5 pb-2">
         <div className="font-libre fs-42 text-dark pt-2">News</div>
       </section>
-      <CommenListCard details={news as unknown as CardList[]} pathname="news" />
+      <CommenListCard
+        details={[...(news as unknown as CardList[])].sort(
+          (a, b) => new Date(b.date ?? '').getTime() - new Date(a.date ?? '').getTime()
+        )}
+        pathname="news"
+      />
       <WantToKnowMore entries={wantToKnowMoreList ?? null} />
       <Footer />
     </main>

@@ -38,8 +38,8 @@ export const menu = [
     href: '/vault_story',
     submenu: [
       { label: 'Vault Story', href: '/vault_story' },
-      { label: 'Team', href: '/vault_people' },
-      { label: 'Operating Partners', href: '/vault_story' },
+      { label: 'Team', href: '/teams' },
+      { label: 'Operating Partners', href: '/operating_partners' },
     ],
   },
   {
@@ -71,13 +71,19 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
 
+  const noWhiteHeaderPaths = [
+    '/contact',
+    '/news',
+    '/portfolio',
+    '/vault_people',
+    '/teams',
+    '/operating_partners',
+    '/blogs',
+  ];
+
   const isNoWhiteHeader =
-    pathname === '/contact' ||
-    pathname === '/news' ||
-    pathname === '/portfolio' ||
-    pathname === '/vault_people' ||
+    noWhiteHeaderPaths.includes(pathname) ||
     pathname.startsWith('/news/') ||
-    pathname === '/blogs' ||
     pathname.startsWith('/blogs/');
 
   // Sidebar close handler for escape key and overlay clicks
@@ -107,8 +113,9 @@ const Header = () => {
 
   return (
     <header
-      className={`vault-header px-4 py-3 d-flex align-items-center justify-content-between${scrolled || isNoWhiteHeader ? ' vault-header-bg-white' : ''
-        } ${isHeaderVisible ? 'header-show' : 'header-hide'}`}
+      className={`vault-header px-4 py-3 d-flex align-items-center justify-content-between${
+        scrolled || isNoWhiteHeader ? ' vault-header-bg-white' : ''
+      } ${isHeaderVisible ? 'header-show' : 'header-hide'}`}
     >
       <div className="d-flex align-items-center justify-content-between w-100 gap-3">
         <Image src={scrolled || isNoWhiteHeader ? blackLogo : logo} alt="Vault Logo" width={100} />
