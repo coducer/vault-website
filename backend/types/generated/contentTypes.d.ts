@@ -992,6 +992,48 @@ export interface ApiWantToKnowMoreWantToKnowMore
   };
 }
 
+export interface ApiWealthServiceWealthService extends Struct.SingleTypeSchema {
+  collectionName: 'wealth_services';
+  info: {
+    description: 'Wealth Services page: hero, introduction, list of selected mandates, what we do';
+    displayName: 'Wealth Services';
+    pluralName: 'wealth-services';
+    singularName: 'wealth-service';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    bgImage: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    introDescription: Schema.Attribute.RichText;
+    introTitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::wealth-service.wealth-service'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.Component<'wealth-service.section', true>;
+    sectionsImage: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    wealthServicesButtonLink: Schema.Attribute.String;
+    wealthServicesButtonName: Schema.Attribute.String;
+    wealthServicesTitle: Schema.Attribute.String;
+    whatWeDoItems: Schema.Attribute.Component<
+      'investment.what-we-do-item',
+      true
+    >;
+    whatWeDoTitle: Schema.Attribute.String;
+  };
+}
+
 export interface ApiWhatWeDoWhatWeDo extends Struct.SingleTypeSchema {
   collectionName: 'what_we_dos';
   info: {
@@ -1550,6 +1592,7 @@ declare module '@strapi/strapi' {
       'api::team.team': ApiTeamTeam;
       'api::vault-story.vault-story': ApiVaultStoryVaultStory;
       'api::want-to-know-more.want-to-know-more': ApiWantToKnowMoreWantToKnowMore;
+      'api::wealth-service.wealth-service': ApiWealthServiceWealthService;
       'api::what-we-do.what-we-do': ApiWhatWeDoWhatWeDo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

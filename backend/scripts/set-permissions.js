@@ -23,6 +23,7 @@ const PERMISSIONS_TO_SET = {
   'events-page': ['find', 'findOne'],
   portfolio: ['find', 'findOne'],
   investment: ['find', 'findOne'],
+  'wealth-service': ['find', 'findOne'],
 };
 
 async function setPublicPermissions() {

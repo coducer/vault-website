@@ -690,15 +690,82 @@
     ],
     "buttonName": "SEE OUR Portfolio",
     "buttonLink": "/portfolio",
-    "whatWeDoTitle": "what we do",
+    "whatWeDoTitle": "Explore Vault Further",
     "whatWeDoItems": [
       {
         "title": "Wealth Services",
-        "link": "/wealth"
+        "link": "/wealth_services"
       },
       {
         "title": "PE Advisory",
-        "link": "/advisory"
+        "link": "/pe_advisory"
+      }
+    ]
+  },
+  "wealthServices": {
+    "bgImage": "investment_bg.png",
+    "title": "Wealth Services",
+    "introTitle": "Our wealth services bring together network of HNWIs who share our values of responsible growth.",
+    "introDescription": "Vault’s Wealth services support the structuring, protection and long-term oversight of private wealth through established vehicles in Switzerland and the UAE.\n\nWe start with a global review of a client’s assets, existing structures, banking relationships and governance arrangements. Based on this assessment, we design and coordinate a structure that reflects the client’s priorities, risk tolerance and long-term objectives.",
+    "wealthServicesTitle": "List of Selected Mandates",
+    "wealthServicesButtonName": "Schedule A Consultation",
+    "wealthServicesButtonLink": "/portfolio",
+    "sections": [
+      {
+        "title": "Wealth structuring",
+        "icon": "Wealth structuring.svg",
+        "items": [
+          "Cross-asset structuring",
+          "Tax-efficient structuring",
+          "Ongoing oversight"
+        ]
+      },
+      {
+        "title": "Investment framework and manager coordination",
+        "icon": "Investment framework and manager coordination​.svg",
+        "items": [
+          "Definition of investment objectives and framework",
+          "Support with external manager selection",
+          "Review and coordination of investment mandates"
+        ]
+      },
+      {
+        "title": "Governance, risk, and compliance",
+        "icon": "Governance, risk, and compliance​.svg",
+        "items": [
+          "Governance setup for wealth structures",
+          "Policy and reporting frameworks",
+          "Cross-border compliance coordination"
+        ]
+      },
+      {
+        "title": "Estate planning and asset protection",
+        "icon": "Estate planning and asset protection​.svg",
+        "items": [
+          "Private trust companies and protector arrangements",
+          "Succession and asset-protection structuring"
+        ]
+      },
+      {
+        "title": "Private banking and personal coordination",
+        "icon": "Private banking and personal coordination​.svg",
+        "items": [
+          "Private banking relationships (Switzerland & UAE)",
+          "Bank onboarding and relationship support",
+          "Coordination between banks and advisors"
+        ]
+      }
+    ],
+    "sectionsImage": "vmi.png",
+    "whatWeDoTitle": "Explore Vault Further",
+     "whatWeDoItems": [
+      {
+        "title": "Investment",
+        "link": "/investment"
+      },
+      {
+        "title": "PE Advisory",
+        "link": "/pe_advisory"
       }
     ]
   }

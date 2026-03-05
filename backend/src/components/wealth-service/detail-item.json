@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_wealth_service_detail_items",
+  "info": {
+    "displayName": "Wealth Service Detail",
+    "icon": "file-alt",
+    "description": "A single detail line (string)"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
+}

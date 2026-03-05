@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_wealth_service_sections",
+  "info": {
+    "displayName": "Wealth Service Section",
+    "icon": "file-alt",
+    "description": "Section for Wealth Services: title, icon, list of items"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "wealth-service.detail-item"
+    }
+  }
+}

@@ -66,7 +66,7 @@ export interface InvestmentInvestItem extends Struct.ComponentSchema {
 }
 
 export interface InvestmentWhatWeDoItem extends Struct.ComponentSchema {
-  collectionName: 'components_investment_what_we_do_items';
+  collectionName: 'components_wealth_service_what_we_do_items';
   info: {
     displayName: 'What We Do Item';
     icon: 'link';
@@ -165,6 +165,32 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface WealthServiceDetailItem extends Struct.ComponentSchema {
+  collectionName: 'components_wealth_service_detail_items';
+  info: {
+    description: 'A single detail line (string)';
+    displayName: 'Wealth Service Detail';
+    icon: 'file-alt';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface WealthServiceSection extends Struct.ComponentSchema {
+  collectionName: 'components_wealth_service_sections';
+  info: {
+    description: 'Section for Wealth Services: title, icon, list of items';
+    displayName: 'Wealth Service Section';
+    icon: 'file-alt';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images'>;
+    items: Schema.Attribute.Component<'wealth-service.detail-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface WhatWeDoItem extends Struct.ComponentSchema {
   collectionName: 'components_what_we_do_items';
   info: {
@@ -209,6 +235,8 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'wealth-service.detail-item': WealthServiceDetailItem;
+      'wealth-service.section': WealthServiceSection;
       'what-we-do.item': WhatWeDoItem;
       'what-we-do.point': WhatWeDoPoint;
     }

@@ -1,0 +1,63 @@
+{
+  "kind": "singleType",
+  "collectionName": "wealth_services",
+  "info": {
+    "singularName": "wealth-service",
+    "pluralName": "wealth-services",
+    "displayName": "Wealth Services",
+    "description": "Wealth Services page: hero, introduction, list of selected mandates, what we do"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bgImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "introTitle": {
+      "type": "string"
+    },
+    "introDescription": {
+      "type": "richtext"
+    },
+    "wealthServicesTitle": {
+      "type": "string"
+    },
+    "wealthServicesButtonName": {
+      "type": "string"
+    },
+    "wealthServicesButtonLink": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "wealth-service.section"
+    },
+    "sectionsImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+     "whatWeDoTitle": {
+      "type": "string"
+    },
+    "whatWeDoItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "investment.what-we-do-item"
+    }
+  }
+}

@@ -589,6 +589,55 @@ export async function getInvestment(): Promise<InvestmentData | null> {
   }
 }
 
+// --- Wealth Service (single type) ---
+export interface WealthServiceSectionItem {
+  id?: number;
+  title?: string;
+  icon?: { url: string; alternativeText?: string } | null;
+  items?: string[];
+}
+
+export interface WealthServiceWhatWeDoItem {
+  id?: number;
+  title?: string;
+  link?: string;
+}
+
+export interface WealthServiceData {
+  id?: number;
+  bgImage?: { url: string; alternativeText?: string } | null;
+  documentId?: string;
+  title?: string;
+  introTitle?: string;
+  introDescription?: string | StrapiRichTextBlock[];
+  wealthServicesTitle?: string;
+  wealthServicesButtonName?: string;
+  wealthServicesButtonLink?: string;
+  sections?: WealthServiceSectionItem[];
+  sectionsImage?: { url: string; alternativeText?: string } | null;
+  whatWeDoItems?: WealthServiceWhatWeDoItem[];
+  whatWeDoTitle?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  publishedAt?: string;
+}
+
+const WEALTH_SERVICE_POPULATE =
+  "populate[0]=bgImage&populate[1]=sections.icon&populate[2]=sections.items&populate[3]=sectionsImage&populate[4]=whatWeDoItems";
+
+
+export async function getWealthService(): Promise<WealthServiceData | null> {
+  try {
+    const json = await strapiFetch<WealthServiceData>(
+      `/api/wealth-service?${WEALTH_SERVICE_POPULATE}`
+    );
+    return json?.data ?? null;
+  } catch (error) {
+    console.error('Failed to fetch wealth service data from Strapi:', error);
+    return null;
+  }
+}
+
 // --- Events ---
 export interface EventDetailBlock {
   header: string;

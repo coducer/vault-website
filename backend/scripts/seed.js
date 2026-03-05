@@ -22,6 +22,7 @@ const {
   blogs = [],
   portfolio = [],
   investment = [],
+  wealthservice = [], // <-- ADDED for wealthservice@data.json
 } = rawData;
 
 // Register default admin user if it doesn't exist
@@ -586,6 +587,75 @@ async function importInvestment() {
   });
 }
 
+async function importWealthService() {
+  const wealthServices = rawData.wealthServices;
+  if (!wealthServices) return;
+
+  let bgImageFile = null;
+  if (wealthServices.bgImage) {
+    bgImageFile = await uploadImageByName(wealthServices.bgImage);
+  }
+
+  let sectionsImageFile = null;
+  if (wealthServices.sectionsImage) {
+    sectionsImageFile = await uploadImageByName(wealthServices.sectionsImage);
+  }
+
+  let sections = [];
+  if (Array.isArray(wealthServices.sections)) {
+    for (const section of wealthServices.sections) {
+      let items = [];
+      if (Array.isArray(section.items)) {
+        items = section.items.map(i =>
+          typeof i === "string"
+            ? { text: i }
+            : (i && typeof i === "object" && typeof i.text === "string")
+                ? { text: i.text }
+                : null
+        ).filter(Boolean);
+      }
+
+      let iconFile = null;
+      if (section.icon) {
+        iconFile = await uploadImageByName(section.icon);
+      }
+
+      sections.push({
+        title: section.title ?? "",
+        icon: iconFile?.id ?? null,
+        items,
+      });
+    }
+  }
+
+  let whatWeDoItems = [];
+  if (Array.isArray(wealthServices.whatWeDoItems)) {
+    whatWeDoItems = wealthServices.whatWeDoItems.map(item => ({
+      title: item.title ?? "",
+      link: item.link ?? "",
+    }));
+  }
+
+  await createEntry({
+    model: 'wealth-service',
+    entry: {
+      bgImage: bgImageFile?.id ?? null,
+      title: wealthServices.title ?? "",
+      introTitle: wealthServices.introTitle ?? "",
+      introDescription: wealthServices.introDescription ?? "",
+      wealthServicesTitle: wealthServices.wealthServicesTitle ?? "",
+      wealthServicesButtonName: wealthServices.wealthServicesButtonName ?? "",
+      wealthServicesButtonLink: wealthServices.wealthServicesButtonLink ?? "",
+      whatWeDoTitle: wealthServices?.whatWeDoTitle ?? "",
+      sections,
+      sectionsImage: sectionsImageFile?.id ?? null,
+      whatWeDoItems,
+      publishedAt: new Date().toISOString(),
+    },
+    publish: true,
+  });
+}
+
 async function importSeedData() {
   await setPublicPermissions({
     blog: ['find', 'findOne'],
@@ -607,6 +677,7 @@ async function importSeedData() {
     'want-to-know-more': ['find', 'findOne'],
     'portfolio': ['find', 'findOne'],
     'investment': ['find', 'findOne'],
+    'wealthservice': ['find', 'findOne'], // <-- ADDED WEALTHSERVICE PERMISSIONS
   });
 
   await importAbout();
@@ -626,6 +697,7 @@ async function importSeedData() {
   await importWantToKnowMore();
   await importPortfolio();
   await importInvestment();
+  await importWealthService(); // <-- ADDED: import wealthservice
 }
 
 async function main() {
