@@ -166,11 +166,13 @@ a, button, input, textarea {
 }
 
 .border-bottom {
-    border-bottom:1px solid #FFFFFF29 !important;
+    border-bottom:1px solid var(--border2) !important;
 }
 .border-end{
-      border-right:1px solid #FFFFFF29 !important;
-
+    border-right:1px solid var(--border2) !important;
+}
+.border-top{
+    border-top:1px solid var(--border2) !important;
 }
 
 .text-secondary {
