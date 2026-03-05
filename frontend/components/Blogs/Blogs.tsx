@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
+import { BlogItem, resolveStrapiMediaUrl } from '@/lib/strapi';
 import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-react';
 import Link from 'next/link';
@@ -9,18 +10,7 @@ import { useCallback, useRef } from 'react';
 import { GoArrowLeft, GoArrowRight, GoArrowUpRight } from 'react-icons/go';
 import ReusableButton from '../Buttons/ReusableButton/ReusableButton';
 
-export interface BlogCarouselItem {
-  date: string;
-  title: string;
-  image: string;
-  slug: string;
-  id: string;
-}
-
-const DEFAULT_IMAGE =
-  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80';
-
-const Blogs = ({ blogs: blogsProp }: { blogs?: BlogCarouselItem[] }) => {
+const Blogs = ({ blogs: blogsProp }: { blogs?: BlogItem[] }) => {
   const router = useRouter();
   const blogsData = blogsProp && blogsProp.length > 0 ? blogsProp : [];
   const autoplay = useRef(
@@ -31,10 +21,7 @@ const Blogs = ({ blogs: blogsProp }: { blogs?: BlogCarouselItem[] }) => {
     })
   );
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { align: 'start', loop: true },
-    [autoplay.current]
-  );
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start', loop: true }, [autoplay.current]);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -47,9 +34,7 @@ const Blogs = ({ blogs: blogsProp }: { blogs?: BlogCarouselItem[] }) => {
   return (
     <div className="events-wrapper pt-4 pt-lg-5 position-relative d-flex flex-column gap-4">
       <div className="px-4 d-flex flex-column gap-4 py-0 pt-lg-4">
-        <div className="primary-text text-uppercase letter-spacing fw-semibold fs-15">
-          blogs
-        </div>
+        <div className="primary-text text-uppercase letter-spacing fw-semibold fs-15">blogs</div>
         <div className="d-flex align-items-center justify-content-between pb-4 flex-wrap">
           <div className="font-libre fs-42 text-dark">Blog</div>
           <div className="d-flex align-items-center gap-3">
@@ -88,7 +73,7 @@ const Blogs = ({ blogs: blogsProp }: { blogs?: BlogCarouselItem[] }) => {
             {blogsData.map((blog, index) => (
               <div
                 className="embla__slide"
-                key={blog.id || index}
+                key={blog.documentId || index}
                 style={{ minWidth: 600, maxWidth: 660, flex: '0 0 340px' }}
               >
                 <div
@@ -96,7 +81,7 @@ const Blogs = ({ blogs: blogsProp }: { blogs?: BlogCarouselItem[] }) => {
                   style={{ transition: 'transform 0.2s' }}
                 >
                   <Link
-                    href={`/blog/${blog.id}`}
+                    href={`/blog/${blog.documentId}`}
                     className="carousel-image-link text-decoration-none"
                     style={{ color: 'inherit' }}
                     aria-label={`Read blog: ${blog.title}`}
@@ -107,8 +92,8 @@ const Blogs = ({ blogs: blogsProp }: { blogs?: BlogCarouselItem[] }) => {
                     >
                       <img
                         className="carousel-image"
-                        src={blog.image || DEFAULT_IMAGE}
-                        alt={blog.title}
+                        src={resolveStrapiMediaUrl(blog.bgImage?.url)}
+                        alt={blog.bgImage?.alternativeText}
                         style={{
                           objectFit: 'cover',
                           width: '100%',
@@ -124,9 +109,7 @@ const Blogs = ({ blogs: blogsProp }: { blogs?: BlogCarouselItem[] }) => {
                     </div>
                   </Link>
                   <div className="py-3">
-                    {blog.date && (
-                      <div className="fs-13 fw-medium primary-text">{blog.date}</div>
-                    )}
+                    {blog.date && <div className="fs-13 fw-medium primary-text">{blog.date}</div>}
                     <div className="fs-16 fw-medium text-dark">{blog.title}</div>
                   </div>
                 </div>

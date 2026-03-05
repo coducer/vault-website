@@ -23,7 +23,8 @@ const {
   portfolio = [],
   investment = [],
   wealthServices = [],
-  peAdvisory = []
+  peAdvisory = [],
+  vaultPerspectives = {}
 } = rawData;
 
 // Register default admin user if it doesn't exist
@@ -265,27 +266,27 @@ async function importEvents() {
 
     const resolvedDetailsImage = detailsImage
       ? await Promise.all(
-          detailsImage.map(async (block) => {
-            const imageFile = block.image ? await uploadImageByName(String(block.image).replace(/'$/, '')) : null;
-            return {
-              header: block.header,
-              description: block.description,
-              image: imageFile?.id ?? null,
-            };
-          })
-        )
+        detailsImage.map(async (block) => {
+          const imageFile = block.image ? await uploadImageByName(String(block.image).replace(/'$/, '')) : null;
+          return {
+            header: block.header,
+            description: block.description,
+            image: imageFile?.id ?? null,
+          };
+        })
+      )
       : [];
 
     const participantIds = participantFiles
       ? (await Promise.all((participantFiles || []).map((name) => uploadImageByName(name))))
-          .filter(Boolean)
-          .map((f) => f.id)
+        .filter(Boolean)
+        .map((f) => f.id)
       : [];
 
     const partnerIds = partnerFiles
       ? (await Promise.all((partnerFiles || []).map((name) => uploadImageByName(name))))
-          .filter(Boolean)
-          .map((f) => f.id)
+        .filter(Boolean)
+        .map((f) => f.id)
       : [];
 
     await createEntry({
@@ -610,8 +611,8 @@ async function importWealthService() {
           typeof i === "string"
             ? { text: i }
             : (i && typeof i === "object" && typeof i.text === "string")
-                ? { text: i.text }
-                : null
+              ? { text: i.text }
+              : null
         ).filter(Boolean);
       }
 
@@ -683,8 +684,8 @@ async function importPeAdvisory() {
           typeof i === "string"
             ? { text: i }
             : (i && typeof i === "object" && typeof i.text === "string")
-                ? { text: i.text }
-                : null
+              ? { text: i.text }
+              : null
         ).filter(Boolean);
       }
 
@@ -730,6 +731,46 @@ async function importPeAdvisory() {
   });
 }
 
+async function importVaultPerspectives() {
+  if (!vaultPerspectives) return;
+
+  // Upload bgImage if exists
+  let bgImageFile = null;
+  if (vaultPerspectives.bgImage) {
+    bgImageFile = await uploadImageByName(vaultPerspectives.bgImage);
+  }
+
+  // Upload ceoAnnualLettersSectionImage if exists
+  let ceoAnnualLettersSectionImageFile = null;
+  if (vaultPerspectives.ceoAnnualLettersSectionImage) {
+    ceoAnnualLettersSectionImageFile = await uploadImageByName(
+      vaultPerspectives.ceoAnnualLettersSectionImage
+    );
+  }
+
+  // Upload downloadfile if exists
+  let downloadfile = null;
+  if (vaultPerspectives.downloadfile) {
+    downloadfile = await uploadImageByName(vaultPerspectives.downloadfile);
+  }
+
+  await createEntry({
+    model: 'vault-perspectives',
+    entry: {
+      bgImage: bgImageFile?.id ?? null,
+      title: vaultPerspectives.title ?? "",
+      newsTitle: vaultPerspectives.newsTitle ?? "",
+      ceoAnnualLettersSectionTitle: vaultPerspectives.ceoAnnualLettersSectionTitle ?? "",
+      ceoAnnualLettersSectionImage: ceoAnnualLettersSectionImageFile?.id ?? null,
+      downloadfile: downloadfile?.id ?? null,
+      downloadButtonLabel: vaultPerspectives.downloadButtonLabel ?? undefined,
+      publishedAt: new Date().toISOString(),
+    },
+    publish: true,
+  });
+}
+
+
 
 async function importSeedData() {
   await setPublicPermissions({
@@ -753,6 +794,7 @@ async function importSeedData() {
     'portfolio': ['find', 'findOne'],
     'investment': ['find', 'findOne'],
     'wealthservice': ['find', 'findOne'], // <-- ADDED WEALTHSERVICE PERMISSIONS
+    'vault-perspectives': ['find', 'findOne'],
   });
 
   await importAbout();
@@ -774,6 +816,7 @@ async function importSeedData() {
   await importInvestment();
   await importWealthService();
   await importPeAdvisory();
+  await importVaultPerspectives();
 }
 
 async function main() {

@@ -1,0 +1,54 @@
+{
+  "kind": "singleType",
+  "collectionName": "vault-perspective",
+  "info": {
+    "singularName": "vault-perspectives",
+    "pluralName": "vault-perspective",
+    "displayName": "Vault Perspective",
+    "description": "Vault Perspectives page: hero, introduction, list of selected mandates, what we do"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bgImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "newsTitle": {
+      "type": "string",
+      "required": false
+    },
+    "ceoAnnualLettersSectionTitle": {
+      "type": "string",
+      "required": false
+    },
+    "ceoAnnualLettersSectionImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "downloadfile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["files", "images"]
+    },
+    "downloadButtonLabel": {
+      "type": "string",
+      "required": false,
+      "default": "Download File"
+    }
+  }
+}

@@ -968,6 +968,43 @@ export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiVaultPerspectivesVaultPerspectives
+  extends Struct.SingleTypeSchema {
+  collectionName: 'vault-perspective';
+  info: {
+    description: 'Vault Perspectives page: hero, introduction, list of selected mandates, what we do';
+    displayName: 'Vault Perspective';
+    pluralName: 'vault-perspective';
+    singularName: 'vault-perspectives';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    bgImage: Schema.Attribute.Media<'images'>;
+    ceoAnnualLettersSectionImage: Schema.Attribute.Media<'images'>;
+    ceoAnnualLettersSectionTitle: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    downloadButtonLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Download File'>;
+    downloadfile: Schema.Attribute.Media<'files' | 'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::vault-perspectives.vault-perspectives'
+    > &
+      Schema.Attribute.Private;
+    newsTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVaultStoryVaultStory extends Struct.SingleTypeSchema {
   collectionName: 'vault_stories';
   info: {
@@ -1634,6 +1671,7 @@ declare module '@strapi/strapi' {
       'api::pe-advisory.pe-advisory': ApiPeAdvisoryPeAdvisory;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::team.team': ApiTeamTeam;
+      'api::vault-perspectives.vault-perspectives': ApiVaultPerspectivesVaultPerspectives;
       'api::vault-story.vault-story': ApiVaultStoryVaultStory;
       'api::want-to-know-more.want-to-know-more': ApiWantToKnowMoreWantToKnowMore;
       'api::wealth-service.wealth-service': ApiWealthServiceWealthService;
