@@ -828,5 +828,14 @@
         "link": "/wealth_services"
       }
     ]
+  },
+  "vaultPerspectives": {
+    "bgImage": "Vault Perspectives.jpg",
+    "title": "Vault Perspectives",
+    "newsTitle": "Latest updates and announcements",
+    "ceoAnnualLettersSectionTitle": "Strategic vision from Vault’s leadership",
+    "ceoAnnualLettersSectionImage": "ami.jpg",
+    "downloadfile": "default_image.png",
+    "downloadButtonLabel": "Annual Letter 2025"
   }
 }

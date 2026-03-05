@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
+import { EventItem, formatEventDate, resolveStrapiMediaUrl } from '@/lib/strapi';
 import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useRouter } from 'next/navigation';
@@ -8,15 +9,7 @@ import { useCallback, useRef } from 'react';
 import { GoArrowLeft, GoArrowRight, GoArrowUpRight } from 'react-icons/go';
 import ReusableButton from '../Buttons/ReusableButton/ReusableButton';
 
-export interface EventCarouselItem {
-  date: string;
-  title: string;
-  image: string;
-  slug: string;
-  id: string;
-}
-
-const Events = ({ events: eventsProp }: { events?: EventCarouselItem[] }) => {
+const Events = ({ events: eventsProp }: { events?: EventItem[] }) => {
   const router = useRouter();
   const eventsData = eventsProp && eventsProp.length > 0 ? eventsProp : [];
   const autoplay = useRef(
@@ -88,7 +81,7 @@ const Events = ({ events: eventsProp }: { events?: EventCarouselItem[] }) => {
       <div className="carousel-container d-flex flex-row px-4 pb-5 gap-4 align-items-center me-4">
         <div className="embla w-100" ref={emblaRef}>
           <div className="embla__container d-flex flex-row gap-4">
-            {eventsData.map((event: EventCarouselItem, index: number) => (
+            {eventsData.map((event, index: number) => (
               <div
                 className="embla__slide"
                 key={index}
@@ -101,7 +94,7 @@ const Events = ({ events: eventsProp }: { events?: EventCarouselItem[] }) => {
                   }}
                 >
                   <a
-                    href={`/event/${event.id}`}
+                    href={`/events/${event.documentId}`}
                     className="carousel-image-link text-decoration-none"
                     style={{ color: 'inherit' }}
                     aria-label={`Read article: ${event.title}`}
@@ -112,8 +105,8 @@ const Events = ({ events: eventsProp }: { events?: EventCarouselItem[] }) => {
                     >
                       <img
                         className="carousel-image"
-                        src={event.image}
-                        alt={event.title}
+                        src={resolveStrapiMediaUrl(event.bgImage?.url)}
+                        alt={event.bgImage?.alternativeText}
                         style={{
                           objectFit: 'cover',
                           width: '100%',
@@ -130,7 +123,9 @@ const Events = ({ events: eventsProp }: { events?: EventCarouselItem[] }) => {
                   </a>
 
                   <div className="py-3">
-                    {event.date && <div className="fs-13 fw-medium primary-text">{event.date}</div>}
+                    <div className="fs-13 fw-medium primary-text">
+                      {formatEventDate(event.date)}
+                    </div>
                     <div className="fs-16 fw-medium text-dark">{event.title}</div>
                   </div>
                 </div>

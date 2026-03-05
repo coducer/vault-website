@@ -1,15 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
+import { BlogItem, formatEventDate, resolveStrapiMediaUrl } from '@/lib/strapi';
 import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useRouter } from 'next/navigation';
 import { useCallback, useRef } from 'react';
 import { GoArrowLeft, GoArrowRight, GoArrowUpRight } from 'react-icons/go';
-import { BlogCarouselItem } from '../Blogs/Blogs';
 import ReusableButton from '../Buttons/ReusableButton/ReusableButton';
 
-const FoodForThought = ({ blogs: blogsProp }: { blogs?: BlogCarouselItem[] }) => {
+const FoodForThought = ({ blogs: blogsProp }: { blogs?: BlogItem[] }) => {
   const router = useRouter();
   const blogsData = blogsProp && blogsProp.length > 0 ? blogsProp : [];
   const autoplay = useRef(
@@ -97,13 +97,13 @@ const FoodForThought = ({ blogs: blogsProp }: { blogs?: BlogCarouselItem[] }) =>
                   }}
                 >
                   <a
-                    href={`/news/${insight.id}`}
+                    href={`/news/${insight.documentId}`}
                     className="carousel-image-link text-decoration-none"
                     style={{ color: 'inherit' }}
                     aria-label={`Read article: ${insight.title}`}
                   >
                     <a
-                      href={`/news/${insight.id}`}
+                      href={`/news/${insight.documentId}`}
                       className="carousel-image-link text-decoration-none"
                       style={{ color: 'inherit' }}
                       aria-label={`Read article: ${insight.title}`}
@@ -114,8 +114,8 @@ const FoodForThought = ({ blogs: blogsProp }: { blogs?: BlogCarouselItem[] }) =>
                       >
                         <img
                           className="carousel-image"
-                          src={insight.image}
-                          alt={insight.title}
+                          src={resolveStrapiMediaUrl(insight.bgImage?.url)}
+                          alt={insight.bgImage?.alternativeText}
                           style={{
                             objectFit: 'cover',
                             width: '100%',
@@ -132,9 +132,9 @@ const FoodForThought = ({ blogs: blogsProp }: { blogs?: BlogCarouselItem[] }) =>
                     </a>
                   </a>
                   <div className="pt-3">
-                    {insight.date && (
-                      <div className="fs-13 fw-medium primary-text mb-1">{insight.date}</div>
-                    )}
+                    <div className="fs-13 fw-medium primary-text mb-1">
+                      {formatEventDate(insight.date)}
+                    </div>
                     <div className="fs-16 fw-medium text-dark">{insight.title}</div>
                   </div>
                 </div>

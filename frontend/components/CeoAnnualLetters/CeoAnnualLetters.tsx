@@ -1,41 +1,27 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
-import React, { useRef, useState, useCallback, useEffect } from 'react';
+import { CeoAnnualLetterItem, resolveStrapiMediaUrl } from '@/lib/strapi';
 import useEmblaCarousel from 'embla-carousel-react';
-import { GoDotFill } from 'react-icons/go';
+import { useCallback, useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { GoArrowRight, GoDotFill } from 'react-icons/go';
 
-const DEFAULT_AVATAR = 'https://randomuser.me/api/portraits/men/75.jpg';
-const DEFAULT_IMAGE =
-  'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80';
-
-export interface CeoLetterSlide {
-  quote: string;
-  name: string;
-  designation: string;
-  avatarUrl: string;
-  imageUrl: string;
-}
-
-const lettersDataFallback: CeoLetterSlide[] = [
-  {
-    quote: `"Their investment advice is thoughtful, disciplined, and results-driven. We appreciate the clarity and transparency in every recommendation."`,
-    name: 'Akito Nanada',
-    designation: 'Co-Founder & CEO',
-    avatarUrl: DEFAULT_AVATAR,
-    imageUrl: DEFAULT_IMAGE,
-  },
-  {
-    quote: `"With Vault's guidance, we've been able to make sound decisions, even in turbulent markets."`,
-    name: 'Akito Nanada',
-    designation: 'Co-Founder & CEO',
-    avatarUrl: DEFAULT_AVATAR,
-    imageUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80',
-  },
-];
-
-const CeoAnnualLetters = ({ letters }: { letters?: CeoLetterSlide[] }) => {
-  const slides = letters && letters.length > 0 ? letters : lettersDataFallback;
+const CeoAnnualLetters = ({
+  letters,
+  isDownload = false,
+  details,
+}: {
+  letters?: CeoAnnualLetterItem[];
+  isDownload?: boolean;
+  details?: {
+    ceoAnnualLettersSectionTitle?: string | null;
+    ceoAnnualLettersSectionImage?: { url?: string | null; alternativeText?: string | null } | null;
+    downloadfile?: { url?: string | null } | null;
+    downloadButtonLabel?: string | null;
+  };
+}) => {
+  const slides = letters && letters.length > 0 ? letters : [];
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -47,11 +33,19 @@ const CeoAnnualLetters = ({ letters }: { letters?: CeoLetterSlide[] }) => {
   useEffect(() => {
     if (!emblaApi) return;
     emblaApi.on('select', onSelect);
-    onSelect();
+    // Don't call onSelect() synchronously inside effect
     return () => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       emblaApi && emblaApi.off('select', onSelect);
     };
   }, [emblaApi, onSelect]);
+
+  useEffect(() => {
+    if (emblaApi) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    }
+  }, [emblaApi]);
 
   const scrollTo = useCallback(
     (idx: number) => {
@@ -59,6 +53,101 @@ const CeoAnnualLetters = ({ letters }: { letters?: CeoLetterSlide[] }) => {
     },
     [emblaApi]
   );
+
+  const handleDownloadLetter = (url: string) => {
+    if (!url) return;
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.blob();
+      })
+      .then((blob) => {
+        const blobUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = details?.downloadButtonLabel ?? '';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(blobUrl);
+      })
+      .catch(() => {
+        window.open(url, '_blank');
+      });
+  };
+
+  if (isDownload && details) {
+    return (
+      <section className="py-5 mt-5">
+        <Row className="align-items-center">
+          <Col md={6}>
+            <div className="px-4">
+              <div
+                className="primary-text text-uppercase letter-spacing fw-semibold fs-12 mb-3"
+                style={{ letterSpacing: '1px' }}
+              >
+                CEO ANNUAL LETTERS
+              </div>
+              <div className="font-libre fs-32 fw-semibold mb-4" style={{ color: '#232323' }}>
+                {details.ceoAnnualLettersSectionTitle || 'Strategic vision from Vault’s leadership'}
+              </div>
+              <div>
+                {details.downloadfile && resolveStrapiMediaUrl(details.downloadfile?.url ?? '') && (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      handleDownloadLetter(resolveStrapiMediaUrl(details.downloadfile?.url ?? ''))
+                    }
+                    className="annual-letter-link d-flex align-items-center justify-content-between px-0 py-2 mb-2"
+                    style={{
+                      textDecoration: 'none',
+                      borderBottom: '1px solid #dedede',
+                      color: '#232323',
+                      fontSize: 16,
+                      transition: 'color 0.2s',
+                      background: 'none',
+                      border: 'none',
+                      width: '100%',
+                      textAlign: 'left',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <span>{details.downloadButtonLabel || 'Annual Letter 2025'}</span>
+                    <GoArrowRight />
+                  </button>
+                )}
+              </div>
+            </div>
+          </Col>
+          <Col md={6} className="d-flex align-items-center justify-content-end p-3 p-md-0">
+            <div
+              style={{
+                background: '#f5f5f7',
+                overflow: 'hidden',
+                width: '100%',
+                maxWidth: 470,
+                height: 430,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <img
+                src={resolveStrapiMediaUrl(details.ceoAnnualLettersSectionImage?.url ?? '')}
+                alt={details.ceoAnnualLettersSectionImage?.alternativeText || 'CEO Letter'}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: '4px',
+                }}
+              />
+            </div>
+          </Col>
+        </Row>
+      </section>
+    );
+  }
 
   return (
     <section className="py-5 mt-5">
@@ -79,8 +168,8 @@ const CeoAnnualLetters = ({ letters }: { letters?: CeoLetterSlide[] }) => {
                         </blockquote>
                         <div className="d-flex align-items-center gap-2 mt-4">
                           <img
-                            src={slide.avatarUrl}
-                            alt={slide.name}
+                            src={resolveStrapiMediaUrl(slide.avatar?.url)}
+                            alt={slide.avatar?.alternativeText}
                             className="rounded-circle"
                             style={{
                               width: 40,
@@ -96,7 +185,10 @@ const CeoAnnualLetters = ({ letters }: { letters?: CeoLetterSlide[] }) => {
                         </div>
                       </div>
                     </Col>
-                    <Col md={6} className=" p-3 p-md-0 d-flex align-items-center justify-content-end">
+                    <Col
+                      md={6}
+                      className=" p-3 p-md-0 d-flex align-items-center justify-content-end"
+                    >
                       <div
                         style={{
                           background: '#f5f5f7',
@@ -110,7 +202,7 @@ const CeoAnnualLetters = ({ letters }: { letters?: CeoLetterSlide[] }) => {
                         }}
                       >
                         <img
-                          src={slide.imageUrl}
+                          src={resolveStrapiMediaUrl(slide.image?.url)}
                           alt="CEO Letter"
                           style={{
                             width: '100%',

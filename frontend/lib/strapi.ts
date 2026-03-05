@@ -806,6 +806,37 @@ export async function getEventById(id: string): Promise<EventItem | null> {
 }
 
 
+// Vault Perspectives API
+
+export interface VaultPerspectivesItem {
+  id?: number;
+  bgImage?: MediaItem | null;
+  title?: string | null;
+  newsTitle?: string | null;
+  ceoAnnualLettersSectionTitle?: string | null;
+  ceoAnnualLettersSectionImage?: MediaItem | null;
+  downloadfile?: MediaItem | null;
+  downloadButtonLabel?: string | null;
+}
+
+
+
+const VAULT_PERSPECTIVES_POPULATE =
+  'populate[0]=bgImage&populate[1]=ceoAnnualLettersSectionImage&populate[2]=downloadfile';
+
+export async function getVaultPerspectives(): Promise<VaultPerspectivesItem | null> {
+  try {
+    const json = await strapiFetch<{ data: VaultPerspectivesItem | null }>(
+      `/api/vault-perspectives?${VAULT_PERSPECTIVES_POPULATE}`
+    );
+    return (json?.data ?? null) as VaultPerspectivesItem;
+  } catch (error) {
+    console.error('Failed to fetch Vault Perspectives from Strapi:', error);
+    return null;
+  }
+}
+
+
 export function formatEventDate(date?: string) {
   if (!date || isNaN(Date.parse(date))) return '';
   const dateObj = new Date(date);
