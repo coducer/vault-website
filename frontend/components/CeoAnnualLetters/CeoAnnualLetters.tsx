@@ -79,18 +79,20 @@ const CeoAnnualLetters = ({
   if (isDownload && details) {
     return (
       <section className="py-5 mt-5">
-        <Row className="align-items-center">
+        <Row>
           <Col md={6}>
-            <div className="px-4">
-              <div
-                className="primary-text text-uppercase letter-spacing fw-semibold fs-12 mb-3"
-                style={{ letterSpacing: '1px' }}
-              >
-                CEO ANNUAL LETTERS
+            <div className="px-4 d-flex flex-column justify-content-between h-100">
+              <div>
+                <div
+                  className="primary-text text-uppercase letter-spacing fw-semibold fs-12 mb-3"
+                >
+                  CEO ANNUAL LETTERS
+                </div>
+                <div className="font-libre fs-32 fw-semibold mb-4">
+                  {details.ceoAnnualLettersSectionTitle || 'Strategic vision from Vault’s leadership'}
+                </div>
               </div>
-              <div className="font-libre fs-32 fw-semibold mb-4" style={{ color: '#232323' }}>
-                {details.ceoAnnualLettersSectionTitle || 'Strategic vision from Vault’s leadership'}
-              </div>
+
               <div>
                 {details.downloadfile && resolveStrapiMediaUrl(details.downloadfile?.url ?? '') && (
                   <button

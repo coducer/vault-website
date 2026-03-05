@@ -62,7 +62,7 @@ html,
 body {
   overflow-x: hidden;
   font-family: roboto, sans-serif;
-  /* cursor: none; */
+  cursor: none;
   /* height: 100%; */
 }
 
@@ -72,9 +72,9 @@ body {
   margin: 0;
 }
 
-/* a, button, input, textarea {
+a, button, input, textarea {
   cursor: none;
-} */
+}
 
 
 
