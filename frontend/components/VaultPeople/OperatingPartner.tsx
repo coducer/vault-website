@@ -17,13 +17,31 @@ const OperatingPartner: React.FC<{ partner: OperatingPartnerItem }> = ({ partner
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    if (open) {
+
+    if (open || closing) {
+      const scrollY = window.scrollY;
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+
+      return () => {
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        window.scrollTo(0, scrollY);
+      };
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [open]);
+    // Clean up any lingering styles
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+  }, [open, closing]);
 
   const handleOpen = useCallback(() => {
     setOpen(true);

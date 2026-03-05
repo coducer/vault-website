@@ -2,7 +2,7 @@
 'use client';
 
 import { PortfolioItem, resolveStrapiMediaUrl } from '@/lib/strapi';
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { IoMdClose } from 'react-icons/io';
 
@@ -18,11 +18,31 @@ const Portfolio: React.FC<{ items: PortfolioItem[] }> = ({ items }) => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    document.body.style.overflow = openIdx !== null ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [openIdx]);
+
+    if (openIdx !== null || closing) {
+      const scrollY = window.scrollY;
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+
+      return () => {
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+    // Clean up any lingering styles
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+  }, [openIdx, closing]);
 
   const handleCardClick = useCallback((idx: string) => {
     setOpenIdx(idx);
