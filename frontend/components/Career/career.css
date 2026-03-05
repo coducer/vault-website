@@ -1,0 +1,48 @@
+.career-border-top{
+  border-top: 1px solid var(--border);
+}
+
+.career-details-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+}
+
+/* Right panel sticky behavior (desktop) */
+.career-details-right {
+  max-width: 375px;
+  min-width: 0;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.career-details-right-border{
+  border-bottom: 1px solid var(--border);
+  padding-top: 0px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 992px) {
+  .career-details-layout {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 375px);
+  }
+
+  .w-lg-375 {
+    width: 375px !important;
+  }
+
+  .career-sticky {
+    position: sticky;
+    top: 110px;
+    align-self: flex-start;
+  }
+  .career-details-left{
+  border-right: 1px solid var(--border);
+  height: -webkit-fill-available;
+}
+}
+.pin-spacer{
+  inset: 0px auto auto !important;
+
+}

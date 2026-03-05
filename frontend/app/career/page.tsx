@@ -9,7 +9,7 @@ const whatWeDoTitle = "Find Opportunities";
 const whatWeDoItems = [
   {
     title: "Empowerment & Growth",
-    link: "/career/empowerment",
+    link: "/career_sub",
     careerTerms: [
       { label: "Remote" },
       { label: "Full Time" },
@@ -18,7 +18,7 @@ const whatWeDoItems = [
   },
   {
     title: "Inclusive Culture",
-    link: "/career/culture",
+    link: "/career_sub",
     careerTerms: [
       { label: "Remote" },
       { label: "Full Time" },
@@ -27,7 +27,7 @@ const whatWeDoItems = [
   },
   {
     title: "Continuous Learning",
-    link: "/career/learning",
+    link: "/career_sub",
     careerTerms: [
       { label: "Remote" },
       { label: "Full Time" },
