@@ -8,14 +8,12 @@
 }
 
 .what-we-do-content{
-  background: transparent;
   transition: background 0.3s, border 0.3s;
   cursor: pointer;
   color: var(--dark);
 }
 
 .what-we-do-content-primary{
-  background: transparent;
   transition: background 0.3s, border 0.3s;
   cursor: pointer;
   color: var(--white);
@@ -25,4 +23,17 @@
 }
 .what-we-do-text:hover {
   transform: translateX(20px);
+}
+
+.what-we-do-border{
+  border-top: 1px solid var(--border);
+}
+.what-we-do-border-white{
+    border-bottom: 1px solid var(--border);
+}
+.what-we-do-dot{
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--primary-blue);
 }
