@@ -708,7 +708,7 @@ export interface EventItem {
 }
 
 export interface CardList {
-  id: string
+  documentId: string
   title?: string;
   date?: string;
   description?: string;

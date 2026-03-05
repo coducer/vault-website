@@ -17,7 +17,12 @@ export default async function EventsPage() {
     <main className="home-page position-relative">
       <Header />
       <CommenHero heroImageUrl={eventsPage?.heroImage} title={eventsPage?.title ?? ''} />
-      <CommenListCard details={events as unknown as CardList[]} pathname="events" />
+      <CommenListCard
+        details={[...(events as unknown as CardList[])].sort(
+          (a, b) => new Date(b.date ?? '').getTime() - new Date(a.date ?? '').getTime()
+        )}
+        pathname="events"
+      />
       <WantToKnowMore entries={wantToKnowMoreList ?? null} />
       <Footer />
     </main>
