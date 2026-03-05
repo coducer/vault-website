@@ -64,13 +64,6 @@ const Hero = () => {
         <Image src={homeBg} alt="homeBg" />
         <div className="img-overlay"></div>
       </div>
-      {/* <div className="vault-marquee">
-        <div className="vault-track">
-          {Array(20).fill("#vault ").map((item, i) => (
-            <span key={i}>{item}</span>
-          ))}
-        </div>
-      </div> */}
       <div className="vault-marquee">
         <div className="vault-track">
           {[...Array(20)].map((_, i) => (
@@ -100,12 +93,6 @@ const Hero = () => {
       </div>
       <div className="vault-pin" ref={pinRef}>
         <Image src={vaultPin} alt="vaultPin" />
-      </div>
-      <div className="vault-wave-wrapper">
-        <div className="vault-wave-text">
-          <h2>Vault</h2>
-          <h2>Vault</h2>
-        </div>
       </div>
     </section>
   );
