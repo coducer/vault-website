@@ -722,7 +722,7 @@
       },
       {
         "title": "Investment framework and manager coordination",
-        "icon": "Investment framework and manager coordination​.svg",
+        "icon": "Investment framework and manager coordination.svg",
         "items": [
           "Definition of investment objectives and framework",
           "Support with external manager selection",
@@ -731,7 +731,7 @@
       },
       {
         "title": "Governance, risk, and compliance",
-        "icon": "Governance, risk, and compliance​.svg",
+        "icon": "Governance, risk, and compliance.svg",
         "items": [
           "Governance setup for wealth structures",
           "Policy and reporting frameworks",
@@ -740,7 +740,7 @@
       },
       {
         "title": "Estate planning and asset protection",
-        "icon": "Estate planning and asset protection​.svg",
+        "icon": "Estate planning and asset protection.svg",
         "items": [
           "Private trust companies and protector arrangements",
           "Succession and asset-protection structuring"
@@ -748,7 +748,7 @@
       },
       {
         "title": "Private banking and personal coordination",
-        "icon": "Private banking and personal coordination​.svg",
+        "icon": "Private banking and personal coordination.svg",
         "items": [
           "Private banking relationships (Switzerland & UAE)",
           "Bank onboarding and relationship support",
@@ -758,7 +758,7 @@
     ],
     "sectionsImage": "vmi.png",
     "whatWeDoTitle": "Explore Vault Further",
-     "whatWeDoItems": [
+    "whatWeDoItems": [
       {
         "title": "Investment",
         "link": "/investment"
@@ -766,6 +766,66 @@
       {
         "title": "PE Advisory",
         "link": "/pe_advisory"
+      }
+    ]
+  },
+  "peAdvisory": {
+    "bgImage": "investment_bg.png",
+    "title": "PE Advisory",
+    "introTitle": "Vault Advisory opens up a wide range of opportunities to accelerate responsible growth and improve performance of existing investments.",
+    "introDescription": "Vault PE Advisory engages in special mandates such as restructurings, investment or shareholder protections, governance, and transitional management support. Vault Advisory can be engaged on both: investor or company side. Vault Advisory team is normally deployed if the investment is underperforming or, on the opposite, is preparing for the next stage of growth (I.e. next investment round, M&A or IPO).",
+    "wealthServicesTitle": "List of Selected Mandates",
+    "wealthServicesButtonName": "Schedule A Consultation",
+    "wealthServicesButtonLink": "/portfolio",
+    "sections": [
+      {
+        "title": "Governance and Board-Level Advisory",
+        "icon": "Investment framework and manager coordination.svg",
+        "items": [
+          "Non-executive board member",
+          "Implementation of governance and controls",
+          "Shareholder buyouts or settlements"
+        ]
+      },
+      {
+        "title": "Interim and Executive Roles",
+        "icon": "Governance, risk, and compliance.svg",
+        "items": [
+          "Temporary general counsel role",
+          "Temporary chief financial officer role",
+          "Temporary chief technology officer role"
+        ]
+      },
+      {
+        "title": "Management and Talent Support",
+        "icon": "Estate planning and asset protection.svg",
+        "items": [
+          "Hiring of management roles",
+          "Management support and staffing"
+        ]
+      },
+      {
+        "title": "Capital and Liquidity Events",
+        "icon": "Private banking and personal coordination.svg",
+        "items": [
+          "Leading M&A processes",
+          "Secondaries",
+          "Corporate restructurings",
+          "Preparation for investment round, exit or IPO"
+        ]
+      }
+    ],
+    "sectionsFirstImage": "smi1.jpg",
+    "sectionsLastImage": "vmi.png",
+    "whatWeDoTitle": "Explore Vault Further",
+    "whatWeDoItems": [
+      {
+        "title": "Investment",
+        "link": "/investment"
+      },
+      {
+        "title": "Wealth Services",
+        "link": "/wealth_services"
       }
     ]
   }

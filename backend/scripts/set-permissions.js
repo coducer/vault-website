@@ -24,6 +24,7 @@ const PERMISSIONS_TO_SET = {
   portfolio: ['find', 'findOne'],
   investment: ['find', 'findOne'],
   'wealth-service': ['find', 'findOne'],
+  'pe-advisory': ['find', 'findOne'],
 };
 
 async function setPublicPermissions() {

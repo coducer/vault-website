@@ -594,7 +594,7 @@ export interface WealthServiceSectionItem {
   id?: number;
   title?: string;
   icon?: { url: string; alternativeText?: string } | null;
-  items?: string[];
+  items?: { id: string, text: string }[];
 }
 
 export interface WealthServiceWhatWeDoItem {
@@ -634,6 +634,55 @@ export async function getWealthService(): Promise<WealthServiceData | null> {
     return json?.data ?? null;
   } catch (error) {
     console.error('Failed to fetch wealth service data from Strapi:', error);
+    return null;
+  }
+}
+
+// --- PE Advisory (single type) ---
+export interface PeAdvisorySectionItem {
+  id?: number;
+  title?: string;
+  icon?: { url: string; alternativeText?: string } | null;
+  items?: { id: string, text: string }[];
+}
+
+export interface PeAdvisoryWhatWeDoItem {
+  id?: number;
+  title?: string;
+  link?: string;
+}
+
+export interface PeAdvisoryData {
+  id?: number;
+  bgImage?: { url: string; alternativeText?: string } | null;
+  documentId?: string;
+  title?: string;
+  introTitle?: string;
+  introDescription?: string | StrapiRichTextBlock[];
+  wealthServicesTitle?: string;
+  wealthServicesButtonName?: string;
+  wealthServicesButtonLink?: string;
+  sections?: PeAdvisorySectionItem[];
+  sectionsFirstImage?: { url: string; alternativeText?: string } | null;
+  sectionsLastImage?: { url: string; alternativeText?: string } | null;
+  whatWeDoItems?: PeAdvisoryWhatWeDoItem[];
+  whatWeDoTitle?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  publishedAt?: string;
+}
+
+const PE_ADVISORY_POPULATE =
+  "populate[0]=bgImage&populate[1]=sections.icon&populate[2]=sections.items&populate[3]=sectionsFirstImage&populate[4]=sectionsLastImage&populate[5]=whatWeDoItems";
+
+export async function getPeAdvisory(): Promise<PeAdvisoryData | null> {
+  try {
+    const json = await strapiFetch<PeAdvisoryData>(
+      `/api/pe-advisory?${PE_ADVISORY_POPULATE}`
+    );
+    return json?.data ?? null;
+  } catch (error) {
+    console.error('Failed to fetch PE advisory data from Strapi:', error);
     return null;
   }
 }

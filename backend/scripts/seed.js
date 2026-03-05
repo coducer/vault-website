@@ -22,7 +22,8 @@ const {
   blogs = [],
   portfolio = [],
   investment = [],
-  wealthservice = [], // <-- ADDED for wealthservice@data.json
+  wealthServices = [],
+  peAdvisory = []
 } = rawData;
 
 // Register default admin user if it doesn't exist
@@ -588,7 +589,6 @@ async function importInvestment() {
 }
 
 async function importWealthService() {
-  const wealthServices = rawData.wealthServices;
   if (!wealthServices) return;
 
   let bgImageFile = null;
@@ -656,6 +656,81 @@ async function importWealthService() {
   });
 }
 
+async function importPeAdvisory() {
+  if (!peAdvisory) return;
+
+  let bgImageFile = null;
+  if (peAdvisory.bgImage) {
+    bgImageFile = await uploadImageByName(peAdvisory.bgImage);
+  }
+
+  let sectionsFirstImageFile = null;
+  if (peAdvisory.sectionsFirstImage) {
+    sectionsFirstImageFile = await uploadImageByName(peAdvisory.sectionsFirstImage);
+  }
+
+  let sectionsLastImageFile = null;
+  if (peAdvisory.sectionsLastImage) {
+    sectionsLastImageFile = await uploadImageByName(peAdvisory.sectionsLastImage);
+  }
+
+  let sections = [];
+  if (Array.isArray(peAdvisory.sections)) {
+    for (const section of peAdvisory.sections) {
+      let items = [];
+      if (Array.isArray(section.items)) {
+        items = section.items.map(i =>
+          typeof i === "string"
+            ? { text: i }
+            : (i && typeof i === "object" && typeof i.text === "string")
+                ? { text: i.text }
+                : null
+        ).filter(Boolean);
+      }
+
+      let iconFile = null;
+      if (section.icon) {
+        iconFile = await uploadImageByName(section.icon);
+      }
+
+      sections.push({
+        title: section.title ?? "",
+        icon: iconFile?.id ?? null,
+        items,
+      });
+    }
+  }
+
+  let whatWeDoItems = [];
+  if (Array.isArray(peAdvisory.whatWeDoItems)) {
+    whatWeDoItems = peAdvisory.whatWeDoItems.map(item => ({
+      title: item.title ?? "",
+      link: item.link ?? "",
+    }));
+  }
+
+  await createEntry({
+    model: 'pe-advisory',
+    entry: {
+      bgImage: bgImageFile?.id ?? null,
+      title: peAdvisory.title ?? "",
+      introTitle: peAdvisory.introTitle ?? "",
+      introDescription: peAdvisory.introDescription ?? "",
+      wealthServicesTitle: peAdvisory.wealthServicesTitle ?? "",
+      wealthServicesButtonName: peAdvisory.wealthServicesButtonName ?? "",
+      wealthServicesButtonLink: peAdvisory.wealthServicesButtonLink ?? "",
+      sections,
+      sectionsFirstImage: sectionsFirstImageFile?.id ?? null,
+      sectionsLastImage: sectionsLastImageFile?.id ?? null,
+      whatWeDoTitle: peAdvisory.whatWeDoTitle ?? "",
+      whatWeDoItems,
+      publishedAt: new Date().toISOString(),
+    },
+    publish: true,
+  });
+}
+
+
 async function importSeedData() {
   await setPublicPermissions({
     blog: ['find', 'findOne'],
@@ -697,7 +772,8 @@ async function importSeedData() {
   await importWantToKnowMore();
   await importPortfolio();
   await importInvestment();
-  await importWealthService(); // <-- ADDED: import wealthservice
+  await importWealthService();
+  await importPeAdvisory();
 }
 
 async function main() {

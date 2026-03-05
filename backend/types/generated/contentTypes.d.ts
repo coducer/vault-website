@@ -859,6 +859,49 @@ export interface ApiOurStoryOurStory extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPeAdvisoryPeAdvisory extends Struct.SingleTypeSchema {
+  collectionName: 'pe-advisories';
+  info: {
+    description: 'PE Advisories page: hero, introduction, list of selected mandates, what we do';
+    displayName: 'PE Advisories';
+    pluralName: 'pe-advisories';
+    singularName: 'pe-advisory';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    bgImage: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    introDescription: Schema.Attribute.RichText;
+    introTitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pe-advisory.pe-advisory'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.Component<'wealth-service.section', true>;
+    sectionsFirstImage: Schema.Attribute.Media<'images'>;
+    sectionsLastImage: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    wealthServicesButtonLink: Schema.Attribute.String;
+    wealthServicesButtonName: Schema.Attribute.String;
+    wealthServicesTitle: Schema.Attribute.String;
+    whatWeDoItems: Schema.Attribute.Component<
+      'investment.what-we-do-item',
+      true
+    >;
+    whatWeDoTitle: Schema.Attribute.String;
+  };
+}
+
 export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
   collectionName: 'portfolio';
   info: {
@@ -1588,6 +1631,7 @@ declare module '@strapi/strapi' {
       'api::news.newspost': ApiNewsNewspost;
       'api::operating-partner.operating-partner': ApiOperatingPartnerOperatingPartner;
       'api::our-story.our-story': ApiOurStoryOurStory;
+      'api::pe-advisory.pe-advisory': ApiPeAdvisoryPeAdvisory;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::team.team': ApiTeamTeam;
       'api::vault-story.vault-story': ApiVaultStoryVaultStory;

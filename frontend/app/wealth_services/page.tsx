@@ -10,7 +10,6 @@ import '../homePage.css';
 
 export default async function WealthServicePage() {
   const wealthService = await getWealthService();
-  console.log(wealthService, 'wealthService');
   return (
     <main className="home-page position-relative">
       <Header />

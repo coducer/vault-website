@@ -1,13 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 
 'use client';
-import { resolveStrapiMediaUrl } from '@/lib/strapi';
+import { PeAdvisorySectionItem, resolveStrapiMediaUrl } from '@/lib/strapi';
 import { useRouter } from 'next/navigation';
 import { Col, Row } from 'react-bootstrap';
 import { GoArrowUpRight } from 'react-icons/go';
 import BorderButton from '../Buttons/BorderButton';
-
-type SectionItem = string | number | null | undefined;
 
 const WealthService = ({
   wealthServicesTitle,
@@ -19,22 +17,10 @@ const WealthService = ({
   wealthServicesTitle?: string;
   wealthServicesButtonName?: string;
   wealthServicesButtonLink?: string;
-  sections?: {
-    title?: string;
-    icon?: { url: string; alternativeText?: string } | null;
-    items?: SectionItem[];
-  }[];
+  sections?: PeAdvisorySectionItem[];
   sectionsImage?: { url: string; alternativeText?: string } | null;
 }) => {
   const router = useRouter();
-
-  // Helper to get a string for key prop when no title is present
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const getCardKey = (card: any, idx: number) => {
-    if (card.title && typeof card.title === 'string') return card.title;
-    if (card.icon && typeof card.icon.url === 'string') return card.icon.url + idx;
-    return idx;
-  };
 
   return (
     <div className="py-4 px-4 py-lg-5 position-relative d-flex flex-column gap-4">
@@ -54,9 +40,9 @@ const WealthService = ({
         />
       </div>
       <Row className="g-4 pt-1">
-        {sections?.map((card, cardIndex) => (
+        {sections?.map((card) => (
           <Col
-            key={getCardKey(card, cardIndex)}
+            key={card?.title}
             md={4}
             sm={6}
             xs={12}
@@ -80,13 +66,13 @@ const WealthService = ({
                 <span className="font-libre fs-20 text-dark">{card.title}</span>
               </div>
               <ul className="list-unstyled m-0 pt-1 fs-15">
-                {(card?.items || []).map((p, i) => (
+                {card?.items?.map((p) => (
                   <li
-                    key={typeof p === 'string' || typeof p === 'number' ? p : i}
+                    key={p?.text}
                     className="py-2"
                     style={{ borderBottom: '1px solid var(--border)' }}
                   >
-                    {typeof p === 'object' && p !== null ? JSON.stringify(p) : p}
+                    {p?.text}
                   </li>
                 ))}
               </ul>
