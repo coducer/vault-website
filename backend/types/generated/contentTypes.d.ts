@@ -491,6 +491,85 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCareerListCareerList extends Struct.CollectionTypeSchema {
+  collectionName: 'career_lists';
+  info: {
+    description: 'Create your career list content';
+    displayName: 'Career List';
+    pluralName: 'career-lists';
+    singularName: 'career-list';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aboutVaultPartners: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    department: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    headerTitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career-list.career-list'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    opportunityOverview: Schema.Attribute.Component<
+      'career-list.opportunity-overview',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    qualifications: Schema.Attribute.Component<
+      'career-list.qualification',
+      true
+    >;
+    responsibilities: Schema.Attribute.Component<
+      'career-list.responsibility',
+      true
+    >;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whatWeOffer: Schema.Attribute.Component<'career-list.offer', true>;
+    whoWeLookFor: Schema.Attribute.RichText;
+  };
+}
+
+export interface ApiCareerCareer extends Struct.SingleTypeSchema {
+  collectionName: 'career';
+  info: {
+    description: 'Career section configuration content';
+    displayName: 'Career';
+    pluralName: 'careers';
+    singularName: 'career';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bgImage: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    findOpportunitiesText: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career.career'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCeoAnnualLetterCeoAnnualLetter
   extends Struct.CollectionTypeSchema {
   collectionName: 'ceo_annual_letters';
@@ -1657,6 +1736,8 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::blog.blog': ApiBlogBlog;
+      'api::career-list.career-list': ApiCareerListCareerList;
+      'api::career.career': ApiCareerCareer;
       'api::ceo-annual-letter.ceo-annual-letter': ApiCeoAnnualLetterCeoAnnualLetter;
       'api::contact-submission.contact-submission': ApiContactSubmissionContactSubmission;
       'api::contact.contact': ApiContactContact;

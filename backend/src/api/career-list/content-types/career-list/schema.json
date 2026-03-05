@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "career_lists",
+  "info": {
+    "singularName": "career-list",
+    "pluralName": "career-lists",
+    "displayName": "Career List",
+    "description": "Create your career list content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "department": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "headerTitle": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "whoWeLookFor": {
+      "type": "richtext"
+    },
+    "responsibilities": {
+      "type": "component",
+      "repeatable": true,
+      "component": "career-list.responsibility"
+    },
+    "qualifications": {
+      "type": "component",
+      "repeatable": true,
+      "component": "career-list.qualification"
+    },
+    "whatWeOffer": {
+      "type": "component",
+      "repeatable": true,
+      "component": "career-list.offer"
+    },
+    "aboutVaultPartners": {
+      "type": "text"
+    },
+    "opportunityOverview": {
+      "type": "component",
+      "repeatable": true,
+      "component": "career-list.opportunity-overview"
+    }
+  }
+}

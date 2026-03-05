@@ -837,5 +837,154 @@
     "ceoAnnualLettersSectionImage": "ami.jpg",
     "downloadfile": "default_image.png",
     "downloadButtonLabel": "Annual Letter 2025"
-  }
+  },
+  "career": {
+    "bgImage": "career_bg.jpg",
+    "title": "Want to join our team?",
+    "findOpportunitiesText": "Find Opportunities"
+  },
+  "careerList": [
+    {
+      "department": "Finance",
+      "title": "Financial Analyst",
+      "description": "Remote - Full Time - Kyiv, Ukraine",
+      "headerTitle": "Financial Analyst (Financial Modelling Focus)",
+      "location": "Kyiv, Ukraine",
+      "whoWeLookFor": "We are looking for a Financial Analyst with strong financial-modelling skills and a genuine interest in cross-border investments to join our team. You will support our advisory and investment teams across multiple mandates from valuation and market analysis to financial structuring and deal execution.​",
+      "responsibilities": [
+        {
+          "responsibility": "Develop and maintain financial models to support valuation, structuring, and investment decisions"
+        },
+        {
+          "responsibility": "Conduct detailed financial, market and sector analyses to support deal execution and due diligence"
+        },
+        {
+          "responsibility": "Support internal reporting, financial projections, and scenario modelling for strategic initiatives"
+        },
+        {
+          "responsibility": "Assist in preparing pitch materials, investment memoranda and client presentations"
+        },
+        {
+          "responsibility": "Collaborate with internal stakeholders and partners on ongoing deals and portfolio projects"
+        }
+      ],
+      "qualifications": [
+        {
+          "qualification": "1-2 years of relevant experience in finance, investment, consulting, or a related analytical role"
+        },
+        {
+          "qualification": "Solid understanding of financial statements, valuation methodologies and capital structures"
+        },
+        {
+          "qualification": "Advanced proficiency in Excel/Google Sheets; experience with PowerPoint and financial databases is an advantage"
+        },
+        {
+          "qualification": "Degree in Finance, Economics, Accounting, or related field; postgraduate or certification (CFA, FMVA, etc.) a plus"
+        },
+        {
+          "qualification": "Fluent English is required; Additional languages (French, German) are a plus"
+        },
+        {
+          "qualification": "Analytical, organisational and communication skills with a sharp attention to detail"
+        },
+        {
+          "qualification": "Self-driven, adaptable and able to operate effectively within international teams"
+        }
+      ],
+      "whatWeOffer": [
+        {
+          "offer": "Competitive compensation"
+        },
+        {
+          "offer": "Direct exposure to high-impact deals, fundraising processes and investment structuring"
+        },
+        {
+          "offer": "Direct collaboration with senior leadership"
+        },
+        {
+          "offer": "Engagement across multiple sectors and jurisdictions, including Europe, the Middle East and Central Asia"
+        },
+        {
+          "offer": "Continuous learning, professional development, and growth opportunities within the Vault network"
+        }
+      ],
+      "aboutVaultPartners": "Vault Partners is an investment platform with integrated advisory boutique empowering growth-oriented companies, investment firms, and high-net-worth individuals (HNWIs). With a global network of industry insiders, multidisciplinary experts and investors, Vault helps companies as well as investors to unlock value where conventional firms do not see it. Vault’s goal is to push growth, realise investment and protect interests through strategic funding or tailored mandates.",
+      "opportunityOverview": [
+        {
+          "icon": "Corporate Title.svg",
+          "title": "Corporate Title",
+          "subTitle": "Financial Analyst"
+        },
+        {
+          "icon": "Office Location(s).svg",
+          "title": "Office Location(s)",
+          "subTitle": "Remote"
+        },
+        {
+          "icon": "Job Function.svg",
+          "title": "Job Function",
+          "subTitle": "Finance"
+        },
+        {
+          "icon": "Division.svg",
+          "title": "Division",
+          "subTitle": "Investment & Advisory"
+        }
+      ]
+    },
+    {
+      "department": "Legal",
+      "title": "In-House Counsel",
+      "description": "Remote - Full Time - Kyiv, Ukraine",
+      "headerTitle": "In-House Counsel",
+      "location": "Kyiv, Ukraine",
+      "whoWeLookFor": "We are looking for a mid-level in-house counsel to deliver practical, business-focused advice on venture capital, M&A, and cross-border corporate matters. In this role, you will work closely with senior leadership and clients across multiple jurisdictions.",
+      "responsibilities": [
+        "Draft, review, and negotiate term sheets, shareholder agreements, SPAs, and ancillary documents for VC/PE deals",
+        "Support cross-border transactions (M&A, JVs, restructurings)",
+        "Corporate governance",
+        "Support global entity maintenance (filings, registers, resolutions)",
+        "Lead/coordinate legal due dilligence and produce risk-analysis memos",
+        "Collaborate with internal specialists and external counsel, tax advisors and regulators across multiple jurisdictions",
+        "Develop and refine standardized templates, playbooks, and internal processes"
+      ],
+      "qualifications": [
+        "Qualified Solicitor of England and Wales (mandatory requirement)",
+        "2-4 years PQE in corporate/transactional work with demonstrated experience in venture capital, M&A, governance, and cross-border transactions",
+        "LLM is an asset",
+        "Excellent drafting and negotiation skills; strong commercial judgement",
+        "Fluent English is required; Additional languages (French, German) are a plus",
+        "Ability to manage competing priorities under tight deadlines in a fast-paced environment"
+      ],
+      "whatWeOffer": [
+        "Competitive compensation",
+        "Direct exposure to high-impact deals and direct collaboration with senior leadership",
+        "Opportunity to work with a diverse, global client base across Europe, the Middle East, and beyond",
+        "Flexible work arrangement"
+      ],
+      "aboutVaultPartners": "Vault Partners is an investment platform with integrated advisory boutique empowering growth-oriented companies, investment firms, and high-net-worth individuals (HNWIs). With a global network of industry insiders, multidisciplinary experts and investors, Vault helps companies as well as investors to unlock value where conventional firms do not see it. Vault’s goal is to push growth, realise investment and protect interests through strategic funding or tailored mandates.",
+      "opportunityOverview": [
+        {
+          "icon": "Corporate Title.svg",
+          "title": "Corporate Title",
+          "subTitle": "In-House Counsel"
+        },
+        {
+          "icon": "Office Location(s).svg",
+          "title": "Office Location(s)",
+          "subTitle": "Remote"
+        },
+        {
+          "icon": "Job Function.svg",
+          "title": "Job Function",
+          "subTitle": "Legal"
+        },
+        {
+          "icon": "Division.svg",
+          "title": "Division",
+          "subTitle": "Investment & Advisory"
+        }
+      ]
+    }
+  ]
 }

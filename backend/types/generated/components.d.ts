@@ -13,6 +13,56 @@ export interface AboutDetailItem extends Struct.ComponentSchema {
   };
 }
 
+export interface CareerListOffer extends Struct.ComponentSchema {
+  collectionName: 'components_career_list_offers';
+  info: {
+    description: 'A Offer or requirement for a specific career position';
+    displayName: 'Offer';
+    icon: 'award';
+  };
+  attributes: {
+    offer: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
+export interface CareerListOpportunityOverview extends Struct.ComponentSchema {
+  collectionName: 'components_career_list_opportunity_overview';
+  info: {
+    description: 'An overview of key attributes for a specific career opportunity';
+    displayName: 'Opportunity Overview';
+    icon: 'award';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    subTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface CareerListQualification extends Struct.ComponentSchema {
+  collectionName: 'components_career_list_qualifications';
+  info: {
+    description: 'A qualification or requirement for a specific career position';
+    displayName: 'Qualification';
+    icon: 'award';
+  };
+  attributes: {
+    qualification: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
+export interface CareerListResponsibility extends Struct.ComponentSchema {
+  collectionName: 'components_career_list_responsibilities';
+  info: {
+    description: 'A key responsibility for a specific career position';
+    displayName: 'Responsibility';
+    icon: 'check-square';
+  };
+  attributes: {
+    responsibility: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
 export interface EventDetailBlock extends Struct.ComponentSchema {
   collectionName: 'components_event_detail_blocks';
   info: {
@@ -223,6 +273,10 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'about.detail-item': AboutDetailItem;
+      'career-list.offer': CareerListOffer;
+      'career-list.opportunity-overview': CareerListOpportunityOverview;
+      'career-list.qualification': CareerListQualification;
+      'career-list.responsibility': CareerListResponsibility;
       'event.detail-block': EventDetailBlock;
       'home-about-us.text-line': HomeAboutUsTextLine;
       'home-partner-with-us.item': HomePartnerWithUsItem;

@@ -837,6 +837,110 @@ export async function getVaultPerspectives(): Promise<VaultPerspectivesItem | nu
 }
 
 
+// --- Career API ---
+
+export interface CareerItem {
+  id?: number;
+  bgImage?: MediaItem | null;
+  title?: string | null;
+  findOpportunitiesText?: string | null;
+}
+
+const CAREER_POPULATE = 'populate[0]=bgImage';
+
+export async function getCareer(): Promise<CareerItem | null> {
+  try {
+    const json = await strapiFetch<{ data: CareerItem | null }>(
+      `/api/career?${CAREER_POPULATE}`
+    );
+    return (json?.data ?? null) as CareerItem;
+  } catch (error) {
+    console.error('Failed to fetch Career from Strapi:', error);
+    return null;
+  }
+}
+
+// --- Career List API ---
+
+export interface CareerListResponsibility {
+  responsibility: string;
+}
+
+export interface CareerListQualification {
+  qualification: string;
+}
+
+export interface CareerListWhatWeOffer {
+  offer: string;
+}
+
+export interface OpportunityOverview {
+  icon: MediaItem | null;
+  title: string;
+  subTitle: string;
+}
+
+export interface CareerListItem {
+  documentId: string;
+  id?: number;
+  department?: string;
+  title?: string;
+  description?: string;
+  headerTitle?: string;
+  location?: string;
+  whoWeLookFor?: string;
+  responsibilities?: CareerListResponsibility[];
+  qualifications?: CareerListQualification[];
+  whatWeOffer?: CareerListWhatWeOffer[];
+  aboutVaultPartners?: string;
+  opportunityOverview?: OpportunityOverview[];
+  publishedAt?: string;
+}
+
+const CAREER_LIST_POPULATE =
+  [
+    'populate[0]=responsibilities',
+    'populate[1]=qualifications',
+    'populate[2]=whatWeOffer',
+    'populate[3]=opportunityOverview.icon',
+  ].join('&');
+
+export async function getCareerList(): Promise<CareerListItem[]> {
+  try {
+    const json = await strapiFetch<{ data: CareerListItem[] }>(
+      `/api/career-lists?${CAREER_LIST_POPULATE}`
+    );
+    // handle normalization if needed
+    return (json?.data ?? []) as unknown as CareerListItem[];
+  } catch (error) {
+    console.error('Failed to fetch Career List from Strapi:', error);
+    return [];
+  }
+}
+
+
+// Fetch main career by id
+export async function getCareerById(id: string): Promise<CareerListItem | null> {
+  try {
+    // Populate all relevant career-list fields/components as per schema.json
+    const populateParams = [
+      'populate[0]=responsibilities',
+      'populate[1]=qualifications',
+      'populate[2]=whatWeOffer',
+      'populate[3]=opportunityOverview.icon'
+    ].join('&');
+
+    const json = await strapiFetch<{ data: CareerListItem }>(
+      `/api/career-lists/${id}?${populateParams}`
+    );
+    return (json?.data ?? null) as unknown as CareerListItem;
+  } catch (error) {
+    console.error('Failed to fetch Career by id from Strapi:', error);
+    return null;
+  }
+}
+
+
 export function formatEventDate(date?: string) {
   if (!date || isNaN(Date.parse(date))) return '';
   const dateObj = new Date(date);

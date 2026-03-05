@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_career_list_responsibilities",
+  "info": {
+    "displayName": "Responsibility",
+    "icon": "check-square",
+    "description": "A key responsibility for a specific career position"
+  },
+  "options": {},
+  "attributes": {
+    "responsibility": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

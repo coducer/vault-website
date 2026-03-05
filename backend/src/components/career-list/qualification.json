@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_career_list_qualifications",
+  "info": {
+    "displayName": "Qualification",
+    "icon": "award",
+    "description": "A qualification or requirement for a specific career position"
+  },
+  "options": {},
+  "attributes": {
+    "qualification": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

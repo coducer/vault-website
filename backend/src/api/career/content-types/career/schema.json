@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "career",
+  "info": {
+    "singularName": "career",
+    "pluralName": "careers",
+    "displayName": "Career",
+    "description": "Career section configuration content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "bgImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "findOpportunitiesText": {
+      "type": "string"
+    }
+  }
+}

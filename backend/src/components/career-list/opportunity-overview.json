@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_career_list_opportunity_overview",
+  "info": {
+    "displayName": "Opportunity Overview",
+    "icon": "award",
+    "description": "An overview of key attributes for a specific career opportunity"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subTitle": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

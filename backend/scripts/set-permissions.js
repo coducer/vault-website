@@ -26,6 +26,8 @@ const PERMISSIONS_TO_SET = {
   'wealth-service': ['find', 'findOne'],
   'pe-advisory': ['find', 'findOne'],
   'vault-perspectives': ['find', 'findOne'],
+  career: ['find', 'findOne'],
+  'career-list': ['find', 'findOne'],
 };
 
 async function setPublicPermissions() {
@@ -61,6 +63,21 @@ async function setPublicPermissions() {
       }
     }
   }
+
+  // Explicitly add permissions for components under career-list if they're missing (Strapi v4+)
+  // This is a workaround for cases where components might need explicit permission (edge case)
+  // If your project has API endpoints for e.g. component careers, add here:
+  /*
+  const componentPermissions = [
+    { action: 'api::career-list.career-list.find', role: publicRole.id },
+    { action: 'api::career-list.career-list.findOne', role: publicRole.id }
+  ];
+  for (const perm of componentPermissions) {
+    if (!existingActions.has(perm.action)) {
+      toCreate.push(perm);
+    }
+  }
+  */
 
   if (toCreate.length === 0) {
     console.log('All permissions already set. Nothing to do.');

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_career_list_offers",
+  "info": {
+    "displayName": "Offer",
+    "icon": "award",
+    "description": "A Offer or requirement for a specific career position"
+  },
+  "options": {},
+  "attributes": {
+    "offer": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -24,7 +24,9 @@ const {
   investment = [],
   wealthServices = [],
   peAdvisory = [],
-  vaultPerspectives = {}
+  vaultPerspectives = {},
+  career = {},
+  careerList = []
 } = rawData;
 
 // Register default admin user if it doesn't exist
@@ -770,6 +772,94 @@ async function importVaultPerspectives() {
   });
 }
 
+async function importCareer() {
+  if (!career) return;
+
+  // Upload bgImage if exists
+  let bgImageFile = null;
+  if (career.bgImage) {
+    bgImageFile = await uploadImageByName(career.bgImage);
+  }
+
+  await createEntry({
+    model: 'career',
+    entry: {
+      title: career.title ?? "",
+      bgImage: bgImageFile?.id ?? null,
+      findOpportunitiesText: career.findOpportunitiesText ?? "",
+      publishedAt: new Date().toISOString(),
+    },
+    publish: true,
+  });
+}
+
+async function importCareerList() {
+  if (!Array.isArray(careerList) || careerList.length === 0) return;
+
+  for (const careerItem of careerList) {
+    // Prepare opportunityOverview by uploading icon images if present
+    const opportunityOverviewWithMedia = Array.isArray(careerItem.opportunityOverview)
+      ? await Promise.all(
+          careerItem.opportunityOverview.map(async (overview) => {
+            let iconFile = null;
+            if (overview.icon) {
+              iconFile = await uploadImageByName(overview.icon);
+            }
+            return {
+              ...overview,
+              icon: iconFile?.id ?? null,
+            };
+          })
+        )
+      : [];
+
+    // Map fields to required structure or empty array
+    const responsibilities = Array.isArray(careerItem.responsibilities)
+      ? careerItem.responsibilities.map((r) =>
+          typeof r === "object" && r !== null && r.responsibility !== undefined
+            ? { responsibility: r.responsibility }
+            : { responsibility: String(r ?? "") }
+        )
+      : [];
+
+    const qualifications = Array.isArray(careerItem.qualifications)
+      ? careerItem.qualifications.map((q) =>
+          typeof q === "object" && q !== null && q.qualification !== undefined
+            ? { qualification: q.qualification }
+            : { qualification: String(q ?? "") }
+        )
+      : [];
+
+    const whatWeOffer = Array.isArray(careerItem.whatWeOffer)
+      ? careerItem.whatWeOffer.map((o) =>
+          typeof o === "object" && o !== null && o.offer !== undefined
+            ? { offer: o.offer }
+            : { offer: String(o ?? "") }
+        )
+      : [];
+
+    // Create entry, ensuring all required fields are present
+    await createEntry({
+      model: 'career-list',
+      entry: {
+        department: typeof careerItem.department === "string" ? careerItem.department : "",
+        title: typeof careerItem.title === "string" ? careerItem.title : "",
+        description: typeof careerItem.description === "string" ? careerItem.description : "",
+        headerTitle: typeof careerItem.headerTitle === "string" ? careerItem.headerTitle : "",
+        location: typeof careerItem.location === "string" ? careerItem.location : "",
+        whoWeLookFor: typeof careerItem.whoWeLookFor === "string" ? careerItem.whoWeLookFor : "",
+        responsibilities,
+        qualifications,
+        whatWeOffer,
+        aboutVaultPartners: typeof careerItem.aboutVaultPartners === "string" ? careerItem.aboutVaultPartners : "",
+        opportunityOverview: opportunityOverviewWithMedia,
+        publishedAt: new Date().toISOString(),
+      },
+      publish: true,
+    });
+  }
+}
+
 
 
 async function importSeedData() {
@@ -795,6 +885,8 @@ async function importSeedData() {
     'investment': ['find', 'findOne'],
     'wealthservice': ['find', 'findOne'], // <-- ADDED WEALTHSERVICE PERMISSIONS
     'vault-perspectives': ['find', 'findOne'],
+    'career': ['find', 'findOne'],
+    'career-list': ['find', 'findOne'],
   });
 
   await importAbout();
@@ -817,6 +909,8 @@ async function importSeedData() {
   await importWealthService();
   await importPeAdvisory();
   await importVaultPerspectives();
+  await importCareer();
+  await importCareerList();
 }
 
 async function main() {
