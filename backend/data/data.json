@@ -703,7 +703,7 @@
     ]
   },
   "wealthServices": {
-    "bgImage": "investment_bg.png",
+    "bgImage": "wealth_services_bg.jpg",
     "title": "Wealth Services",
     "introTitle": "Our wealth services bring together network of HNWIs who share our values of responsible growth.",
     "introDescription": "Vault’s Wealth services support the structuring, protection and long-term oversight of private wealth through established vehicles in Switzerland and the UAE.\n\nWe start with a global review of a client’s assets, existing structures, banking relationships and governance arrangements. Based on this assessment, we design and coordinate a structure that reflects the client’s priorities, risk tolerance and long-term objectives.",
@@ -770,7 +770,7 @@
     ]
   },
   "peAdvisory": {
-    "bgImage": "investment_bg.png",
+    "bgImage": "PE_Advisory_bg.png",
     "title": "PE Advisory",
     "introTitle": "Vault Advisory opens up a wide range of opportunities to accelerate responsible growth and improve performance of existing investments.",
     "introDescription": "Vault PE Advisory engages in special mandates such as restructurings, investment or shareholder protections, governance, and transitional management support. Vault Advisory can be engaged on both: investor or company side. Vault Advisory team is normally deployed if the investment is underperforming or, on the opposite, is preparing for the next stage of growth (I.e. next investment round, M&A or IPO).",
