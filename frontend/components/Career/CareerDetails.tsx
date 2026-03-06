@@ -21,7 +21,12 @@ const closeBtnStyles: React.CSSProperties = {
   cursor: 'pointer',
 };
 
-const CareerDetails = ({ career }: { career: CareerListItem | null }) => {
+interface CareerDetailsProps {
+  career: CareerListItem | null;
+  jobRouteId: string;
+}
+
+const CareerDetails: React.FC<CareerDetailsProps> = ({ career, jobRouteId }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const rightRef = useRef<HTMLDivElement | null>(null);
 
@@ -201,13 +206,15 @@ const CareerDetails = ({ career }: { career: CareerListItem | null }) => {
             tabIndex={-1}
           >
             <div className="mb-5 d-flex justify-content-between align-items-center">
-              <div className="font-libre fs-24 text-dark">Financial Analyst</div>
+              <div className="font-libre fs-24 text-dark">
+                {career?.headerTitle || 'Application'}
+              </div>
               <button aria-label="Close" onClick={handleClose} tabIndex={0} style={closeBtnStyles}>
                 <IoMdClose size={24} />
               </button>
             </div>
             <div style={{ paddingRight: 8 }}>
-              <CareerApplyForm />
+              <CareerApplyForm jobTitle={career?.headerTitle} jobLocation={career?.location} />
             </div>
           </div>
         </>

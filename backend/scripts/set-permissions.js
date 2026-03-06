@@ -28,6 +28,7 @@ const PERMISSIONS_TO_SET = {
   'vault-perspectives': ['find', 'findOne'],
   career: ['find', 'findOne'],
   'career-list': ['find', 'findOne'],
+  'email-template': ['find', 'findOne'],
 };
 
 async function setPublicPermissions() {

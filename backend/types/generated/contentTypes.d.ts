@@ -491,6 +491,44 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCareerApplicationCareerApplication
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'career_applications';
+  info: {
+    description: 'Career applications submitted from the website';
+    displayName: 'Career Application';
+    pluralName: 'career-applications';
+    singularName: 'career-application';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    coverLetterFile: Schema.Attribute.Media & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    cvFile: Schema.Attribute.Media & Schema.Attribute.Required;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    jobLocation: Schema.Attribute.String;
+    jobTitle: Schema.Attribute.String;
+    jobUrl: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career-application.career-application'
+    > &
+      Schema.Attribute.Private;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    submittedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCareerListCareerList extends Struct.CollectionTypeSchema {
   collectionName: 'career_lists';
   info: {
@@ -665,6 +703,42 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEmailTemplateEmailTemplate
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'email_templates';
+  info: {
+    description: 'Reusable templates for system emails (admin + user)';
+    displayName: 'Email Template';
+    pluralName: 'email-templates';
+    singularName: 'email-template';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    htmlBody: Schema.Attribute.Text;
+    key: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::email-template.email-template'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subject: Schema.Attribute.String & Schema.Attribute.Required;
+    textBody: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1736,11 +1810,13 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::blog.blog': ApiBlogBlog;
+      'api::career-application.career-application': ApiCareerApplicationCareerApplication;
       'api::career-list.career-list': ApiCareerListCareerList;
       'api::career.career': ApiCareerCareer;
       'api::ceo-annual-letter.ceo-annual-letter': ApiCeoAnnualLetterCeoAnnualLetter;
       'api::contact-submission.contact-submission': ApiContactSubmissionContactSubmission;
       'api::contact.contact': ApiContactContact;
+      'api::email-template.email-template': ApiEmailTemplateEmailTemplate;
       'api::event.event': ApiEventEvent;
       'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::home-about-us.home-about-us': ApiHomeAboutUsHomeAboutUs;

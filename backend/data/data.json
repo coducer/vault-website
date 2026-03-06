@@ -986,5 +986,35 @@
         }
       ]
     }
+  ],
+  "emailTemplates": [
+    {
+      "key": "contact-admin",
+      "subject": "🔔 New Contact Submission – {{fullName}}",
+      "htmlBody": "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"/></head><body style=\"margin:0;padding:0;background:#f4f6f9;font-family:Arial,Helvetica,sans-serif;\"><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding:40px 0;\"><tr><td align=\"center\"><table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff;border-radius:8px;border:1px solid #e5e7eb;\"><tr><td style=\"background:#1f2937;padding:24px 30px;\"><h2 style=\"color:#fff;margin:0;font-size:20px;\">🔔 New Contact Form Submission</h2></td></tr><tr><td style=\"padding:30px;\"><p>Hello Admin,</p><p>A new enquiry has been submitted via the website contact form.</p><table width=\"100%\" cellpadding=\"6\" cellspacing=\"0\" style=\"font-size:14px;border-collapse:collapse;\"><tr><td><strong>Full Name:</strong></td><td>{{fullName}}</td></tr><tr><td><strong>Email:</strong></td><td>{{email}}</td></tr><tr><td><strong>Company:</strong></td><td>{{company}}</td></tr><tr><td><strong>Date:</strong></td><td>{{date}}</td></tr></table><div style=\"margin-top:20px;\"><strong>Message:</strong><div style=\"background:#f9fafb;border:1px solid #e5e7eb;padding:12px;border-radius:4px;margin-top:8px;white-space:pre-line;\">{{message}}</div></div></td></tr><tr><td style=\"background:#f9fafb;padding:20px 30px;text-align:right;font-size:12px;color:#999;\">{{date}}</td></tr></table><p style=\"font-size:12px;color:#aaa;margin-top:20px;\">Website Notification System</p></td></tr></table></body></html>",
+      "textBody": "New contact submission from {{fullName}} ({{email}})\nCompany: {{company}}\nMessage: {{message}}\nSubmitted at: {{date}}",
+      "description": "Admin notification for website contact form"
+    },
+    {
+      "key": "contact-user",
+      "subject": "Thank you for contacting Vault",
+      "htmlBody": "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"/></head><body style=\"margin:0;padding:0;background:#f4f6f9;font-family:Arial,Helvetica,sans-serif;\"><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding:40px 0;\"><tr><td align=\"center\"><table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff;border-radius:8px;border:1px solid #e5e7eb;\"><tr><td style=\"background:#1f2937;padding:24px 30px;\"><h2 style=\"color:#fff;margin:0;font-size:20px;\">Thank You for Contacting Vault</h2></td></tr><tr><td style=\"padding:30px;\"><p>Hi {{fullName}},</p><p>Thank you for reaching out to Vault. Our team has received your message and will review it shortly.</p><p style=\"margin-top:20px;\">We will contact you as soon as possible.</p><p style=\"margin-top:30px;\">Best regards,<br/><strong>Vault Team</strong></p></td></tr><tr><td style=\"background:#f9fafb;padding:20px 30px;text-align:right;font-size:12px;color:#999;\">{{date}}</td></tr></table><p style=\"font-size:12px;color:#aaa;margin-top:20px;\">Vault Website Notification System</p></td></tr></table></body></html>",
+      "textBody": "Hi {{fullName}},\n\nThank you for contacting Vault. Our team has received your message and will respond shortly.\n\nVault Team",
+      "description": "Thank-you email sent to contact form submitter"
+    },
+    {
+      "key": "career-admin",
+      "subject": "🔔 New Career Application – {{fullName}}",
+      "htmlBody": "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"/></head><body style=\"margin:0;padding:0;background:#f4f6f9;font-family:Arial,Helvetica,sans-serif;\"><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding:40px 0;\"><tr><td align=\"center\"><table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff;border-radius:8px;border:1px solid #e5e7eb;\"><tr><td style=\"background:#1f2937;padding:24px 30px;\"><h2 style=\"color:#fff;margin:0;font-size:20px;\">🔔 New Career Application</h2></td></tr><tr><td style=\"padding:30px;\"><p>Hello Admin,</p><p>A new career application has been submitted.</p><table width=\"100%\" cellpadding=\"6\" cellspacing=\"0\" style=\"font-size:14px;border-collapse:collapse;\"><tr><td><strong>Full Name:</strong></td><td>{{fullName}}</td></tr><tr><td><strong>Email:</strong></td><td>{{email}}</td></tr><tr><td><strong>Phone:</strong></td><td>{{phone}}</td></tr><tr><td><strong>Job:</strong></td><td>{{jobTitle}} – {{jobLocation}}</td></tr><tr></tr><tr><td><strong>Date:</strong></td><td>{{date}}</td></tr></table></td></tr><tr><td style=\"background:#f9fafb;padding:20px 30px;text-align:right;font-size:12px;color:#999;\">{{date}}</td></tr></table><p style=\"font-size:12px;color:#aaa;margin-top:20px;\">Website Notification System</p></td></tr></table></body></html>",
+      "textBody": "New career application from {{fullName}}\nEmail: {{email}}\nPhone: {{phone}}\nJob: {{jobTitle}} – {{jobLocation}}\nJob link: {{jobUrl}}\nSubmitted at: {{date}}",
+      "description": "Admin notification for career applications"
+    },
+    {
+      "key": "career-user",
+      "subject": "Thank you for your application – {{jobTitle}}",
+      "htmlBody": "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"/></head><body style=\"margin:0;padding:0;background:#f4f6f9;font-family:Arial,Helvetica,sans-serif;\"><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding:40px 0;\"><tr><td align=\"center\"><table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff;border-radius:8px;border:1px solid #e5e7eb;\"><tr><td style=\"background:#1f2937;padding:24px 30px;\"><h2 style=\"color:#fff;margin:0;font-size:20px;\">Application Received</h2></td></tr><tr><td style=\"padding:30px;\"><p>Hi {{fullName}},</p><p>Thank you for applying for the <strong>{{jobTitle}}</strong> role in <strong>{{jobLocation}}</strong>.</p><p>Your application has been successfully received by our team.</p><p style=\"margin-top:20px;\">Our recruitment team will review your profile and contact you if your experience matches the role.</p><p style=\"margin-top:30px;\">Best regards,<br/><strong>Vault Team</strong></p></td></tr><tr><td style=\"background:#f9fafb;padding:20px 30px;text-align:right;font-size:12px;color:#999;\">{{date}}</td></tr></table><p style=\"font-size:12px;color:#aaa;margin-top:20px;\">Vault Careers Notification</p></td></tr></table></body></html>",
+      "textBody": "Hi {{fullName}},\n\nThank you for applying for the {{jobTitle}} role in {{jobLocation}}.\n\nOur team will review your application and contact you if shortlisted.\n\nVault Team",
+      "description": "Thank-you email sent to career applicants"
+    }
   ]
 }

@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "career_applications",
+  "info": {
+    "singularName": "career-application",
+    "pluralName": "career-applications",
+    "displayName": "Career Application",
+    "description": "Career applications submitted from the website"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "jobTitle": {
+      "type": "string"
+    },
+    "jobLocation": {
+      "type": "string"
+    },
+    "jobUrl": {
+      "type": "string"
+    },
+    "cvFile": {
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "coverLetterFile": {
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "submittedAt": {
+      "type": "datetime"
+    }
+  }
+}
+

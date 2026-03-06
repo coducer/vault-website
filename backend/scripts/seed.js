@@ -26,7 +26,8 @@ const {
   peAdvisory = [],
   vaultPerspectives = {},
   career = {},
-  careerList = []
+  careerList = [],
+  emailTemplates = []
 } = rawData;
 
 // Register default admin user if it doesn't exist
@@ -860,6 +861,23 @@ async function importCareerList() {
   }
 }
 
+async function importEmailTemplates() {
+  if (!Array.isArray(emailTemplates) || emailTemplates.length === 0) return;
+
+  for (const tpl of emailTemplates) {
+    await createEntry({
+      model: 'email-template',
+      entry: {
+        key: tpl.key,
+        subject: tpl.subject,
+        htmlBody: tpl.htmlBody,
+        textBody: tpl.textBody,
+        description: tpl.description || null,
+      },
+      publish: false,
+    });
+  }
+}
 
 
 async function importSeedData() {
@@ -887,6 +905,7 @@ async function importSeedData() {
     'vault-perspectives': ['find', 'findOne'],
     'career': ['find', 'findOne'],
     'career-list': ['find', 'findOne'],
+    'email-template': ['find', 'findOne'],
   });
 
   await importAbout();
@@ -911,6 +930,7 @@ async function importSeedData() {
   await importVaultPerspectives();
   await importCareer();
   await importCareerList();
+  await importEmailTemplates();
 }
 
 async function main() {

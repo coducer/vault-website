@@ -919,19 +919,11 @@ export async function getCareerList(): Promise<CareerListItem[]> {
 }
 
 
-// Fetch main career by id
+// --- Career List: get by id ---
 export async function getCareerById(id: string): Promise<CareerListItem | null> {
   try {
-    // Populate all relevant career-list fields/components as per schema.json
-    const populateParams = [
-      'populate[0]=responsibilities',
-      'populate[1]=qualifications',
-      'populate[2]=whatWeOffer',
-      'populate[3]=opportunityOverview.icon'
-    ].join('&');
-
     const json = await strapiFetch<{ data: CareerListItem }>(
-      `/api/career-lists/${id}?${populateParams}`
+      `/api/career-lists/${id}?${CAREER_LIST_POPULATE}`
     );
     return (json?.data ?? null) as unknown as CareerListItem;
   } catch (error) {

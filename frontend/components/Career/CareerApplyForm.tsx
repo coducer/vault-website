@@ -5,6 +5,7 @@ import { GoArrowUpRight } from 'react-icons/go';
 
 export interface CareerApplyFormProps {
   jobTitle?: string;
+  jobLocation?: string;
   onSuccess?: () => void;
 }
 
@@ -12,16 +13,16 @@ interface ApplyFormValues {
   fullName: string;
   email: string;
   phone: string;
-  coverLetter: string;
   cvFile: File | null;
+  coverLetterFile: File | null;
 }
 
 const initialValues: ApplyFormValues = {
   fullName: '',
   email: '',
   phone: '',
-  coverLetter: '',
   cvFile: null,
+  coverLetterFile: null,
 };
 
 const validate = (values: ApplyFormValues) => {
@@ -31,9 +32,7 @@ const validate = (values: ApplyFormValues) => {
   }
   if (!values.email) {
     errors.email = 'Required';
-  } else if (
-    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-  ) {
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
     errors.email = 'Invalid email address';
   }
   if (!values.phone) {
@@ -41,6 +40,9 @@ const validate = (values: ApplyFormValues) => {
   }
   if (!values.cvFile) {
     errors.cvFile = 'Required';
+  }
+  if (!values.coverLetterFile) {
+    errors.coverLetterFile = 'Required';
   }
   return errors;
 };
@@ -53,10 +55,7 @@ const inputStyle = {
   fontSize: 14,
 };
 
-const CareerApplyForm: React.FC<CareerApplyFormProps> = ({
-  jobTitle,
-  onSuccess,
-}) => {
+const CareerApplyForm: React.FC<CareerApplyFormProps> = ({ jobTitle, jobLocation, onSuccess }) => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [submitErrorMessage, setSubmitErrorMessage] = useState<string | null>(null);
 
@@ -69,23 +68,37 @@ const CareerApplyForm: React.FC<CareerApplyFormProps> = ({
         setSubmitErrorMessage(null);
 
         try {
-          // Use FormData for file upload (replace this with your actual upload logic)
           const formData = new FormData();
           formData.append('fullName', values.fullName);
           formData.append('email', values.email);
           formData.append('phone', values.phone);
-          formData.append('coverLetter', values.coverLetter);
+          if (jobTitle) formData.append('jobTitle', jobTitle);
+          if (jobLocation) formData.append('jobLocation', jobLocation);
+          formData.append('jobUrl', window?.location.href);
           if (values.cvFile) formData.append('cvFile', values.cvFile);
+          if (values.coverLetterFile) formData.append('coverLetterFile', values.coverLetterFile);
 
-          // Placeholder: Fake API submission
-          await new Promise((res) => setTimeout(res, 1200));
+          const response = await fetch('/api/career-apply', {
+            method: 'POST',
+            body: formData,
+          });
+
+          const data = await response.json().catch(() => ({}));
+
+          if (!response.ok) {
+            const message =
+              (typeof data?.error === 'string' && data.error) ||
+              'Submission failed. Please try again.';
+            throw new Error(message);
+          }
 
           setSubmitStatus('success');
           resetForm();
           if (onSuccess) onSuccess();
-        } catch {
+        } catch (err) {
           setSubmitStatus('error');
-          setSubmitErrorMessage('Submission failed. Please try again.');
+          const msg = (err as Error)?.message || 'Submission failed. Please try again.';
+          setSubmitErrorMessage(msg);
         } finally {
           setSubmitting(false);
         }
@@ -118,9 +131,7 @@ const CareerApplyForm: React.FC<CareerApplyFormProps> = ({
               required
               autoComplete="name"
             />
-            <Form.Control.Feedback type="invalid">
-              {errors.fullName}
-            </Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">{errors.fullName}</Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="email">
             <Form.Label className="text-dark fs-13 fw-medium">
@@ -138,9 +149,7 @@ const CareerApplyForm: React.FC<CareerApplyFormProps> = ({
               autoComplete="email"
               required
             />
-            <Form.Control.Feedback type="invalid">
-              {errors.email}
-            </Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="phone">
             <Form.Label className="text-dark fs-13 fw-medium">
@@ -158,24 +167,35 @@ const CareerApplyForm: React.FC<CareerApplyFormProps> = ({
               autoComplete="tel"
               required
             />
-            <Form.Control.Feedback type="invalid">
-              {errors.phone}
-            </Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">{errors.phone}</Form.Control.Feedback>
           </Form.Group>
-          <Form.Group className="mb-3" controlId="coverLetter">
+          <Form.Group className="mb-3" controlId="coverLetterFile">
             <Form.Label className="text-dark fs-13 fw-medium">
-              Cover Letter<span className="ms-2 primary-text">*</span>
+              Upload Cover Letter <span className="ms-2 primary-text">*</span>
             </Form.Label>
             <Form.Control
-              as="textarea"
-              rows={2}
-              name="coverLetter"
-              placeholder="Optional: Write a cover letter here"
-              style={{ ...inputStyle, resize: 'none', paddingLeft: 0 }}
-              value={values.coverLetter}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              type="file"
+              name="coverLetterFile"
+              accept=".pdf,.doc,.docx"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setFieldValue('coverLetterFile', e.currentTarget.files && e.currentTarget.files[0]);
+              }}
+              style={{
+                background: 'transparent',
+                fontSize: 14,
+                border: 0,
+                paddingLeft: 0,
+                paddingRight: 0,
+                borderBottom: '1px solid #D9DBE9',
+                borderRadius: 0,
+              }}
+              isInvalid={touched.coverLetterFile && !!errors.coverLetterFile}
+              required
             />
+            <Form.Control.Feedback type="invalid">{errors.coverLetterFile}</Form.Control.Feedback>
+            {values.coverLetterFile && (
+              <div className="mt-1 fs-12 text-muted">Selected: {values.coverLetterFile.name}</div>
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="cvFile">
             <Form.Label className="text-dark fs-13 fw-medium">
@@ -200,13 +220,9 @@ const CareerApplyForm: React.FC<CareerApplyFormProps> = ({
               isInvalid={touched.cvFile && !!errors.cvFile}
               required
             />
-            <Form.Control.Feedback type="invalid">
-              {errors.cvFile}
-            </Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">{errors.cvFile}</Form.Control.Feedback>
             {values.cvFile && (
-              <div className="mt-1 fs-12 text-muted">
-                Selected: {values.cvFile.name}
-              </div>
+              <div className="mt-1 fs-12 text-muted">Selected: {values.cvFile.name}</div>
             )}
           </Form.Group>
           {submitStatus === 'success' && (
