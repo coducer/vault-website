@@ -22,12 +22,12 @@ const AboutUs = ({ data }: { data?: HomeAboutUsData | null }) => {
       className="px-4 py-4 py-lg-5 position-relative d-flex flex-column justify-content-center gap-4 about-us"
       style={{ minHeight: '610px' }}
     >
-      <div className=" primary-text text-uppercase letter-spacing fw-semibold fs-15">About Us</div>
-      <div className=" font-libre fs-42 pb-4 border-bottom text-white ">{title}</div>
+      <div className=" primary-text text-uppercase letter-spacing fw-semibold fs-15 scroll-reveal">About Us</div>
+      <div className=" font-libre fs-42 pb-4 border-bottom text-white scroll-reveal">{title}</div>
       <Row className="gy-4">
         <Col md={6}>
           {firstColLines.map((line, i) => (
-            <div key={i} className="text-justify text-white pb-4">
+            <div key={i} className="text-justify text-white pb-4 scroll-reveal">
               {line}
             </div>
           ))}
@@ -41,7 +41,7 @@ const AboutUs = ({ data }: { data?: HomeAboutUsData | null }) => {
         </Col>
         <Col md={6}>
           {secondColLines.map((line, i) => (
-            <div key={i} className="text-justify text-white pb-4">
+            <div key={i} className="text-justify text-white pb-4 scroll-reveal">
               {line}
             </div>
           ))}

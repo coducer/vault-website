@@ -1,3 +1,5 @@
+'use client'
+
 import type { AboutDetailItem } from '@/lib/strapi';
 import { Col, Row } from 'react-bootstrap';
 
@@ -6,6 +8,7 @@ interface DetailsProps {
 }
 
 const CommenDetailsArray = ({ detailsData }: DetailsProps) => {
+
   return (
     <div className="px-4 py-5 d-flex flex-column gap-4">
       {detailsData.map((item, idx) => (
@@ -15,12 +18,12 @@ const CommenDetailsArray = ({ detailsData }: DetailsProps) => {
           key={idx}
         >
           <Col md={6}>
-            <div className="font-libre fs-35 text-dark fw-semibold">{item?.heading}</div>
+            <div className="font-libre fs-35 text-dark fw-semibold scroll-reveal">{item?.heading}</div>
           </Col>
           <Col md={6} className="d-none d-lg-block" />
           <Col md={2} className="d-none d-lg-block" />
           <Col md={10}>
-            <div className="d-flex justify-content-end font-libre fs-18">{item.body}</div>
+            <div className="d-flex justify-content-end font-libre fs-18 scroll-reveal">{item.body}</div>
           </Col>
         </Row>
       ))}
