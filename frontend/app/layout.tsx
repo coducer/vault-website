@@ -1,8 +1,9 @@
 import CustomCursor from '@/components/CustomCursor/CustomCursor';
-import InitialLoader from '@/components/InitialLoader/InitialLoader';
+// import InitialLoader from '@/components/InitialLoader/InitialLoader';
 import UnregisterServiceWorkers from '@/components/UnregisterServiceWorkers';
 import { DeviceProvider } from '@/context/DeviceProvider';
 import { ScrollProvider } from '@/context/ScrollProvider';
+import ScrollRevealProvider from '@/context/ScrollRevealProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Libre_Baskerville, Roboto } from 'next/font/google';
@@ -60,14 +61,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `,
           }}
         />
-        <DeviceProvider>
-          <ScrollProvider>
-            <UnregisterServiceWorkers />
-            <CustomCursor />
-            <InitialLoader />
-            {children}
-          </ScrollProvider>
-        </DeviceProvider>
+        <ScrollRevealProvider>
+          <DeviceProvider>
+            <ScrollProvider>
+              <UnregisterServiceWorkers />
+              <CustomCursor />
+              {children}
+            </ScrollProvider>
+          </DeviceProvider>
+        </ScrollRevealProvider>
       </body>
     </html>
   );
