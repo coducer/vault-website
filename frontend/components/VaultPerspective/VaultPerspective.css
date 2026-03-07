@@ -15,10 +15,10 @@
   overflow: hidden;
 }
 
-.what-we-do-content:hover {
+/* .what-we-do-content:hover {
   background: var(--primary-blue);
   color: var(--white);
-}
+} */
 
 .what-we-do-content-primary{
   background: transparent;

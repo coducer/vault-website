@@ -5,13 +5,7 @@ import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import LatestUpdates from '@/components/VaultPerspective/LatestUpdates';
 import WantToKnowMore from '@/components/WantToKnowMore/WantToKnowMore';
-import {
-  getVaultPerspectives,
-  getWantToKnowMoreList,
-  getNews,
-  getBlogs,
-  CardList,
-} from '@/lib/strapi';
+import { getBlogs, getNews, getVaultPerspectives, getWantToKnowMoreList } from '@/lib/strapi';
 import '../homePage.css';
 
 export default async function VaultPerspectivePage() {
@@ -21,6 +15,7 @@ export default async function VaultPerspectivePage() {
     getNews(),
     getBlogs(),
   ]);
+  console.info(vaultPerspectivesData, 'vaultPerspectivesDatavaultPerspectivesData');
 
   return (
     <main className="home-page position-relative">
@@ -30,6 +25,7 @@ export default async function VaultPerspectivePage() {
         title={vaultPerspectivesData?.title ?? ''}
       />
       <LatestUpdates
+        title={vaultPerspectivesData?.newsTitle ?? ''}
         news={news
           .sort((a, b) => new Date(b.date ?? '').getTime() - new Date(a.date ?? '').getTime())
           .slice(0, 3)}
