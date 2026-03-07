@@ -15,8 +15,6 @@ export default async function VaultPerspectivePage() {
     getNews(),
     getBlogs(),
   ]);
-  console.info(vaultPerspectivesData, 'vaultPerspectivesDatavaultPerspectivesData');
-
   return (
     <main className="home-page position-relative">
       <Header />

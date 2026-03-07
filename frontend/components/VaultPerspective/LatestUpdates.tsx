@@ -7,7 +7,6 @@ import { GoArrowDownRight } from 'react-icons/go';
 import './VaultPerspective.css';
 
 const LatestUpdates = ({ news, title }: { news: NewsItem[]; title: string }) => {
-  console.info(news, 'newsnews');
   return (
     <div className={`py-4 py-lg-5 position-relative d-flex flex-column gap-4`}>
       <div className=" px-4 py-4 d-flex flex-column gap-4">
