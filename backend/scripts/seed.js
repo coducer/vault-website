@@ -27,7 +27,9 @@ const {
   vaultPerspectives = {},
   career = {},
   careerList = [],
-  emailTemplates = []
+  emailTemplates = [],
+  privacyPolicy = {},
+  termsOfBusiness = {}
 } = rawData;
 
 // Register default admin user if it doesn't exist
@@ -879,6 +881,55 @@ async function importEmailTemplates() {
   }
 }
 
+async function importPolicies() {
+  function normalizePolicyItems(items) {
+    // Handles items as array of objects with {header, body}, converts to {heading, body}
+    if (!Array.isArray(items)) return [];
+    return items.map((item) => {
+      // Accept legacy field "header" or "heading" for flexibility
+      const heading =
+        typeof item.heading === 'string'
+          ? item.heading
+          : typeof item.header === 'string'
+            ? item.header
+            : '';
+      // Accepts body as-is, default to empty string if not present
+      const body = typeof item.body === 'string' ? item.body : '';
+      return { heading, body };
+    });
+  }
+
+  if (privacyPolicy && typeof privacyPolicy === 'object' && Object.keys(privacyPolicy).length > 0) {
+    const entry = {
+      headerText: typeof privacyPolicy.headerText === 'string' ? privacyPolicy.headerText : '',
+      description: typeof privacyPolicy.description === 'string' ? privacyPolicy.description : '',
+      items: normalizePolicyItems(privacyPolicy.items),
+      publishedAt: new Date().toISOString(),
+    };
+
+    await createEntry({
+      model: 'privacy-policy',
+      entry,
+      publish: true,
+    });
+  }
+
+  if (termsOfBusiness && typeof termsOfBusiness === 'object' && Object.keys(termsOfBusiness).length > 0) {
+    const entry = {
+      headerText: typeof termsOfBusiness.headerText === 'string' ? termsOfBusiness.headerText : '',
+      description: typeof termsOfBusiness.description === 'string' ? termsOfBusiness.description : '',
+      items: normalizePolicyItems(termsOfBusiness.items),
+      publishedAt: new Date().toISOString(),
+    };
+
+    await createEntry({
+      model: 'terms-of-business',
+      entry,
+      publish: true,
+    });
+  }
+}
+
 
 async function importSeedData() {
   await setPublicPermissions({
@@ -906,6 +957,8 @@ async function importSeedData() {
     'career': ['find', 'findOne'],
     'career-list': ['find', 'findOne'],
     'email-template': ['find', 'findOne'],
+    'privacy-policy': ['find', 'findOne'],
+    'terms-of-business': ['find', 'findOne'],
   });
 
   await importAbout();
@@ -931,6 +984,7 @@ async function importSeedData() {
   await importCareer();
   await importCareerList();
   await importEmailTemplates();
+  await importPolicies();
 }
 
 async function main() {

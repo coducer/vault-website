@@ -1016,5 +1016,109 @@
       "textBody": "Hi {{fullName}},\n\nThank you for applying for the {{jobTitle}} role in {{jobLocation}}.\n\nOur team will review your application and contact you if shortlisted.\n\nVault Team",
       "description": "Thank-you email sent to career applicants"
     }
-  ]
+  ],
+  "privacyPolicy": {
+    "headerText": "Privacy Policy",
+    "description": "<p>Your privacy is of paramount importance to Vault Partners Services FZCO (hereinafter, “Vault”, “we”, “us” or “our”, which terms shall also include our affiliates). This privacy policy (hereinafter, the “Privacy Policy”) applies to the website <a href=\"https://thevaultpartners.com/\">https://thevaultpartners.com/</a> (hereinafter, “Website”).</p><p>In this Privacy Policy, the term “Personal Data” means data relating to a living individual who is or can be identified either from the data or from the data in conjunction with other information that is in, or is likely to come into, our possession, and includes personal data as described in Data Protection Legislation (as defined below).</p><p>Please read the following carefully. Accepting the terms of this Privacy Policy (by way of ticking a tick box or similar function on the Site) indicates that you have reviewed this Privacy Policy and have agreed to be bound by it. You will be required to expressly accept this Privacy Policy before providing any of your Personal Data to us. If you do not agree to these terms you must leave our Website immediately. If you choose to accept this Privacy Policy, we will keep a record of your acceptance in this regard.</p><p>We will handle your Personal Data in accordance with Data Protection Legislation. “Data Protection Legislation” means the Federal Decree Law of the United Arab Emirates No. 45 of 2021 Regarding the Protection of Personal Data and related legislative acts and regulations, as such legislation shall be supplemented, amended, revised or replaced from time to time.</p><p>Our servers automatically record information that your browser sends whenever you visit the Website. These server logs may include information such as your web request, Internet Protocol address, browser type",
+    "items": [
+      {
+        "header": "Information We Gather From You",
+        "body": "<p>We fully respect your right to privacy with respect to your interactions with Vault and our Website, and strive for transparency regarding the information we collect and how it is used. We only collect and use your personal information where permitted by law.</p><p>We aim to keep your data accurate and up to date. Please inform us promptly of any changes to your information. You may change your stated marketing preferences at any time by clicking ‘unsubscribe’ on any direct marketing communication you receive from us. If you are aged 18 or under, please obtain permission from your parent or guardian before providing us with your data or using the Website.</p>"
+      },
+      {
+        "header": "Why We Collect/Have Access to Your Information",
+        "body": "<p>We may collect information from you in order to provide and improve our services, including monitoring our Website and any communications sent to and from us. We collect data you provide directly, via forms or correspondence, or via technology tools such as cookies or analytics. We may also receive information about you from other sources, including publicly available databases, to keep our records accurate and up to date.</p><p>We use your information for the following purposes: (i) to operate, improve and audit our Website and services; (ii) to provide information you request; (iii) to send you updates, publications and event details; (iv) to manage our relationship; (v) to fulfil legal, regulatory and risk obligations. Where we wish to use your data for any other purpose, we will request your consent first and you will have the opportunity to withhold or withdraw it.</p><p>We may use third parties such as Google Analytics to collect user information and deliver functions such as cookies and web beacons which help us improve your experience.</p>"
+      },
+      {
+        "header": "Contacting You",
+        "body": "<p>We may contact you for administration reasons related to the Website or our services; to provide information about our services, activities, or online content (including e-newsletters or correspondence and responses to your communications); and to invite you to participate in voluntary surveys about our services.</p>"
+      },
+      {
+        "header": "Right of Access to Personal Data",
+        "body": "<p>You may request to see what personal data we hold about you and receive:</p><ul><li>A summary of such data and its categories;</li><li>Purposes for which it is being processed;</li><li>Details regarding recipients or categories of recipients (including those overseas and their protections);</li><li>Details of retention periods or criteria used to determine such periods;</li><li>Details of your rights, including to rectification, erasure, restriction, or objection;</li><li>Information on the source of data, automated decision-making, and safeguards for data transferred outside the UAE.</li></ul><p>Requests must be made in writing to us (see 'How To Contact Us') and we may require information from you to verify your identity and help locate your data. In some cases, we may need to withhold or redact data relating to another person, or may refuse manifestly excessive or unfounded requests, as permitted under Data Protection Legislation.</p>"
+      },
+      {
+        "header": "Right to Update Personal Data or Correct Mistakes",
+        "body": "<p>You have the right to correct any mistakes in your personal data, free of charge. Please email or write to us (see ‘How To Contact Us’) with sufficient information to identify you and let us know what information is incorrect and how it should be updated. If your data is corrected, we will inform any recipients unless this is impossible or would involve disproportionate effort. It is your responsibility to ensure that all personal data you provide to us is accurate and complete. Please notify us promptly of any changes.</p>"
+      },
+      {
+        "header": "Right to Ask Us to Stop Contacting You With Direct Marketing",
+        "body": "<p>We may contact you with electronic communications relating to the Website or services, including newsletters and announcements. You can ask us to stop direct marketing at any time by writing to us or by clicking the ‘unsubscribe’ link in our electronic communications. If you are happy to be contacted by certain methods only, let us know your preferences. Unsubscribing from direct marketing will not affect your receipt of essential administrative communications.</p>"
+      },
+      {
+        "header": "Right to Restrict or Prevent Processing of Personal Data",
+        "body": "<p>You may request that we temporarily stop processing your personal data if:</p><ul><li>You believe the data is inaccurate (until confirmed accurate);</li><li>The processing is unlawful and you do not want erasure;</li><li>We no longer need the data but you require it for legal purposes; or</li><li>You have objected to processing and your interests override that basis.</li></ul><p>We may continue processing if required by law, for the protection of others, or if you consent.</p>"
+      },
+      {
+        "header": "Right to Erasure",
+        "body": "<p>You can request erasure of your personal data where:</p><ul><li>We no longer need it for the stated purposes;</li><li>You withdraw previously given consent and we cannot otherwise legally process the data;</li><li>You object to processing and there are no overriding grounds for continuation;</li><li>The data has been unlawfully processed or must be erased to comply with law.</li></ul><p>In some circumstances, we may retain data as permitted by law, such as for legitimate business interests. If erased, we will notify recipients unless this is impossible or involves disproportionate effort.</p>"
+      },
+      {
+        "header": "Right to Complain",
+        "body": "<p>If you believe we have processed your personal data contrary to this policy, please contact us in the first instance. If not satisfied, you may complain to the UAE Data Office or exercise any other rights available to you under Data Protection Legislation.</p>"
+      },
+      {
+        "header": "Withdrawal of Consent",
+        "body": "<p>If you wish to withdraw consent to our processing of your data (for any matter requiring consent), contact us via the details below. Please note that withdrawing consent may limit or prevent our ability to provide services to you.</p>"
+      },
+      {
+        "header": "Who We Share Your Information With",
+        "body": "<p>Vault does not share your data without your consent or unless required by law, except as provided in this Policy. In the event of merger, acquisition or sale, your data will not be transferred to any third party without adequate data security safeguards in place.</p><p>Access to your data is limited to employees, contractors, and agents who require it for our services and Website. These personnel are subject to confidentiality obligations. We may also share your data with trusted third-party suppliers who assist with our services or Website.</p><p>Your data may be transferred to or accessed from outside the UAE. By submitting your data, you explicitly consent to this transfer, storage or processing. We take all reasonable steps to safeguard your data, and enter into contracts with such transferees to ensure compliance.</p><p>All information you provide is stored securely by us or selected third-party providers.</p>"
+      },
+      {
+        "header": "Third Party Websites",
+        "body": "<p>This Privacy Policy applies only to Vault’s owned and operated websites and services. Linked third-party websites or services are governed by their own terms and privacy policies. We do not control nor accept responsibility for their practices, and encourage you to review their policies before providing personal data.</p>"
+      },
+      {
+        "header": "Offensive Content",
+        "body": "<p>If any data you provide contains material that is offensive, inappropriate or objectionable, we may remove such material and/or suspend your use of the Website. We may also remove offensive content from our social media pages. If we believe you are in breach of laws (e.g. hate speech), we may disclose your data to relevant authorities or service providers where permitted by law.</p>"
+      },
+      {
+        "header": "How Do We Protect Your Personal Information",
+        "body": "<p>We use appropriate technology and security procedures to protect your data, and limit access to those who need it in order to operate or develop our services. When outsourcing, we ensure third-party service providers have appropriate security safeguards. However, transmission of information via the Internet is not completely secure; any transmission is at your own risk. Once we receive your data, we use strict measures to prevent unauthorised access. We are not responsible for any loss or damage resulting from transfer of data over networks outside our control, or for third-party website practices. We cannot guarantee absolute prevention of cyber-attacks, and you will not hold us liable for loss or disclosure arising from such events.</p>"
+      },
+      {
+        "header": "Breach Reporting",
+        "body": "<p>We will notify serious data breaches to the UAE Data Office and keep records of such incidents in compliance with Data Protection Legislation.</p>"
+      },
+      {
+        "header": "Retention of Personal Data",
+        "body": "<p>Your data will be retained only for as long as necessary for the purpose collected, including administration of services, compliance with legal requirements, dispute resolution, agreement enforcement, and ongoing business or Website development. Where information is retained for improvement and development, personal identifiers are removed except where necessary, and only aggregate insights are used.</p>"
+      },
+      {
+        "header": "Amendments to Privacy Policy",
+        "body": "<p>Vault may update this Privacy Policy at its discretion. The most recent revision date will be displayed at the top of the Policy. If you do not agree to the changes, please do not continue using the Website or submit your data. If material changes are made, we will notify you via prominent notice on the Website or via communication. We will not use your data in ways not contemplated herein without your consent.</p>"
+      },
+      {
+        "header": "How To Contact Us",
+        "body": "<p>If you need to contact us regarding any rights under this Policy, please write to us by email at <a href=\"mailto:info@thevaultpartners.com\">info@thevaultpartners.com</a>.</p>"
+      }
+    ]
+  },
+  "termsOfBusiness": {
+    "headerText": "Terms of Business",
+    "description": "<p>Please read these Terms of Business carefully before using our website or engaging our services. By accessing our website, you agree to abide by these terms and all applicable laws and regulations.</p>",
+    "items": [
+      {
+        "header": "Acceptance of Terms",
+        "body": "<p>By using our services, you confirm your acceptance of these Terms of Business. If you do not agree with any part, you must refrain from accessing or using our website and services.</p>"
+      },
+      {
+        "header": "Service Description",
+        "body": "<p>We provide advisory and recruitment services as described on our website. Service offerings and terms may be updated at our discretion.</p>"
+      },
+      {
+        "header": "User Responsibilities",
+        "body": "<p>You agree to provide accurate information and use our website in accordance with all applicable laws and regulations. Misuse or dishonest conduct may result in termination of service access.</p>"
+      },
+      {
+        "header": "Limitation of Liability",
+        "body": "<p>We will not be liable for any damages arising from the use or inability to use our services, or for any actions taken based on information provided through our website.</p>"
+      },
+      {
+        "header": "Changes to Terms",
+        "body": "<p>We reserve the right to update or amend these terms at any time. Updated terms will be posted on our website, and continued use will constitute acceptance of any changes.</p>"
+      }
+    ]
+  }
 }

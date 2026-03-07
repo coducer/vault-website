@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const STRAPI_URL = process.env.STRAPI_URL || process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 
 const FETCH_TIMEOUT_MS = 8000;
@@ -931,6 +932,55 @@ export async function getCareerById(id: string): Promise<CareerListItem | null> 
     return null;
   }
 }
+
+
+// --- Privacy Policy & Terms of Business ---
+
+export interface PolicyData {
+  headerText?: string;
+  description?: string;
+  items?: AboutDetailItem[];
+}
+
+const POLICY_POPULATE =
+  [
+    'populate[0]=items',
+  ].join('&');
+
+// Privacy Policy API (no 'any')
+export async function getPrivacyPolicy(): Promise<PolicyData | null> {
+  try {
+    const json = await strapiFetch<{
+      items: any; data: PolicyData
+    }>(
+      `/api/privacy-policy?${POLICY_POPULATE}`
+    );
+    const data = json?.data ?? null;
+    return data;
+  } catch (error) {
+    console.error('Failed to fetch Privacy Policy from Strapi:', error);
+    return null;
+  }
+}
+
+// Terms of Business API (no 'any')
+export async function getTermsOfBusiness(): Promise<PolicyData | null> {
+  try {
+    const json = await strapiFetch<{
+      items: any; data: PolicyData
+    }>(
+      `/api/terms-of-business?${POLICY_POPULATE}`
+    );
+    const data = json?.data ?? null;
+    return data;
+  } catch (error) {
+    console.error('Failed to fetch Terms of Business from Strapi:', error);
+    return null;
+  }
+}
+
+
+
 
 
 export function formatEventDate(date?: string) {

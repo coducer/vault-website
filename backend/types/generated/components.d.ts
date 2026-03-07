@@ -153,6 +153,18 @@ export interface OurStoryItem extends Struct.ComponentSchema {
   };
 }
 
+export interface PrivacyPolicyPolicyItem extends Struct.ComponentSchema {
+  collectionName: 'components_privacy_policy_policy_items';
+  info: {
+    description: 'Policy item for privacy policy sections';
+    displayName: 'policy-item';
+  };
+  attributes: {
+    body: Schema.Attribute.RichText & Schema.Attribute.Required;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -284,6 +296,7 @@ declare module '@strapi/strapi' {
       'investment.what-we-do-item': InvestmentWhatWeDoItem;
       'our-story.detail-item': OurStoryDetailItem;
       'our-story.item': OurStoryItem;
+      'privacy-policy.policy-item': PrivacyPolicyPolicyItem;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

@@ -29,6 +29,8 @@ const PERMISSIONS_TO_SET = {
   career: ['find', 'findOne'],
   'career-list': ['find', 'findOne'],
   'email-template': ['find', 'findOne'],
+  'privacy-policy': ['find', 'findOne'],
+  'terms-of-business': ['find', 'findOne'],
 };
 
 async function setPublicPermissions() {

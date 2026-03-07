@@ -9,10 +9,8 @@ import { menu } from '../Header/Header';
 import './Footer.css';
 
 const governanceLinks = [
-  { label: 'Privacy Policy', href: '/privacy-policy' },
-  { label: 'Terms of Business', href: '/terms-of-business' },
-  { label: 'Cookie Notice', href: '/cookie-notice' },
-  { label: 'Compliance', href: '/compliance' },
+  { label: 'Privacy Policy', href: '/privacy_policy' },
+  { label: 'Terms of Business', href: '/terms_of_business' },
 ];
 
 const Footer = () => {

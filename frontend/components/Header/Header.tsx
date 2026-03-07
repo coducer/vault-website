@@ -79,6 +79,8 @@ const Header = () => {
     '/teams',
     '/operating_partners',
     '/blogs',
+    '/privacy_policy',
+    '/terms_of_business',
   ];
 
   const isNoWhiteHeader =

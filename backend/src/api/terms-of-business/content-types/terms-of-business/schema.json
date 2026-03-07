@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "terms_of_businesses",
+  "info": {
+    "singularName": "terms-of-business",
+    "pluralName": "terms-of-businesses",
+    "displayName": "Terms of Business",
+    "description": "Terms of Business page content including header and section details"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "headerText": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "privacy-policy.policy-item"
+    }
+  }
+}

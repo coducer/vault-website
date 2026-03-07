@@ -1089,6 +1089,37 @@ export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
+  collectionName: 'privacy_policies';
+  info: {
+    description: 'Privacy Policy page content including header and section details';
+    displayName: 'Privacy Policy';
+    pluralName: 'privacy-policies';
+    singularName: 'privacy-policy';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    headerText: Schema.Attribute.String;
+    items: Schema.Attribute.Component<'privacy-policy.policy-item', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-policy.privacy-policy'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
   collectionName: 'teams';
   info: {
@@ -1114,6 +1145,38 @@ export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTermsOfBusinessTermsOfBusiness
+  extends Struct.SingleTypeSchema {
+  collectionName: 'terms_of_businesses';
+  info: {
+    description: 'Terms of Business page content including header and section details';
+    displayName: 'Terms of Business';
+    pluralName: 'terms-of-businesses';
+    singularName: 'terms-of-business';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    headerText: Schema.Attribute.String;
+    items: Schema.Attribute.Component<'privacy-policy.policy-item', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::terms-of-business.terms-of-business'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1827,7 +1890,9 @@ declare module '@strapi/strapi' {
       'api::our-story.our-story': ApiOurStoryOurStory;
       'api::pe-advisory.pe-advisory': ApiPeAdvisoryPeAdvisory;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::team.team': ApiTeamTeam;
+      'api::terms-of-business.terms-of-business': ApiTermsOfBusinessTermsOfBusiness;
       'api::vault-perspectives.vault-perspectives': ApiVaultPerspectivesVaultPerspectives;
       'api::vault-story.vault-story': ApiVaultStoryVaultStory;
       'api::want-to-know-more.want-to-know-more': ApiWantToKnowMoreWantToKnowMore;

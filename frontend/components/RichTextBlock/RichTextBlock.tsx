@@ -3,9 +3,8 @@
 import type { StrapiRichTextBlock, StrapiRichTextChild } from '@/lib/strapi';
 import { Fragment } from 'react';
 
-function isTextChild(
-  node: StrapiRichTextChild | StrapiRichTextBlock
-): node is StrapiRichTextChild {
+// Whether the node is a rich text child (with `text` property)
+function isTextChild(node: StrapiRichTextChild | StrapiRichTextBlock): node is StrapiRichTextChild {
   return 'text' in node || node.type === 'text';
 }
 
@@ -75,12 +74,31 @@ function renderBlock(block: StrapiRichTextBlock, index: number): React.ReactNode
   }
 }
 
+import React from 'react';
+
 interface RichTextBlockProps {
   blocks: string | StrapiRichTextBlock[] | null | undefined;
   className?: string;
 }
 
-function renderPlainText(text: string) {
+// Accepts both plain text and raw HTML string (like <p>...</p>),
+// and uses dangerouslySetInnerHTML if the string appears to be HTML.
+function renderPlainOrHtmlText(text: string) {
+  // Simple heuristic: contains an HTML start tag (e.g., <p>, <a>, etc.)
+  const hasHtml = /<([a-z][\w0-9]*)(\s[^>]*)?>/i.test(text.trim());
+
+  if (hasHtml) {
+    // If it looks like HTML, render as raw HTML
+    return (
+      <div
+        className="mb-3"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
+    );
+  }
+
+  // Otherwise, treat as plain text and split into paragraphs
   const paragraphs = text.split(/\n\n+/).filter(Boolean);
   return paragraphs.map((p, i) => (
     <p key={i} className="mb-3">
@@ -93,14 +111,10 @@ export default function RichTextBlock({ blocks, className }: RichTextBlockProps)
   if (blocks == null) return null;
 
   if (typeof blocks === 'string') {
-    return <div className={className}>{renderPlainText(blocks)}</div>;
+    return <div className={className}>{renderPlainOrHtmlText(blocks)}</div>;
   }
 
   if (!Array.isArray(blocks) || blocks.length === 0) return null;
 
-  return (
-    <div className={className}>
-      {blocks.map((block, index) => renderBlock(block, index))}
-    </div>
-  );
+  return <div className={className}>{blocks.map((block, index) => renderBlock(block, index))}</div>;
 }
